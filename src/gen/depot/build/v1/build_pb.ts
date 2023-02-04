@@ -62,6 +62,11 @@ export class CreateBuildResponse extends Message<CreateBuildResponse> {
    */
   buildId = ''
 
+  /**
+   * @generated from field: string build_token = 2;
+   */
+  buildToken = ''
+
   constructor(data?: PartialMessage<CreateBuildResponse>) {
     super()
     proto3.util.initPartial(data, this)
@@ -71,6 +76,7 @@ export class CreateBuildResponse extends Message<CreateBuildResponse> {
   static readonly typeName = 'depot.build.v1.CreateBuildResponse'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     {no: 1, name: 'build_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'build_token', kind: 'scalar', T: 9 /* ScalarType.STRING */},
   ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateBuildResponse {
