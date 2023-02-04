@@ -1,5 +1,3 @@
-![Banner Image](./support/banner.jpg)
-
 # Depot API SDK for Node.js
 
 [![CI](https://github.com/depot/sdk-node/actions/workflows/ci.yml/badge.svg)](https://github.com/depot/sdk-node/actions/workflows/ci.yml)
