@@ -1,0 +1,47 @@
+{
+  "name": "@depot/sdk-node",
+  "version": "0.0.0",
+  "description": "Node SDK for the Depot API",
+  "repository": "https://github.com/depot/sdk-node.git",
+  "homepage": "https://github.com/depot/sdk-node",
+  "author": "Jacob Gillespie <jacobwgillespie@gmail.com>",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "depot",
+    "docker",
+    "sdk"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "clean": "rm -rf dist",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "generate": "buf generate buf.build/depot/api && prettier --write src/gen",
+    "prepack": "pnpm run build",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@bufbuild/connect-node": "^0.7.0",
+    "@bufbuild/protobuf": "^1.0.0"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-es": "^1.0.0",
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "^18.11.13",
+    "esbuild": "^0.17.5",
+    "esbuild-register": "^3.4.2",
+    "prettier": "^2.8.1",
+    "prettier-plugin-organize-imports": "^3.2.1",
+    "prettier-plugin-pkg": "^0.17.1",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  },
+  "sideEffects": false
+}
