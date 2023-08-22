@@ -7,6 +7,7 @@
     "skipLibCheck": true,
     "strict": true,
     "preserveConstEnums": true,
+    "moduleResolution": "node",
     "declaration": true
   },
   "include": ["src"],

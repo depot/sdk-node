@@ -1,7 +1,7 @@
 import {depot} from '.'
 
 async function main() {
-  const res = await depot.core.v1.NamespaceService.listNamespaces(
+  const res = await depot.core.v1.ProjectService.listProjects(
     {},
     {headers: {Authorization: `Bearer ${process.env.DEPOT_API_TOKEN}`}},
   )

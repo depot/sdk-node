@@ -22,11 +22,11 @@ Each of the Depot API services is exposed on the main `depot` export. Authentica
 
 - [`depot.build.v1.BuildService`](https://buf.build/depot/api/docs/main:depot.build.v1#depot.build.v1.BuildService)
 - [`depot.buildkit.v1.BuildKitService`](https://buf.build/depot/api/docs/main:depot.buildkit.v1#depot.buildkit.v1.BuildKitService)
-- [`depot.core.v1.NamespaceService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.NamespaceService)
+- [`depot.core.v1.ProjectService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.ProjectService)
 
 ### Example
 
-**List namespaces:**
+**List projects:**
 
 ```typescript
 import {depot} from '@depot/sdk-node'
@@ -36,8 +36,8 @@ const headers = {
 }
 
 async function example() {
-  const result = await depot.core.v1.NamespaceService.listNamespaces({}, {headers})
-  console.log(result.namespaces)
+  const result = await depot.core.v1.ProjectService.listProjects({}, {headers})
+  console.log(result.projects)
 }
 ```
 
