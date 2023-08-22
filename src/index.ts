@@ -1,7 +1,8 @@
-import {createGrpcTransport, createPromiseClient} from '@bufbuild/connect-node'
-import * as buildV1Build from './gen/depot/build/v1/build_connectweb'
-import * as buildkitV1BuildKit from './gen/depot/buildkit/v1/buildkit_connectweb'
-import * as coreV1Namespace from './gen/depot/core/v1/namespace_connectweb'
+import {createPromiseClient} from '@connectrpc/connect'
+import {createGrpcTransport} from '@connectrpc/connect-node'
+import * as buildV1Build from './gen/depot/build/v1/build_connect'
+import * as buildkitV1BuildKit from './gen/depot/buildkit/v1/buildkit_connect'
+import * as coreV1Project from './gen/depot/core/v1/project_connect'
 
 const transport = createGrpcTransport({
   baseUrl: process.env.DEPOT_API_URL ?? 'https://api.depot.dev',
@@ -21,7 +22,7 @@ export const depot = {
   },
   core: {
     v1: {
-      NamespaceService: createPromiseClient(coreV1Namespace.NamespaceService, transport),
+      ProjectService: createPromiseClient(coreV1Project.ProjectService, transport),
     },
   },
 }
