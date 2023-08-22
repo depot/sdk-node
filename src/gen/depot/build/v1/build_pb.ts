@@ -18,9 +18,9 @@ import {Message, proto3} from '@bufbuild/protobuf'
  */
 export class CreateBuildRequest extends Message<CreateBuildRequest> {
   /**
-   * @generated from field: string namespace_id = 1;
+   * @generated from field: string project_id = 1;
    */
-  namespaceId = ''
+  projectId = ''
 
   constructor(data?: PartialMessage<CreateBuildRequest>) {
     super()
@@ -30,7 +30,7 @@ export class CreateBuildRequest extends Message<CreateBuildRequest> {
   static readonly runtime: typeof proto3 = proto3
   static readonly typeName = 'depot.build.v1.CreateBuildRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    {no: 1, name: 'namespace_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
   ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateBuildRequest {
