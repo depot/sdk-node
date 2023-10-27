@@ -550,3 +550,486 @@ export class CachePolicy extends Message<CachePolicy> {
     return proto3.util.equals(CachePolicy, a, b)
   }
 }
+
+/**
+ * @generated from message depot.core.v1.ListTrustPoliciesRequest
+ */
+export class ListTrustPoliciesRequest extends Message<ListTrustPoliciesRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  constructor(data?: PartialMessage<ListTrustPoliciesRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.ListTrustPoliciesRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListTrustPoliciesRequest {
+    return new ListTrustPoliciesRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListTrustPoliciesRequest {
+    return new ListTrustPoliciesRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListTrustPoliciesRequest {
+    return new ListTrustPoliciesRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: ListTrustPoliciesRequest | PlainMessage<ListTrustPoliciesRequest> | undefined,
+    b: ListTrustPoliciesRequest | PlainMessage<ListTrustPoliciesRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(ListTrustPoliciesRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.ListTrustPoliciesResponse
+ */
+export class ListTrustPoliciesResponse extends Message<ListTrustPoliciesResponse> {
+  /**
+   * @generated from field: repeated depot.core.v1.TrustPolicy trust_policies = 1;
+   */
+  trustPolicies: TrustPolicy[] = []
+
+  constructor(data?: PartialMessage<ListTrustPoliciesResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.ListTrustPoliciesResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'trust_policies', kind: 'message', T: TrustPolicy, repeated: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListTrustPoliciesResponse {
+    return new ListTrustPoliciesResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListTrustPoliciesResponse {
+    return new ListTrustPoliciesResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListTrustPoliciesResponse {
+    return new ListTrustPoliciesResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: ListTrustPoliciesResponse | PlainMessage<ListTrustPoliciesResponse> | undefined,
+    b: ListTrustPoliciesResponse | PlainMessage<ListTrustPoliciesResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(ListTrustPoliciesResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.AddTrustPolicyRequest
+ */
+export class AddTrustPolicyRequest extends Message<AddTrustPolicyRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  /**
+   * @generated from oneof depot.core.v1.AddTrustPolicyRequest.provider
+   */
+  provider:
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.Buildkite buildkite = 2;
+         */
+        value: TrustPolicy_Buildkite
+        case: 'buildkite'
+      }
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.CircleCI circleci = 3;
+         */
+        value: TrustPolicy_CircleCI
+        case: 'circleci'
+      }
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.GitHub github = 4;
+         */
+        value: TrustPolicy_GitHub
+        case: 'github'
+      }
+    | {case: undefined; value?: undefined} = {case: undefined}
+
+  constructor(data?: PartialMessage<AddTrustPolicyRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.AddTrustPolicyRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'buildkite', kind: 'message', T: TrustPolicy_Buildkite, oneof: 'provider'},
+    {no: 3, name: 'circleci', kind: 'message', T: TrustPolicy_CircleCI, oneof: 'provider'},
+    {no: 4, name: 'github', kind: 'message', T: TrustPolicy_GitHub, oneof: 'provider'},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddTrustPolicyRequest {
+    return new AddTrustPolicyRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddTrustPolicyRequest {
+    return new AddTrustPolicyRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddTrustPolicyRequest {
+    return new AddTrustPolicyRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: AddTrustPolicyRequest | PlainMessage<AddTrustPolicyRequest> | undefined,
+    b: AddTrustPolicyRequest | PlainMessage<AddTrustPolicyRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(AddTrustPolicyRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.AddTrustPolicyResponse
+ */
+export class AddTrustPolicyResponse extends Message<AddTrustPolicyResponse> {
+  /**
+   * @generated from field: depot.core.v1.TrustPolicy trust_policy = 1;
+   */
+  trustPolicy?: TrustPolicy
+
+  constructor(data?: PartialMessage<AddTrustPolicyResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.AddTrustPolicyResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'trust_policy', kind: 'message', T: TrustPolicy},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddTrustPolicyResponse {
+    return new AddTrustPolicyResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddTrustPolicyResponse {
+    return new AddTrustPolicyResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddTrustPolicyResponse {
+    return new AddTrustPolicyResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: AddTrustPolicyResponse | PlainMessage<AddTrustPolicyResponse> | undefined,
+    b: AddTrustPolicyResponse | PlainMessage<AddTrustPolicyResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(AddTrustPolicyResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.RemoveTrustPolicyRequest
+ */
+export class RemoveTrustPolicyRequest extends Message<RemoveTrustPolicyRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  /**
+   * @generated from field: string trust_policy_id = 2;
+   */
+  trustPolicyId = ''
+
+  constructor(data?: PartialMessage<RemoveTrustPolicyRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.RemoveTrustPolicyRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'trust_policy_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RemoveTrustPolicyRequest {
+    return new RemoveTrustPolicyRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RemoveTrustPolicyRequest {
+    return new RemoveTrustPolicyRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RemoveTrustPolicyRequest {
+    return new RemoveTrustPolicyRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: RemoveTrustPolicyRequest | PlainMessage<RemoveTrustPolicyRequest> | undefined,
+    b: RemoveTrustPolicyRequest | PlainMessage<RemoveTrustPolicyRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(RemoveTrustPolicyRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.RemoveTrustPolicyResponse
+ */
+export class RemoveTrustPolicyResponse extends Message<RemoveTrustPolicyResponse> {
+  constructor(data?: PartialMessage<RemoveTrustPolicyResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.RemoveTrustPolicyResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RemoveTrustPolicyResponse {
+    return new RemoveTrustPolicyResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RemoveTrustPolicyResponse {
+    return new RemoveTrustPolicyResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RemoveTrustPolicyResponse {
+    return new RemoveTrustPolicyResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: RemoveTrustPolicyResponse | PlainMessage<RemoveTrustPolicyResponse> | undefined,
+    b: RemoveTrustPolicyResponse | PlainMessage<RemoveTrustPolicyResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(RemoveTrustPolicyResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.TrustPolicy
+ */
+export class TrustPolicy extends Message<TrustPolicy> {
+  /**
+   * @generated from field: string trust_policy_id = 1;
+   */
+  trustPolicyId = ''
+
+  /**
+   * @generated from oneof depot.core.v1.TrustPolicy.provider
+   */
+  provider:
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.Buildkite buildkite = 2;
+         */
+        value: TrustPolicy_Buildkite
+        case: 'buildkite'
+      }
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.CircleCI circleci = 3;
+         */
+        value: TrustPolicy_CircleCI
+        case: 'circleci'
+      }
+    | {
+        /**
+         * @generated from field: depot.core.v1.TrustPolicy.GitHub github = 4;
+         */
+        value: TrustPolicy_GitHub
+        case: 'github'
+      }
+    | {case: undefined; value?: undefined} = {case: undefined}
+
+  constructor(data?: PartialMessage<TrustPolicy>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.TrustPolicy'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'trust_policy_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'buildkite', kind: 'message', T: TrustPolicy_Buildkite, oneof: 'provider'},
+    {no: 3, name: 'circleci', kind: 'message', T: TrustPolicy_CircleCI, oneof: 'provider'},
+    {no: 4, name: 'github', kind: 'message', T: TrustPolicy_GitHub, oneof: 'provider'},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TrustPolicy {
+    return new TrustPolicy().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TrustPolicy {
+    return new TrustPolicy().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TrustPolicy {
+    return new TrustPolicy().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: TrustPolicy | PlainMessage<TrustPolicy> | undefined,
+    b: TrustPolicy | PlainMessage<TrustPolicy> | undefined,
+  ): boolean {
+    return proto3.util.equals(TrustPolicy, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.TrustPolicy.GitHub
+ */
+export class TrustPolicy_GitHub extends Message<TrustPolicy_GitHub> {
+  /**
+   * The GitHub organization or user name
+   *
+   * @generated from field: string repository_owner = 1;
+   */
+  repositoryOwner = ''
+
+  /**
+   * @generated from field: string repository = 2;
+   */
+  repository = ''
+
+  constructor(data?: PartialMessage<TrustPolicy_GitHub>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.TrustPolicy.GitHub'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'repository_owner', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'repository', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TrustPolicy_GitHub {
+    return new TrustPolicy_GitHub().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TrustPolicy_GitHub {
+    return new TrustPolicy_GitHub().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TrustPolicy_GitHub {
+    return new TrustPolicy_GitHub().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: TrustPolicy_GitHub | PlainMessage<TrustPolicy_GitHub> | undefined,
+    b: TrustPolicy_GitHub | PlainMessage<TrustPolicy_GitHub> | undefined,
+  ): boolean {
+    return proto3.util.equals(TrustPolicy_GitHub, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.TrustPolicy.CircleCI
+ */
+export class TrustPolicy_CircleCI extends Message<TrustPolicy_CircleCI> {
+  /**
+   * CircleCI organization UUID must be a valid UUID, not the friendly organization ID.
+   *
+   * @generated from field: string organization_uuid = 1;
+   */
+  organizationUuid = ''
+
+  /**
+   * CircleCI project UUID must be a valid UUID, not the friendly project ID
+   *
+   * @generated from field: string project_uuid = 2;
+   */
+  projectUuid = ''
+
+  constructor(data?: PartialMessage<TrustPolicy_CircleCI>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.TrustPolicy.CircleCI'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'organization_uuid', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'project_uuid', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TrustPolicy_CircleCI {
+    return new TrustPolicy_CircleCI().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TrustPolicy_CircleCI {
+    return new TrustPolicy_CircleCI().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TrustPolicy_CircleCI {
+    return new TrustPolicy_CircleCI().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: TrustPolicy_CircleCI | PlainMessage<TrustPolicy_CircleCI> | undefined,
+    b: TrustPolicy_CircleCI | PlainMessage<TrustPolicy_CircleCI> | undefined,
+  ): boolean {
+    return proto3.util.equals(TrustPolicy_CircleCI, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.TrustPolicy.Buildkite
+ */
+export class TrustPolicy_Buildkite extends Message<TrustPolicy_Buildkite> {
+  /**
+   * @generated from field: string organization_slug = 1;
+   */
+  organizationSlug = ''
+
+  /**
+   * @generated from field: string pipeline_slug = 2;
+   */
+  pipelineSlug = ''
+
+  constructor(data?: PartialMessage<TrustPolicy_Buildkite>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.TrustPolicy.Buildkite'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'organization_slug', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'pipeline_slug', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TrustPolicy_Buildkite {
+    return new TrustPolicy_Buildkite().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TrustPolicy_Buildkite {
+    return new TrustPolicy_Buildkite().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TrustPolicy_Buildkite {
+    return new TrustPolicy_Buildkite().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: TrustPolicy_Buildkite | PlainMessage<TrustPolicy_Buildkite> | undefined,
+    b: TrustPolicy_Buildkite | PlainMessage<TrustPolicy_Buildkite> | undefined,
+  ): boolean {
+    return proto3.util.equals(TrustPolicy_Buildkite, a, b)
+  }
+}
