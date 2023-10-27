@@ -5,6 +5,8 @@
 
 import {MethodKind} from '@bufbuild/protobuf'
 import {
+  AddTrustPolicyRequest,
+  AddTrustPolicyResponse,
   CreateProjectRequest,
   CreateProjectResponse,
   DeleteProjectRequest,
@@ -13,6 +15,10 @@ import {
   GetProjectResponse,
   ListProjectsRequest,
   ListProjectsResponse,
+  ListTrustPoliciesRequest,
+  ListTrustPoliciesResponse,
+  RemoveTrustPolicyRequest,
+  RemoveTrustPolicyResponse,
   UpdateProjectRequest,
   UpdateProjectResponse,
 } from './project_pb.js'
@@ -76,6 +82,39 @@ export const ProjectService = {
       name: 'DeleteProject',
       I: DeleteProjectRequest,
       O: DeleteProjectResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * List project's trust policies.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.ListTrustPolicies
+     */
+    listTrustPolicies: {
+      name: 'ListTrustPolicies',
+      I: ListTrustPoliciesRequest,
+      O: ListTrustPoliciesResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * Add a trust policy to a project.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.AddTrustPolicy
+     */
+    addTrustPolicy: {
+      name: 'AddTrustPolicy',
+      I: AddTrustPolicyRequest,
+      O: AddTrustPolicyResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * Remove a trust policy from a project.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.RemoveTrustPolicy
+     */
+    removeTrustPolicy: {
+      name: 'RemoveTrustPolicy',
+      I: RemoveTrustPolicyRequest,
+      O: RemoveTrustPolicyResponse,
       kind: MethodKind.Unary,
     },
   },
