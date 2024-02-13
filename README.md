@@ -18,7 +18,7 @@ pnpm add @depot/sdk-node
 
 ## Usage
 
-Each of the Depot API services is exposed on the main `depot` export. Authentication is provided via an `Authorization` header, for each API request. The service paths match their corresponding gRPC service names.
+Each of the Depot API services is exposed on the main `depot` export. Authentication is provided via an `Authorization` header with an **Organization Token**, for each API request. The service paths match their corresponding gRPC service names.
 
 - [`depot.build.v1.BuildService`](https://buf.build/depot/api/docs/main:depot.build.v1#depot.build.v1.BuildService)
 - [`depot.buildkit.v1.BuildKitService`](https://buf.build/depot/api/docs/main:depot.buildkit.v1#depot.buildkit.v1.BuildKitService)
