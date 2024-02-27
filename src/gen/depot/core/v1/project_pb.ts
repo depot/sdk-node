@@ -11,7 +11,7 @@ import type {
   PartialMessage,
   PlainMessage,
 } from '@bufbuild/protobuf'
-import {Message, Timestamp, proto3} from '@bufbuild/protobuf'
+import {Message, Timestamp, proto3, protoInt64} from '@bufbuild/protobuf'
 
 /**
  * @generated from message depot.core.v1.Project
@@ -246,9 +246,9 @@ export class CreateProjectRequest extends Message<CreateProjectRequest> {
   name = ''
 
   /**
-   * @generated from field: string organization_id = 2;
+   * @generated from field: optional string organization_id = 2;
    */
-  organizationId = ''
+  organizationId?: string
 
   /**
    * @generated from field: string region_id = 3;
@@ -269,7 +269,7 @@ export class CreateProjectRequest extends Message<CreateProjectRequest> {
   static readonly typeName = 'depot.core.v1.CreateProjectRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     {no: 1, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */},
-    {no: 2, name: 'organization_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'organization_id', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
     {no: 3, name: 'region_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
     {no: 4, name: 'cache_policy', kind: 'message', T: CachePolicy, opt: true},
   ])
@@ -510,9 +510,9 @@ export class DeleteProjectResponse extends Message<DeleteProjectResponse> {
  */
 export class CachePolicy extends Message<CachePolicy> {
   /**
-   * @generated from field: int32 keep_bytes = 1;
+   * @generated from field: int64 keep_bytes = 1;
    */
-  keepBytes = 0
+  keepBytes = protoInt64.zero
 
   /**
    * @generated from field: int32 keep_days = 2;
@@ -527,7 +527,7 @@ export class CachePolicy extends Message<CachePolicy> {
   static readonly runtime: typeof proto3 = proto3
   static readonly typeName = 'depot.core.v1.CachePolicy'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    {no: 1, name: 'keep_bytes', kind: 'scalar', T: 5 /* ScalarType.INT32 */},
+    {no: 1, name: 'keep_bytes', kind: 'scalar', T: 3 /* ScalarType.INT64 */},
     {no: 2, name: 'keep_days', kind: 'scalar', T: 5 /* ScalarType.INT32 */},
   ])
 
