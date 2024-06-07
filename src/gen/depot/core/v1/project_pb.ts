@@ -1033,3 +1033,373 @@ export class TrustPolicy_Buildkite extends Message<TrustPolicy_Buildkite> {
     return proto3.util.equals(TrustPolicy_Buildkite, a, b)
   }
 }
+
+/**
+ * @generated from message depot.core.v1.ListTokensRequest
+ */
+export class ListTokensRequest extends Message<ListTokensRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  constructor(data?: PartialMessage<ListTokensRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.ListTokensRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListTokensRequest {
+    return new ListTokensRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListTokensRequest {
+    return new ListTokensRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListTokensRequest {
+    return new ListTokensRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: ListTokensRequest | PlainMessage<ListTokensRequest> | undefined,
+    b: ListTokensRequest | PlainMessage<ListTokensRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(ListTokensRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.ListTokensResponse
+ */
+export class ListTokensResponse extends Message<ListTokensResponse> {
+  /**
+   * @generated from field: repeated depot.core.v1.ListTokensResponse.Token tokens = 1;
+   */
+  tokens: ListTokensResponse_Token[] = []
+
+  constructor(data?: PartialMessage<ListTokensResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.ListTokensResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'tokens', kind: 'message', T: ListTokensResponse_Token, repeated: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListTokensResponse {
+    return new ListTokensResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListTokensResponse {
+    return new ListTokensResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListTokensResponse {
+    return new ListTokensResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: ListTokensResponse | PlainMessage<ListTokensResponse> | undefined,
+    b: ListTokensResponse | PlainMessage<ListTokensResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(ListTokensResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.ListTokensResponse.Token
+ */
+export class ListTokensResponse_Token extends Message<ListTokensResponse_Token> {
+  /**
+   * @generated from field: string token_id = 1;
+   */
+  tokenId = ''
+
+  /**
+   * @generated from field: string description = 2;
+   */
+  description = ''
+
+  constructor(data?: PartialMessage<ListTokensResponse_Token>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.ListTokensResponse.Token'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'token_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'description', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListTokensResponse_Token {
+    return new ListTokensResponse_Token().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListTokensResponse_Token {
+    return new ListTokensResponse_Token().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListTokensResponse_Token {
+    return new ListTokensResponse_Token().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: ListTokensResponse_Token | PlainMessage<ListTokensResponse_Token> | undefined,
+    b: ListTokensResponse_Token | PlainMessage<ListTokensResponse_Token> | undefined,
+  ): boolean {
+    return proto3.util.equals(ListTokensResponse_Token, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.CreateTokenRequest
+ */
+export class CreateTokenRequest extends Message<CreateTokenRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  /**
+   * @generated from field: string description = 2;
+   */
+  description = ''
+
+  constructor(data?: PartialMessage<CreateTokenRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.CreateTokenRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'description', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateTokenRequest {
+    return new CreateTokenRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateTokenRequest {
+    return new CreateTokenRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateTokenRequest {
+    return new CreateTokenRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: CreateTokenRequest | PlainMessage<CreateTokenRequest> | undefined,
+    b: CreateTokenRequest | PlainMessage<CreateTokenRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(CreateTokenRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.CreateTokenResponse
+ */
+export class CreateTokenResponse extends Message<CreateTokenResponse> {
+  /**
+   * @generated from field: string token_id = 1;
+   */
+  tokenId = ''
+
+  /**
+   * @generated from field: string secret = 2;
+   */
+  secret = ''
+
+  constructor(data?: PartialMessage<CreateTokenResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.CreateTokenResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'token_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'secret', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateTokenResponse {
+    return new CreateTokenResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateTokenResponse {
+    return new CreateTokenResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateTokenResponse {
+    return new CreateTokenResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: CreateTokenResponse | PlainMessage<CreateTokenResponse> | undefined,
+    b: CreateTokenResponse | PlainMessage<CreateTokenResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(CreateTokenResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.UpdateTokenRequest
+ */
+export class UpdateTokenRequest extends Message<UpdateTokenRequest> {
+  /**
+   * @generated from field: string token_id = 1;
+   */
+  tokenId = ''
+
+  /**
+   * @generated from field: string description = 2;
+   */
+  description = ''
+
+  constructor(data?: PartialMessage<UpdateTokenRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.UpdateTokenRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'token_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'description', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateTokenRequest {
+    return new UpdateTokenRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateTokenRequest {
+    return new UpdateTokenRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateTokenRequest {
+    return new UpdateTokenRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: UpdateTokenRequest | PlainMessage<UpdateTokenRequest> | undefined,
+    b: UpdateTokenRequest | PlainMessage<UpdateTokenRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(UpdateTokenRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.UpdateTokenResponse
+ */
+export class UpdateTokenResponse extends Message<UpdateTokenResponse> {
+  constructor(data?: PartialMessage<UpdateTokenResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.UpdateTokenResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateTokenResponse {
+    return new UpdateTokenResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateTokenResponse {
+    return new UpdateTokenResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateTokenResponse {
+    return new UpdateTokenResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: UpdateTokenResponse | PlainMessage<UpdateTokenResponse> | undefined,
+    b: UpdateTokenResponse | PlainMessage<UpdateTokenResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(UpdateTokenResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.DeleteTokenRequest
+ */
+export class DeleteTokenRequest extends Message<DeleteTokenRequest> {
+  /**
+   * @generated from field: string token_id = 1;
+   */
+  tokenId = ''
+
+  constructor(data?: PartialMessage<DeleteTokenRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.DeleteTokenRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'token_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteTokenRequest {
+    return new DeleteTokenRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteTokenRequest {
+    return new DeleteTokenRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteTokenRequest {
+    return new DeleteTokenRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: DeleteTokenRequest | PlainMessage<DeleteTokenRequest> | undefined,
+    b: DeleteTokenRequest | PlainMessage<DeleteTokenRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(DeleteTokenRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.core.v1.DeleteTokenResponse
+ */
+export class DeleteTokenResponse extends Message<DeleteTokenResponse> {
+  constructor(data?: PartialMessage<DeleteTokenResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.core.v1.DeleteTokenResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteTokenResponse {
+    return new DeleteTokenResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteTokenResponse {
+    return new DeleteTokenResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteTokenResponse {
+    return new DeleteTokenResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: DeleteTokenResponse | PlainMessage<DeleteTokenResponse> | undefined,
+    b: DeleteTokenResponse | PlainMessage<DeleteTokenResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(DeleteTokenResponse, a, b)
+  }
+}

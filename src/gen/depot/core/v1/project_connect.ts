@@ -9,18 +9,26 @@ import {
   AddTrustPolicyResponse,
   CreateProjectRequest,
   CreateProjectResponse,
+  CreateTokenRequest,
+  CreateTokenResponse,
   DeleteProjectRequest,
   DeleteProjectResponse,
+  DeleteTokenRequest,
+  DeleteTokenResponse,
   GetProjectRequest,
   GetProjectResponse,
   ListProjectsRequest,
   ListProjectsResponse,
+  ListTokensRequest,
+  ListTokensResponse,
   ListTrustPoliciesRequest,
   ListTrustPoliciesResponse,
   RemoveTrustPolicyRequest,
   RemoveTrustPolicyResponse,
   UpdateProjectRequest,
   UpdateProjectResponse,
+  UpdateTokenRequest,
+  UpdateTokenResponse,
 } from './project_pb.js'
 
 /**
@@ -115,6 +123,50 @@ export const ProjectService = {
       name: 'RemoveTrustPolicy',
       I: RemoveTrustPolicyRequest,
       O: RemoveTrustPolicyResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * List project's API tokens.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.ListTokens
+     */
+    listTokens: {
+      name: 'ListTokens',
+      I: ListTokensRequest,
+      O: ListTokensResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * Create a project API token.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.CreateToken
+     */
+    createToken: {
+      name: 'CreateToken',
+      I: CreateTokenRequest,
+      O: CreateTokenResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * Create a project API token.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.UpdateToken
+     */
+    updateToken: {
+      name: 'UpdateToken',
+      I: UpdateTokenRequest,
+      O: UpdateTokenResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * Delete project API token.
+     *
+     * @generated from rpc depot.core.v1.ProjectService.DeleteToken
+     */
+    deleteToken: {
+      name: 'DeleteToken',
+      I: DeleteTokenRequest,
+      O: DeleteTokenResponse,
       kind: MethodKind.Unary,
     },
   },
