@@ -1,10 +1,10 @@
 import {createPromiseClient} from '@connectrpc/connect'
-import {createGrpcTransport} from '@connectrpc/connect-node'
+import {createConnectTransport} from '@connectrpc/connect-node'
 import * as buildV1Build from './gen/depot/build/v1/build_connect'
 import * as buildkitV1BuildKit from './gen/depot/buildkit/v1/buildkit_connect'
 import * as coreV1Project from './gen/depot/core/v1/project_connect'
 
-const transport = createGrpcTransport({
+const transport = createConnectTransport({
   baseUrl: process.env.DEPOT_API_URL ?? 'https://api.depot.dev',
   httpVersion: '2',
 })
