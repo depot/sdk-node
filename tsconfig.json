@@ -7,7 +7,8 @@
     "skipLibCheck": true,
     "strict": true,
     "preserveConstEnums": true,
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "declaration": true
   },
   "include": ["src"],
