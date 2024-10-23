@@ -39,12 +39,28 @@ export enum Hardware {
    * @generated from enum value: HARDWARE_4X4 = 2;
    */
   HARDWARE_4X4 = 2,
+
+  /**
+   * 8 CPU and 8GB of memory.
+   *
+   * @generated from enum value: HARDWARE_8X8 = 3;
+   */
+  HARDWARE_8X8 = 3,
+
+  /**
+   * 8 CPU and 16GB of memory.
+   *
+   * @generated from enum value: HARDWARE_8X16 = 4;
+   */
+  HARDWARE_8X16 = 4,
 }
 // Retrieve enum metadata with: proto3.getEnumType(Hardware)
 proto3.util.setEnumType(Hardware, 'depot.core.v1.Hardware', [
   {no: 0, name: 'HARDWARE_UNSPECIFIED'},
   {no: 1, name: 'HARDWARE_16X32'},
   {no: 2, name: 'HARDWARE_4X4'},
+  {no: 3, name: 'HARDWARE_8X8'},
+  {no: 4, name: 'HARDWARE_8X16'},
 ])
 
 /**
