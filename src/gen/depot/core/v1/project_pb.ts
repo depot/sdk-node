@@ -20,14 +20,14 @@ import {Message, proto3, Timestamp} from '@bufbuild/protobuf'
  */
 export enum Hardware {
   /**
-   * By default is 16 CPU and 32GB of memory.
+   * By default is 16 CPU and 32GB of memory. Supported by AWS builders.
    *
    * @generated from enum value: HARDWARE_UNSPECIFIED = 0;
    */
   HARDWARE_UNSPECIFIED = 0,
 
   /**
-   * 16 CPU and 32GB of memory.
+   * 16 CPU and 32GB of memory. Supported by AWS builders.
    *
    * @generated from enum value: HARDWARE_16X32 = 1;
    */
@@ -48,11 +48,25 @@ export enum Hardware {
   HARDWARE_8X8 = 3,
 
   /**
-   * 8 CPU and 16GB of memory.
+   * 8 CPU and 16GB of memory. Supported by AWS builders.
    *
    * @generated from enum value: HARDWARE_8X16 = 4;
    */
   HARDWARE_8X16 = 4,
+
+  /**
+   * 32 CPU and 64GB of memory. Supported by AWS builders.
+   *
+   * @generated from enum value: HARDWARE_32X64 = 5;
+   */
+  HARDWARE_32X64 = 5,
+
+  /**
+   * 64 CPU and 128GB of memory. Supported by AWS builders.
+   *
+   * @generated from enum value: HARDWARE_64X128 = 6;
+   */
+  HARDWARE_64X128 = 6,
 }
 // Retrieve enum metadata with: proto3.getEnumType(Hardware)
 proto3.util.setEnumType(Hardware, 'depot.core.v1.Hardware', [
@@ -61,6 +75,8 @@ proto3.util.setEnumType(Hardware, 'depot.core.v1.Hardware', [
   {no: 2, name: 'HARDWARE_4X4'},
   {no: 3, name: 'HARDWARE_8X8'},
   {no: 4, name: 'HARDWARE_8X16'},
+  {no: 5, name: 'HARDWARE_32X64'},
+  {no: 6, name: 'HARDWARE_64X128'},
 ])
 
 /**
