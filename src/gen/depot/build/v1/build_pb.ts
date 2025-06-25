@@ -11,7 +11,7 @@ import type {
   PartialMessage,
   PlainMessage,
 } from '@bufbuild/protobuf'
-import {Message, proto3} from '@bufbuild/protobuf'
+import {Message, proto3, Timestamp} from '@bufbuild/protobuf'
 
 /**
  * @generated from message depot.build.v1.CreateBuildRequest
@@ -264,5 +264,371 @@ export class FinishBuildResponse extends Message<FinishBuildResponse> {
     b: FinishBuildResponse | PlainMessage<FinishBuildResponse> | undefined,
   ): boolean {
     return proto3.util.equals(FinishBuildResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepsRequest
+ */
+export class GetBuildStepsRequest extends Message<GetBuildStepsRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  /**
+   * @generated from field: string build_id = 2;
+   */
+  buildId = ''
+
+  /**
+   * @generated from field: optional int32 page_size = 3;
+   */
+  pageSize?: number
+
+  /**
+   * @generated from field: optional string page_token = 4;
+   */
+  pageToken?: string
+
+  constructor(data?: PartialMessage<GetBuildStepsRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepsRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'build_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 3, name: 'page_size', kind: 'scalar', T: 5 /* ScalarType.INT32 */, opt: true},
+    {no: 4, name: 'page_token', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepsRequest {
+    return new GetBuildStepsRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepsRequest {
+    return new GetBuildStepsRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepsRequest {
+    return new GetBuildStepsRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepsRequest | PlainMessage<GetBuildStepsRequest> | undefined,
+    b: GetBuildStepsRequest | PlainMessage<GetBuildStepsRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepsRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepsResponse
+ */
+export class GetBuildStepsResponse extends Message<GetBuildStepsResponse> {
+  /**
+   * @generated from field: repeated depot.build.v1.GetBuildStepsResponse.BuildStep build_steps = 1;
+   */
+  buildSteps: GetBuildStepsResponse_BuildStep[] = []
+
+  /**
+   * @generated from field: optional string next_page_token = 2;
+   */
+  nextPageToken?: string
+
+  constructor(data?: PartialMessage<GetBuildStepsResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepsResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'build_steps', kind: 'message', T: GetBuildStepsResponse_BuildStep, repeated: true},
+    {no: 2, name: 'next_page_token', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepsResponse {
+    return new GetBuildStepsResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepsResponse {
+    return new GetBuildStepsResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepsResponse {
+    return new GetBuildStepsResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepsResponse | PlainMessage<GetBuildStepsResponse> | undefined,
+    b: GetBuildStepsResponse | PlainMessage<GetBuildStepsResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepsResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepsResponse.BuildStep
+ */
+export class GetBuildStepsResponse_BuildStep extends Message<GetBuildStepsResponse_BuildStep> {
+  /**
+   * @generated from field: string name = 1;
+   */
+  name = ''
+
+  /**
+   * @generated from field: string digest = 2;
+   */
+  digest = ''
+
+  /**
+   * @generated from field: google.protobuf.Timestamp started_at = 3;
+   */
+  startedAt?: Timestamp
+
+  /**
+   * @generated from field: optional google.protobuf.Timestamp completed_at = 4;
+   */
+  completedAt?: Timestamp
+
+  /**
+   * @generated from field: depot.build.v1.GetBuildStepsResponse.BuildStep.CacheState cache_state = 5;
+   */
+  cacheState = GetBuildStepsResponse_BuildStep_CacheState.UNSPECIFIED
+
+  /**
+   * @generated from field: optional string error = 6;
+   */
+  error?: string
+
+  /**
+   * @generated from field: bool has_logs = 7;
+   */
+  hasLogs = false
+
+  constructor(data?: PartialMessage<GetBuildStepsResponse_BuildStep>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepsResponse.BuildStep'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'digest', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 3, name: 'started_at', kind: 'message', T: Timestamp},
+    {no: 4, name: 'completed_at', kind: 'message', T: Timestamp, opt: true},
+    {no: 5, name: 'cache_state', kind: 'enum', T: proto3.getEnumType(GetBuildStepsResponse_BuildStep_CacheState)},
+    {no: 6, name: 'error', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
+    {no: 7, name: 'has_logs', kind: 'scalar', T: 8 /* ScalarType.BOOL */},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepsResponse_BuildStep {
+    return new GetBuildStepsResponse_BuildStep().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepsResponse_BuildStep {
+    return new GetBuildStepsResponse_BuildStep().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepsResponse_BuildStep {
+    return new GetBuildStepsResponse_BuildStep().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepsResponse_BuildStep | PlainMessage<GetBuildStepsResponse_BuildStep> | undefined,
+    b: GetBuildStepsResponse_BuildStep | PlainMessage<GetBuildStepsResponse_BuildStep> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepsResponse_BuildStep, a, b)
+  }
+}
+
+/**
+ * @generated from enum depot.build.v1.GetBuildStepsResponse.BuildStep.CacheState
+ */
+export enum GetBuildStepsResponse_BuildStep_CacheState {
+  /**
+   * @generated from enum value: CACHE_STATE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: CACHE_STATE_UNCACHED = 1;
+   */
+  UNCACHED = 1,
+
+  /**
+   * @generated from enum value: CACHE_STATE_CACHED = 2;
+   */
+  CACHED = 2,
+}
+// Retrieve enum metadata with: proto3.getEnumType(GetBuildStepsResponse_BuildStep_CacheState)
+proto3.util.setEnumType(
+  GetBuildStepsResponse_BuildStep_CacheState,
+  'depot.build.v1.GetBuildStepsResponse.BuildStep.CacheState',
+  [
+    {no: 0, name: 'CACHE_STATE_UNSPECIFIED'},
+    {no: 1, name: 'CACHE_STATE_UNCACHED'},
+    {no: 2, name: 'CACHE_STATE_CACHED'},
+  ],
+)
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepLogsRequest
+ */
+export class GetBuildStepLogsRequest extends Message<GetBuildStepLogsRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = ''
+
+  /**
+   * @generated from field: string build_id = 2;
+   */
+  buildId = ''
+
+  /**
+   * @generated from field: string build_step_digest = 3;
+   */
+  buildStepDigest = ''
+
+  /**
+   * @generated from field: optional int32 page_size = 4;
+   */
+  pageSize?: number
+
+  /**
+   * @generated from field: optional string page_token = 5;
+   */
+  pageToken?: string
+
+  constructor(data?: PartialMessage<GetBuildStepLogsRequest>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepLogsRequest'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'project_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'build_id', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 3, name: 'build_step_digest', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 4, name: 'page_size', kind: 'scalar', T: 5 /* ScalarType.INT32 */, opt: true},
+    {no: 5, name: 'page_token', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepLogsRequest {
+    return new GetBuildStepLogsRequest().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepLogsRequest {
+    return new GetBuildStepLogsRequest().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepLogsRequest {
+    return new GetBuildStepLogsRequest().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepLogsRequest | PlainMessage<GetBuildStepLogsRequest> | undefined,
+    b: GetBuildStepLogsRequest | PlainMessage<GetBuildStepLogsRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepLogsRequest, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepLogsResponse
+ */
+export class GetBuildStepLogsResponse extends Message<GetBuildStepLogsResponse> {
+  /**
+   * @generated from field: repeated depot.build.v1.GetBuildStepLogsResponse.Log logs = 1;
+   */
+  logs: GetBuildStepLogsResponse_Log[] = []
+
+  /**
+   * @generated from field: optional string next_page_token = 6;
+   */
+  nextPageToken?: string
+
+  constructor(data?: PartialMessage<GetBuildStepLogsResponse>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepLogsResponse'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'logs', kind: 'message', T: GetBuildStepLogsResponse_Log, repeated: true},
+    {no: 6, name: 'next_page_token', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepLogsResponse {
+    return new GetBuildStepLogsResponse().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepLogsResponse {
+    return new GetBuildStepLogsResponse().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepLogsResponse {
+    return new GetBuildStepLogsResponse().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepLogsResponse | PlainMessage<GetBuildStepLogsResponse> | undefined,
+    b: GetBuildStepLogsResponse | PlainMessage<GetBuildStepLogsResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepLogsResponse, a, b)
+  }
+}
+
+/**
+ * @generated from message depot.build.v1.GetBuildStepLogsResponse.Log
+ */
+export class GetBuildStepLogsResponse_Log extends Message<GetBuildStepLogsResponse_Log> {
+  /**
+   * @generated from field: string message = 1;
+   */
+  message = ''
+
+  /**
+   * @generated from field: google.protobuf.Timestamp timestamp = 2;
+   */
+  timestamp?: Timestamp
+
+  constructor(data?: PartialMessage<GetBuildStepLogsResponse_Log>) {
+    super()
+    proto3.util.initPartial(data, this)
+  }
+
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'depot.build.v1.GetBuildStepLogsResponse.Log'
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    {no: 1, name: 'message', kind: 'scalar', T: 9 /* ScalarType.STRING */},
+    {no: 2, name: 'timestamp', kind: 'message', T: Timestamp},
+  ])
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBuildStepLogsResponse_Log {
+    return new GetBuildStepLogsResponse_Log().fromBinary(bytes, options)
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBuildStepLogsResponse_Log {
+    return new GetBuildStepLogsResponse_Log().fromJson(jsonValue, options)
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBuildStepLogsResponse_Log {
+    return new GetBuildStepLogsResponse_Log().fromJsonString(jsonString, options)
+  }
+
+  static equals(
+    a: GetBuildStepLogsResponse_Log | PlainMessage<GetBuildStepLogsResponse_Log> | undefined,
+    b: GetBuildStepLogsResponse_Log | PlainMessage<GetBuildStepLogsResponse_Log> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetBuildStepLogsResponse_Log, a, b)
   }
 }
