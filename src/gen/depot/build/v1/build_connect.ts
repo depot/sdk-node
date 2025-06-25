@@ -4,7 +4,16 @@
 // @ts-nocheck
 
 import {MethodKind} from '@bufbuild/protobuf'
-import {CreateBuildRequest, CreateBuildResponse, FinishBuildRequest, FinishBuildResponse} from './build_pb.js'
+import {
+  CreateBuildRequest,
+  CreateBuildResponse,
+  FinishBuildRequest,
+  FinishBuildResponse,
+  GetBuildStepLogsRequest,
+  GetBuildStepLogsResponse,
+  GetBuildStepsRequest,
+  GetBuildStepsResponse,
+} from './build_pb.js'
 
 /**
  * @generated from service depot.build.v1.BuildService
@@ -28,6 +37,24 @@ export const BuildService = {
       name: 'FinishBuild',
       I: FinishBuildRequest,
       O: FinishBuildResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc depot.build.v1.BuildService.GetBuildSteps
+     */
+    getBuildSteps: {
+      name: 'GetBuildSteps',
+      I: GetBuildStepsRequest,
+      O: GetBuildStepsResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc depot.build.v1.BuildService.GetBuildStepLogs
+     */
+    getBuildStepLogs: {
+      name: 'GetBuildStepLogs',
+      I: GetBuildStepLogsRequest,
+      O: GetBuildStepLogsResponse,
       kind: MethodKind.Unary,
     },
   },
