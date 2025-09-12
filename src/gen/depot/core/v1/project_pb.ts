@@ -67,6 +67,20 @@ export enum Hardware {
    * @generated from enum value: HARDWARE_64X128 = 6;
    */
   HARDWARE_64X128 = 6,
+
+  /**
+   * 96 CPU and 192GB of memory. Supported by AWS builders.
+   *
+   * @generated from enum value: HARDWARE_96X192 = 7;
+   */
+  HARDWARE_96X192 = 7,
+
+  /**
+   * 192 CPU and 384GB of memory. Supported by AWS builders.
+   *
+   * @generated from enum value: HARDWARE_192X384 = 8;
+   */
+  HARDWARE_192X384 = 8,
 }
 // Retrieve enum metadata with: proto3.getEnumType(Hardware)
 proto3.util.setEnumType(Hardware, 'depot.core.v1.Hardware', [
@@ -77,6 +91,8 @@ proto3.util.setEnumType(Hardware, 'depot.core.v1.Hardware', [
   {no: 4, name: 'HARDWARE_8X16'},
   {no: 5, name: 'HARDWARE_32X64'},
   {no: 6, name: 'HARDWARE_64X128'},
+  {no: 7, name: 'HARDWARE_96X192'},
+  {no: 8, name: 'HARDWARE_192X384'},
 ])
 
 /**

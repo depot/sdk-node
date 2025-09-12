@@ -4,7 +4,9 @@ import * as buildV1Build from './gen/depot/build/v1/build_connect'
 import * as buildV1Registry from './gen/depot/build/v1/registry_connect'
 import * as buildkitV1BuildKit from './gen/depot/buildkit/v1/buildkit_connect'
 import * as coreV1Build from './gen/depot/core/v1/build_connect'
+import * as coreV1Org from './gen/depot/core/v1/org_connect'
 import * as coreV1Project from './gen/depot/core/v1/project_connect'
+import * as coreV1Usage from './gen/depot/core/v1/usage_connect'
 
 const transport = createConnectTransport({
   baseUrl: process.env.DEPOT_API_URL ?? 'https://api.depot.dev',
@@ -27,6 +29,8 @@ export const depot = {
     v1: {
       BuildService: createPromiseClient(coreV1Build.BuildService, transport),
       ProjectService: createPromiseClient(coreV1Project.ProjectService, transport),
+      UsageService: createPromiseClient(coreV1Usage.UsageService, transport),
+      OrganizationService: createPromiseClient(coreV1Org.OrganizationService, transport),
     },
   },
 }
