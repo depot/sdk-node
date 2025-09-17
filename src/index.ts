@@ -1,4 +1,4 @@
-import {timestampFromDate} from '@bufbuild/protobuf/wkt'
+export * as wkt from '@bufbuild/protobuf/wkt'
 import {createClient} from '@connectrpc/connect'
 import {createConnectTransport} from '@connectrpc/connect-node'
 import * as buildV1Build from './gen/depot/build/v1/build_pb'
@@ -32,7 +32,6 @@ export const depot = {
       ProjectService: createClient(coreV1Project.ProjectService, transport),
       UsageService: createClient(coreV1Usage.UsageService, transport),
       OrganizationService: createClient(coreV1Org.OrganizationService, transport),
-      timestampFromDate: timestampFromDate,
     },
   },
 }

@@ -33,6 +33,9 @@
     "@connectrpc/connect-node": "^2.1.0",
     "wkt": "link:@bufbuild/protobuf/wkt"
   },
+  "peerDependencies": {
+    "@bufbuild/protobuf": ">=2, <3"
+  },
   "devDependencies": {
     "@bufbuild/protoc-gen-es": "^2.8.0",
     "@tsconfig/node18": "^18.2.4",
