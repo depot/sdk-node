@@ -3,6 +3,3 @@ plugins:
   - name: es
     opt: target=ts
     out: src/gen
-  - name: connect-es
-    opt: target=ts
-    out: src/gen
