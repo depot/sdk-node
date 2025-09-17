@@ -27,14 +27,14 @@
     "prepack": "pnpm run build",
     "type-check": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "@bufbuild/protobuf": ">=2, <3"
+  },
   "dependencies": {
     "@bufbuild/protobuf": "^2.8.0",
     "@connectrpc/connect": "^2.1.0",
     "@connectrpc/connect-node": "^2.1.0",
     "wkt": "link:@bufbuild/protobuf/wkt"
-  },
-  "peerDependencies": {
-    "@bufbuild/protobuf": ">=2, <3"
   },
   "devDependencies": {
     "@bufbuild/protoc-gen-es": "^2.8.0",
