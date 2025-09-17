@@ -48,9 +48,6 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
-      wkt:
-        specifier: link:@bufbuild/protobuf/wkt
-        version: link:@bufbuild/protobuf/wkt
 
 packages:
 
