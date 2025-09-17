@@ -1,6 +1,6 @@
 {
   "name": "@depot/sdk-node",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Node SDK for the Depot API",
   "repository": "https://github.com/depot/sdk-node.git",
   "homepage": "https://github.com/depot/sdk-node",
