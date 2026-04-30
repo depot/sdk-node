@@ -8,6 +8,7 @@ import * as coreV1Build from './gen/depot/core/v1/build_pb'
 import * as coreV1Org from './gen/depot/core/v1/org_pb'
 import * as coreV1Project from './gen/depot/core/v1/project_pb'
 import * as coreV1Usage from './gen/depot/core/v1/usage_pb'
+import * as registryV1Beta1Registry from './gen/depot/registry/v1beta1/registry_pb'
 
 const transport = createConnectTransport({
   baseUrl: process.env.DEPOT_API_URL ?? 'https://api.depot.dev',
@@ -32,6 +33,11 @@ export const depot = {
       ProjectService: createClient(coreV1Project.ProjectService, transport),
       UsageService: createClient(coreV1Usage.UsageService, transport),
       OrganizationService: createClient(coreV1Org.OrganizationService, transport),
+    },
+  },
+  registry: {
+    v1beta1: {
+      RegistryService: createClient(registryV1Beta1Registry.RegistryService, transport),
     },
   },
 }
