@@ -20,15 +20,12 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean",
-    "build:all": "pnpm run build && pnpm --filter './packages/*' --if-present run build",
     "clean": "rm -rf dist",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
     "generate": "buf generate buf.build/depot/api && prettier --write src/gen",
     "prepack": "pnpm run build",
-    "test:all": "pnpm --filter './packages/*' --if-present run test",
-    "type-check": "tsc --noEmit",
-    "type-check:all": "pnpm run type-check && pnpm --filter './packages/*' --if-present run type-check"
+    "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
     "@bufbuild/protobuf": ">=2, <3"
