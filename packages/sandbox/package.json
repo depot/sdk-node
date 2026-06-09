@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "prepack": "pnpm run build",
     "test": "tsx --test src/*.test.ts",
     "type-check": "tsc --noEmit"
   },
