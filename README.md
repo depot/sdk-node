@@ -8,12 +8,20 @@ A Node.js SDK for the [Depot](https://depot.dev) API.
 
 👉 [**API Documentation**](https://buf.build/depot/api)
 
+This repository also contains the beta [`@depot/sandbox`](./packages/sandbox) package for the `depot.sandbox.v1` API.
+
 ## Installation
 
 Use [pnpm](https://pnpm.io) or your favorite package manager:
 
 ```bash
 pnpm add @depot/sdk-node
+```
+
+After the sandbox beta is published, install it separately:
+
+```bash
+pnpm add @depot/sandbox@beta
 ```
 
 ## Usage
@@ -41,6 +49,21 @@ async function example() {
   const result = await depot.core.v1.ProjectService.listProjects({}, {headers})
   console.log(result.projects)
 }
+```
+
+### Sandbox Beta
+
+```typescript
+import {createClient, Sandbox} from '@depot/sandbox'
+
+const client = createClient({token: process.env.DEPOT_TOKEN!})
+const sandbox = await Sandbox.create(client)
+
+const command = await sandbox.runCommand({cmd: 'echo', args: ['hello']})
+await command.wait()
+
+console.log(await command.stdout())
+await sandbox.stop({blocking: true})
 ```
 
 ## License
