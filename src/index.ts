@@ -73,7 +73,6 @@ export function createClient(options?: ClientOptions) {
   }
 }
 
-
 export const depot = createClient({
   token: process.env.DEPOT_TOKEN,
   baseURL: process.env.DEPOT_API_URL,
