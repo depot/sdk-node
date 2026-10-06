@@ -6,10 +6,25 @@
   "homepage": "https://github.com/depot/sdk-node",
   "author": "Jacob Gillespie <jacobwgillespie@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@9.9.0",
-  "main": "./dist/index.js",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "files": [
     "dist"
   ],
@@ -19,7 +34,7 @@
     "sdk"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "build": "tsdown src/index.ts --format esm --format cjs --dts",
     "clean": "rm -rf dist",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
@@ -28,24 +43,22 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@bufbuild/protobuf": ">=2, <3"
+    "@bufbuild/protobuf": "^2.16.0"
   },
   "dependencies": {
-    "@connectrpc/connect": "^2.1.0",
-    "@connectrpc/connect-node": "^2.1.0"
+    "@connectrpc/connect": "^2.2.0",
+    "@connectrpc/connect-node": "^2.2.0"
   },
   "devDependencies": {
-    "@bufbuild/protobuf": "^2.8.0",
-    "@bufbuild/protoc-gen-es": "^2.8.0",
-    "@tsconfig/node18": "^18.2.4",
-    "@types/node": "^22.5.4",
-    "esbuild": "^0.25.0",
-    "esbuild-register": "^3.6.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-organize-imports": "^4.0.0",
-    "prettier-plugin-pkg": "^0.18.1",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "@bufbuild/protobuf": "^2.16.0",
+    "@bufbuild/protoc-gen-es": "^2.16.0",
+    "@tsconfig/node22": "^22.0.6",
+    "@types/node": "^26.6.4",
+    "prettier": "^3.9.9",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-pkg": "^0.22.1",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2"
   },
   "publishConfig": {
     "access": "public"
