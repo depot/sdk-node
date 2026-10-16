@@ -28,6 +28,7 @@ export DEPOT_TOKEN=your-access-token
 - [`depot.build.v1.RegistryService`](https://buf.build/depot/api/docs/main:depot.build.v1#depot.build.v1.RegistryService)
 - [`depot.buildkit.v1.BuildKitService`](https://buf.build/depot/api/docs/main:depot.buildkit.v1#depot.buildkit.v1.BuildKitService)
 - [`depot.code.v1beta1.CodeService`](https://buf.build/depot/api/docs/main:depot.code.v1beta1#depot.code.v1beta1.CodeService)
+- [`depot.core.v1.BillingService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.BillingService)
 - [`depot.core.v1.BuildService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.BuildService)
 - [`depot.core.v1.GithubActionsService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.GithubActionsService)
 - [`depot.core.v1.ProjectService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.ProjectService)
