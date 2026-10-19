@@ -68,6 +68,53 @@ To use a different token for an individual call, pass an authorization header:
 const result = await depot.core.v1.ProjectService.listProjects({}, {headers: {Authorization: `Bearer ${token}`}})
 ```
 
+## Registry retention policies
+
+Use `depot.registry.v1beta1.RegistryService` with an **organization API token**.
+The token determines the organization; you don't need an organization ID or
+`x-depot-org` header. Project tokens and Registry pull/push tokens don't authorize
+these management calls.
+
+Set `repository` to a repository path such as `team/app`, without a registry host
+or organization prefix. Use `**` for the organization-default policy. Supply
+exactly one positive integer strategy: `keepCount` or `keepDays`. The `enabled`
+field isn't a disable switch: to remove an explicit policy, call
+`deleteRetentionPolicy`.
+
+```typescript
+import {createClient} from '@depot/sdk-node'
+
+const registry = createClient({token: process.env.DEPOT_TOKEN}).registry.v1beta1.RegistryService
+
+// Keep the most recent 10 images for this repository.
+await registry.upsertRetentionPolicy({repository: 'team/app', enabled: true, keepCount: 10})
+
+const {policy} = await registry.getRetentionPolicy({repository: 'team/app'})
+// policy is undefined when this scope has no explicit policy.
+
+// Alternatively, set a time-based organization default.
+await registry.upsertRetentionPolicy({repository: '**', enabled: true, keepDays: 30})
+
+// Remove only the explicit repository policy; an inherited policy may still apply.
+await registry.deleteRetentionPolicy({repository: 'team/app'})
+```
+
+`getRetentionPolicy` reads the explicit policy for the requested scope, not the
+effective inherited policy. Deleting `**` removes the explicit organization
+default. Deleting a policy doesn't delete the repository or its images and
+doesn't restore images already removed by retention.
+
+The [runnable example](./examples/registry-retention.mjs) performs one operation
+at a time. From this repository, build the SDK with `pnpm run build`, set
+`DEPOT_TOKEN`, and choose an operation:
+
+```bash
+node examples/registry-retention.mjs get team/app
+node examples/registry-retention.mjs keep-count team/app 10
+node examples/registry-retention.mjs keep-days '**' 30
+node examples/registry-retention.mjs delete team/app
+```
+
 ## License
 
 MIT License, see `LICENSE`.
