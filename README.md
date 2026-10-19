@@ -119,7 +119,11 @@ node examples/registry-retention.mjs delete team/app
 
 Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.
 Automated tests live in `test/` and use local HTTP/2 endpoints without Depot credentials.
-The `src/test.ts` script is a separate manual smoke test against the live API.
+The suite covers configuration, authorization, service serialization, errors, and
+cancellation through both package entrypoints. Default-client configuration is
+tested in isolated Node processes; even the default API URL is redirected locally.
+The `src/manual-smoke.ts` script is a separate manual smoke test against the live API
+and is excluded from automated discovery.
 
 ## License
 
