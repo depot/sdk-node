@@ -60,7 +60,7 @@
     "prettier-plugin-pkg": "^0.22.1",
     "tsdown": "^0.23.0",
     "typescript": "^7.0.2",
-    "vitest": "4.1.4"
+    "vitest": "4.1.11"
   },
   "publishConfig": {
     "access": "public"
