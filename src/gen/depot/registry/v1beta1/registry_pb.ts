@@ -14,7 +14,7 @@ import type {Message} from '@bufbuild/protobuf'
 export const file_depot_registry_v1beta1_registry: GenFile =
   /*@__PURE__*/
   fileDesc(
-    'CiVkZXBvdC9yZWdpc3RyeS92MWJldGExL3JlZ2lzdHJ5LnByb3RvEhZkZXBvdC5yZWdpc3RyeS52MWJldGExIvYBChJDcmVhdGVUb2tlblJlcXVlc3QSDAoEbmFtZRgBIAEoCRJJCgpwZXJtaXNzaW9uGAIgASgOMjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuUGVybWlzc2lvbhIZChFyZXBvc2l0b3J5X3Njb3BlcxgDIAMoCRIzCgpleHBpcmVzX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgAiAEBEhgKC2Rlc2NyaXB0aW9uGAUgASgJSAGIAQFCDQoLX2V4cGlyZXNfYXRCDgoMX2Rlc2NyaXB0aW9uImEKE0NyZWF0ZVRva2VuUmVzcG9uc2USOgoFdG9rZW4YASABKAsyKy5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJlZ2lzdHJ5QWNjZXNzVG9rZW4SDgoGc2VjcmV0GAIgASgJIlIKEUxpc3RUb2tlbnNSZXF1ZXN0EgwKBHBhZ2UYASABKAUSEQoJcGFnZV9zaXplGAIgASgFEhIKBXF1ZXJ5GAMgASgJSACIAQFCCAoGX3F1ZXJ5IocBChJMaXN0VG9rZW5zUmVzcG9uc2USOwoGdG9rZW5zGAEgAygLMisuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuEgwKBHBhZ2UYAiABKAUSEQoJcGFnZV9zaXplGAMgASgFEhMKC3RvdGFsX2NvdW50GAQgASgFIiYKElJldm9rZVRva2VuUmVxdWVzdBIQCgh0b2tlbl9pZBgBIAEoCSJRChNSZXZva2VUb2tlblJlc3BvbnNlEjoKBXRva2VuGAEgASgLMisuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuIi0KF0NyZWF0ZVJlcG9zaXRvcnlSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkiGgoYQ3JlYXRlUmVwb3NpdG9yeVJlc3BvbnNlIlgKF0xpc3RSZXBvc2l0b3JpZXNSZXF1ZXN0EgwKBHBhZ2UYASABKAUSEQoJcGFnZV9zaXplGAIgASgFEhIKBXF1ZXJ5GAMgASgJSACIAQFCCAoGX3F1ZXJ5Io4BChhMaXN0UmVwb3NpdG9yaWVzUmVzcG9uc2USPwoMcmVwb3NpdG9yaWVzGAEgAygLMikuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZXBvc2l0b3J5U3VtbWFyeRIMCgRwYWdlGAIgASgFEhEKCXBhZ2Vfc2l6ZRgDIAEoBRIQCghoYXNfbW9yZRgEIAEoCCLTAQoRUmVwb3NpdG9yeVN1bW1hcnkSDAoEbmFtZRgBIAEoCRIRCgl0YWdfY291bnQYAiABKAMSEgoKc2l6ZV9ieXRlcxgDIAEoAxIuCgpjcmVhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI3Cg5sYXN0X3B1c2hlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAIgBARINCgVzY29wZRgGIAEoCUIRCg9fbGFzdF9wdXNoZWRfYXQiqgEKEUxpc3RJbWFnZXNSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkSDAoEcGFnZRgCIAEoBRIRCglwYWdlX3NpemUYAyABKAUSFgoJdGFnX3F1ZXJ5GAQgASgJSACIAQESOgoKdGFnX3N0YXR1cxgFIAEoDjImLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VUYWdTdGF0dXNCDAoKX3RhZ19xdWVyeSJ9ChJMaXN0SW1hZ2VzUmVzcG9uc2USNAoGaW1hZ2VzGAEgAygLMiQuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5JbWFnZVN1bW1hcnkSDAoEcGFnZRgCIAEoBRIRCglwYWdlX3NpemUYAyABKAUSEAoIaGFzX21vcmUYBCABKAgingEKDEltYWdlU3VtbWFyeRIOCgZkaWdlc3QYASABKAkSEgoKbWVkaWFfdHlwZRgCIAEoCRIZChFjb25maWdfbWVkaWFfdHlwZRgDIAEoCRISCgpzaXplX2J5dGVzGAQgASgDEgwKBHRhZ3MYBSADKAkSLQoJcHVzaGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCI+ChVHZXRJbWFnZURldGFpbFJlcXVlc3QSEgoKcmVwb3NpdG9yeRgBIAEoCRIRCglyZWZlcmVuY2UYAiABKAkiugEKFkdldEltYWdlRGV0YWlsUmVzcG9uc2USDgoGZGlnZXN0GAEgASgJEhIKCm1lZGlhX3R5cGUYAiABKAkSGQoRY29uZmlnX21lZGlhX3R5cGUYAyABKAkSEgoKc2l6ZV9ieXRlcxgEIAEoAxIMCgR0YWdzGAUgAygJEi0KCXB1c2hlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEAoIbWFuaWZlc3QYByABKAwiLQoXRGVsZXRlUmVwb3NpdG9yeVJlcXVlc3QSEgoKcmVwb3NpdG9yeRgBIAEoCSIaChhEZWxldGVSZXBvc2l0b3J5UmVzcG9uc2UiMwoQRGVsZXRlVGFnUmVxdWVzdBISCgpyZXBvc2l0b3J5GAEgASgJEgsKA3RhZxgCIAEoCSITChFEZWxldGVUYWdSZXNwb25zZSJjCg9JbWFnZUlkZW50aWZpZXISGQoMaW1hZ2VfZGlnZXN0GAEgASgJSACIAQESFgoJaW1hZ2VfdGFnGAIgASgJSAGIAQFCDwoNX2ltYWdlX2RpZ2VzdEIMCgpfaW1hZ2VfdGFnIncKDEltYWdlRmFpbHVyZRI5CghpbWFnZV9pZBgBIAEoCzInLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VJZGVudGlmaWVyEhQKDGZhaWx1cmVfY29kZRgCIAEoCRIWCg5mYWlsdXJlX3JlYXNvbhgDIAEoCSJpChdCYXRjaERlbGV0ZUltYWdlUmVxdWVzdBISCgpyZXBvc2l0b3J5GAEgASgJEjoKCWltYWdlX2lkcxgCIAMoCzInLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VJZGVudGlmaWVyIo4BChhCYXRjaERlbGV0ZUltYWdlUmVzcG9uc2USOgoJaW1hZ2VfaWRzGAEgAygLMicuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5JbWFnZUlkZW50aWZpZXISNgoIZmFpbHVyZXMYAiADKAsyJC5kZXBvdC5yZWdpc3RyeS52MWJldGExLkltYWdlRmFpbHVyZSKkAwoTUmVnaXN0cnlBY2Nlc3NUb2tlbhIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEkkKCnBlcm1pc3Npb24YAyABKA4yNS5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJlZ2lzdHJ5QWNjZXNzVG9rZW5QZXJtaXNzaW9uEhkKEXJlcG9zaXRvcnlfc2NvcGVzGAQgAygJEjMKCmV4cGlyZXNfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSACIAQESMwoKcmV2b2tlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAYgBARIuCgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIYCgtkZXNjcmlwdGlvbhgIIAEoCUgCiAEBEhcKD2NyZWF0ZWRfYnlfa2luZBgJIAEoCRISCgpjcmVhdGVkX2J5GAogASgJQg0KC19leHBpcmVzX2F0Qg0KC19yZXZva2VkX2F0Qg4KDF9kZXNjcmlwdGlvbiLkAQoPUmV0ZW50aW9uUG9saWN5EhIKCnJlcG9zaXRvcnkYASABKAkSDwoHZW5hYmxlZBgCIAEoCBIXCgprZWVwX2NvdW50GAMgASgFSACIAQESFgoJa2VlcF9kYXlzGAQgASgFSAGIAQESLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCDQoLX2tlZXBfY291bnRCDAoKX2tlZXBfZGF5cyIvChlHZXRSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkiZQoaR2V0UmV0ZW50aW9uUG9saWN5UmVzcG9uc2USPAoGcG9saWN5GAEgASgLMicuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZXRlbnRpb25Qb2xpY3lIAIgBAUIJCgdfcG9saWN5IpEBChxVcHNlcnRSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkSDwoHZW5hYmxlZBgCIAEoCBIXCgprZWVwX2NvdW50GAMgASgFSACIAQESFgoJa2VlcF9kYXlzGAQgASgFSAGIAQFCDQoLX2tlZXBfY291bnRCDAoKX2tlZXBfZGF5cyJYCh1VcHNlcnRSZXRlbnRpb25Qb2xpY3lSZXNwb25zZRI3CgZwb2xpY3kYASABKAsyJy5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJldGVudGlvblBvbGljeSIyChxEZWxldGVSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkiHwodRGVsZXRlUmV0ZW50aW9uUG9saWN5UmVzcG9uc2UqpwEKHVJlZ2lzdHJ5QWNjZXNzVG9rZW5QZXJtaXNzaW9uEjAKLFJFR0lTVFJZX0FDQ0VTU19UT0tFTl9QRVJNSVNTSU9OX1VOU1BFQ0lGSUVEEAASKQolUkVHSVNUUllfQUNDRVNTX1RPS0VOX1BFUk1JU1NJT05fUFVMTBABEikKJVJFR0lTVFJZX0FDQ0VTU19UT0tFTl9QRVJNSVNTSU9OX1BVU0gQAipuCg5JbWFnZVRhZ1N0YXR1cxIgChxJTUFHRV9UQUdfU1RBVFVTX1VOU1BFQ0lGSUVEEAASGwoXSU1BR0VfVEFHX1NUQVRVU19UQUdHRUQQARIdChlJTUFHRV9UQUdfU1RBVFVTX1VOVEFHR0VEEAIy5QsKD1JlZ2lzdHJ5U2VydmljZRJmCgtDcmVhdGVUb2tlbhIqLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQ3JlYXRlVG9rZW5SZXF1ZXN0GisuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5DcmVhdGVUb2tlblJlc3BvbnNlEmMKCkxpc3RUb2tlbnMSKS5kZXBvdC5yZWdpc3RyeS52MWJldGExLkxpc3RUb2tlbnNSZXF1ZXN0GiouZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0VG9rZW5zUmVzcG9uc2USZgoLUmV2b2tlVG9rZW4SKi5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJldm9rZVRva2VuUmVxdWVzdBorLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuUmV2b2tlVG9rZW5SZXNwb25zZRJ1ChBDcmVhdGVSZXBvc2l0b3J5Ei8uZGVwb3QucmVnaXN0cnkudjFiZXRhMS5DcmVhdGVSZXBvc2l0b3J5UmVxdWVzdBowLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQ3JlYXRlUmVwb3NpdG9yeVJlc3BvbnNlEnUKEExpc3RSZXBvc2l0b3JpZXMSLy5kZXBvdC5yZWdpc3RyeS52MWJldGExLkxpc3RSZXBvc2l0b3JpZXNSZXF1ZXN0GjAuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0UmVwb3NpdG9yaWVzUmVzcG9uc2USYwoKTGlzdEltYWdlcxIpLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuTGlzdEltYWdlc1JlcXVlc3QaKi5kZXBvdC5yZWdpc3RyeS52MWJldGExLkxpc3RJbWFnZXNSZXNwb25zZRJvCg5HZXRJbWFnZURldGFpbBItLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuR2V0SW1hZ2VEZXRhaWxSZXF1ZXN0Gi4uZGVwb3QucmVnaXN0cnkudjFiZXRhMS5HZXRJbWFnZURldGFpbFJlc3BvbnNlEnUKEERlbGV0ZVJlcG9zaXRvcnkSLy5kZXBvdC5yZWdpc3RyeS52MWJldGExLkRlbGV0ZVJlcG9zaXRvcnlSZXF1ZXN0GjAuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5EZWxldGVSZXBvc2l0b3J5UmVzcG9uc2USYAoJRGVsZXRlVGFnEiguZGVwb3QucmVnaXN0cnkudjFiZXRhMS5EZWxldGVUYWdSZXF1ZXN0GikuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5EZWxldGVUYWdSZXNwb25zZRJ1ChBCYXRjaERlbGV0ZUltYWdlEi8uZGVwb3QucmVnaXN0cnkudjFiZXRhMS5CYXRjaERlbGV0ZUltYWdlUmVxdWVzdBowLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQmF0Y2hEZWxldGVJbWFnZVJlc3BvbnNlEnsKEkdldFJldGVudGlvblBvbGljeRIxLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuR2V0UmV0ZW50aW9uUG9saWN5UmVxdWVzdBoyLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuR2V0UmV0ZW50aW9uUG9saWN5UmVzcG9uc2UShAEKFVVwc2VydFJldGVudGlvblBvbGljeRI0LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBzZXJ0UmV0ZW50aW9uUG9saWN5UmVxdWVzdBo1LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBzZXJ0UmV0ZW50aW9uUG9saWN5UmVzcG9uc2UShAEKFURlbGV0ZVJldGVudGlvblBvbGljeRI0LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlUmV0ZW50aW9uUG9saWN5UmVxdWVzdBo1LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlUmV0ZW50aW9uUG9saWN5UmVzcG9uc2ViBnByb3RvMw',
+    'CiVkZXBvdC9yZWdpc3RyeS92MWJldGExL3JlZ2lzdHJ5LnByb3RvEhZkZXBvdC5yZWdpc3RyeS52MWJldGExIvYBChJDcmVhdGVUb2tlblJlcXVlc3QSDAoEbmFtZRgBIAEoCRJJCgpwZXJtaXNzaW9uGAIgASgOMjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuUGVybWlzc2lvbhIZChFyZXBvc2l0b3J5X3Njb3BlcxgDIAMoCRIzCgpleHBpcmVzX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgAiAEBEhgKC2Rlc2NyaXB0aW9uGAUgASgJSAGIAQFCDQoLX2V4cGlyZXNfYXRCDgoMX2Rlc2NyaXB0aW9uImEKE0NyZWF0ZVRva2VuUmVzcG9uc2USOgoFdG9rZW4YASABKAsyKy5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJlZ2lzdHJ5QWNjZXNzVG9rZW4SDgoGc2VjcmV0GAIgASgJIlIKEUxpc3RUb2tlbnNSZXF1ZXN0EgwKBHBhZ2UYASABKAUSEQoJcGFnZV9zaXplGAIgASgFEhIKBXF1ZXJ5GAMgASgJSACIAQFCCAoGX3F1ZXJ5IocBChJMaXN0VG9rZW5zUmVzcG9uc2USOwoGdG9rZW5zGAEgAygLMisuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuEgwKBHBhZ2UYAiABKAUSEQoJcGFnZV9zaXplGAMgASgFEhMKC3RvdGFsX2NvdW50GAQgASgFIiYKElJldm9rZVRva2VuUmVxdWVzdBIQCgh0b2tlbl9pZBgBIAEoCSJRChNSZXZva2VUb2tlblJlc3BvbnNlEjoKBXRva2VuGAEgASgLMisuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZWdpc3RyeUFjY2Vzc1Rva2VuIn0KF0NyZWF0ZVJlcG9zaXRvcnlSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkSQQoIdXBzdHJlYW0YAiABKAsyKi5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJlcG9zaXRvcnlVcHN0cmVhbUgAiAEBQgsKCV91cHN0cmVhbSJPChJSZXBvc2l0b3J5VXBzdHJlYW0SHAoUdXBzdHJlYW1fcmVnaXN0cnlfaWQYASABKAkSGwoTdXBzdHJlYW1fcmVwb3NpdG9yeRgCIAEoCSKAAQoYQ3JlYXRlUmVwb3NpdG9yeVJlc3BvbnNlEkwKE3Vwc3RyZWFtX3JlcG9zaXRvcnkYASABKAsyKi5kZXBvdC5yZWdpc3RyeS52MWJldGExLlVwc3RyZWFtUmVwb3NpdG9yeUgAiAEBQhYKFF91cHN0cmVhbV9yZXBvc2l0b3J5IlgKF0xpc3RSZXBvc2l0b3JpZXNSZXF1ZXN0EgwKBHBhZ2UYASABKAUSEQoJcGFnZV9zaXplGAIgASgFEhIKBXF1ZXJ5GAMgASgJSACIAQFCCAoGX3F1ZXJ5Io4BChhMaXN0UmVwb3NpdG9yaWVzUmVzcG9uc2USPwoMcmVwb3NpdG9yaWVzGAEgAygLMikuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZXBvc2l0b3J5U3VtbWFyeRIMCgRwYWdlGAIgASgFEhEKCXBhZ2Vfc2l6ZRgDIAEoBRIQCghoYXNfbW9yZRgEIAEoCCLTAQoRUmVwb3NpdG9yeVN1bW1hcnkSDAoEbmFtZRgBIAEoCRIRCgl0YWdfY291bnQYAiABKAMSEgoKc2l6ZV9ieXRlcxgDIAEoAxIuCgpjcmVhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI3Cg5sYXN0X3B1c2hlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAIgBARINCgVzY29wZRgGIAEoCUIRCg9fbGFzdF9wdXNoZWRfYXQiqgEKEUxpc3RJbWFnZXNSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkSDAoEcGFnZRgCIAEoBRIRCglwYWdlX3NpemUYAyABKAUSFgoJdGFnX3F1ZXJ5GAQgASgJSACIAQESOgoKdGFnX3N0YXR1cxgFIAEoDjImLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VUYWdTdGF0dXNCDAoKX3RhZ19xdWVyeSJ9ChJMaXN0SW1hZ2VzUmVzcG9uc2USNAoGaW1hZ2VzGAEgAygLMiQuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5JbWFnZVN1bW1hcnkSDAoEcGFnZRgCIAEoBRIRCglwYWdlX3NpemUYAyABKAUSEAoIaGFzX21vcmUYBCABKAgingEKDEltYWdlU3VtbWFyeRIOCgZkaWdlc3QYASABKAkSEgoKbWVkaWFfdHlwZRgCIAEoCRIZChFjb25maWdfbWVkaWFfdHlwZRgDIAEoCRISCgpzaXplX2J5dGVzGAQgASgDEgwKBHRhZ3MYBSADKAkSLQoJcHVzaGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCI+ChVHZXRJbWFnZURldGFpbFJlcXVlc3QSEgoKcmVwb3NpdG9yeRgBIAEoCRIRCglyZWZlcmVuY2UYAiABKAkiugEKFkdldEltYWdlRGV0YWlsUmVzcG9uc2USDgoGZGlnZXN0GAEgASgJEhIKCm1lZGlhX3R5cGUYAiABKAkSGQoRY29uZmlnX21lZGlhX3R5cGUYAyABKAkSEgoKc2l6ZV9ieXRlcxgEIAEoAxIMCgR0YWdzGAUgAygJEi0KCXB1c2hlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEAoIbWFuaWZlc3QYByABKAwiLQoXRGVsZXRlUmVwb3NpdG9yeVJlcXVlc3QSEgoKcmVwb3NpdG9yeRgBIAEoCSIaChhEZWxldGVSZXBvc2l0b3J5UmVzcG9uc2UiMwoQRGVsZXRlVGFnUmVxdWVzdBISCgpyZXBvc2l0b3J5GAEgASgJEgsKA3RhZxgCIAEoCSITChFEZWxldGVUYWdSZXNwb25zZSJjCg9JbWFnZUlkZW50aWZpZXISGQoMaW1hZ2VfZGlnZXN0GAEgASgJSACIAQESFgoJaW1hZ2VfdGFnGAIgASgJSAGIAQFCDwoNX2ltYWdlX2RpZ2VzdEIMCgpfaW1hZ2VfdGFnIncKDEltYWdlRmFpbHVyZRI5CghpbWFnZV9pZBgBIAEoCzInLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VJZGVudGlmaWVyEhQKDGZhaWx1cmVfY29kZRgCIAEoCRIWCg5mYWlsdXJlX3JlYXNvbhgDIAEoCSJpChdCYXRjaERlbGV0ZUltYWdlUmVxdWVzdBISCgpyZXBvc2l0b3J5GAEgASgJEjoKCWltYWdlX2lkcxgCIAMoCzInLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuSW1hZ2VJZGVudGlmaWVyIo4BChhCYXRjaERlbGV0ZUltYWdlUmVzcG9uc2USOgoJaW1hZ2VfaWRzGAEgAygLMicuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5JbWFnZUlkZW50aWZpZXISNgoIZmFpbHVyZXMYAiADKAsyJC5kZXBvdC5yZWdpc3RyeS52MWJldGExLkltYWdlRmFpbHVyZSKkAwoTUmVnaXN0cnlBY2Nlc3NUb2tlbhIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEkkKCnBlcm1pc3Npb24YAyABKA4yNS5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJlZ2lzdHJ5QWNjZXNzVG9rZW5QZXJtaXNzaW9uEhkKEXJlcG9zaXRvcnlfc2NvcGVzGAQgAygJEjMKCmV4cGlyZXNfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSACIAQESMwoKcmV2b2tlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAYgBARIuCgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIYCgtkZXNjcmlwdGlvbhgIIAEoCUgCiAEBEhcKD2NyZWF0ZWRfYnlfa2luZBgJIAEoCRISCgpjcmVhdGVkX2J5GAogASgJQg0KC19leHBpcmVzX2F0Qg0KC19yZXZva2VkX2F0Qg4KDF9kZXNjcmlwdGlvbiLkAQoPUmV0ZW50aW9uUG9saWN5EhIKCnJlcG9zaXRvcnkYASABKAkSDwoHZW5hYmxlZBgCIAEoCBIXCgprZWVwX2NvdW50GAMgASgFSACIAQESFgoJa2VlcF9kYXlzGAQgASgFSAGIAQESLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCDQoLX2tlZXBfY291bnRCDAoKX2tlZXBfZGF5cyIvChlHZXRSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkiZQoaR2V0UmV0ZW50aW9uUG9saWN5UmVzcG9uc2USPAoGcG9saWN5GAEgASgLMicuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZXRlbnRpb25Qb2xpY3lIAIgBAUIJCgdfcG9saWN5IpEBChxVcHNlcnRSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkSDwoHZW5hYmxlZBgCIAEoCBIXCgprZWVwX2NvdW50GAMgASgFSACIAQESFgoJa2VlcF9kYXlzGAQgASgFSAGIAQFCDQoLX2tlZXBfY291bnRCDAoKX2tlZXBfZGF5cyJYCh1VcHNlcnRSZXRlbnRpb25Qb2xpY3lSZXNwb25zZRI3CgZwb2xpY3kYASABKAsyJy5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJldGVudGlvblBvbGljeSIyChxEZWxldGVSZXRlbnRpb25Qb2xpY3lSZXF1ZXN0EhIKCnJlcG9zaXRvcnkYASABKAkiHwodRGVsZXRlUmV0ZW50aW9uUG9saWN5UmVzcG9uc2UiswIKEFVwc3RyZWFtUmVnaXN0cnkSCgoCaWQYASABKAkSDAoEbmFtZRgCIAEoCRIUCgx1cHN0cmVhbV91cmwYAyABKAkSEAoIdXNlcm5hbWUYBCABKAkSFAoMaGFzX3Bhc3N3b3JkGAUgASgIEkMKCWF1dGhfdHlwZRgGIAEoDjIwLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBzdHJlYW1SZWdpc3RyeUF1dGhUeXBlEhUKCHJvbGVfYXJuGAcgASgJSACIAQESLgoKY3JlYXRlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCCwoJX3JvbGVfYXJuIm8KElVwc3RyZWFtUmVwb3NpdG9yeRIKCgJpZBgBIAEoCRIcChR1cHN0cmVhbV9yZWdpc3RyeV9pZBgCIAEoCRIbChN1cHN0cmVhbV9yZXBvc2l0b3J5GAMgASgJEhIKCnJlcG9zaXRvcnkYBCABKAkiHwodTGlzdFVwc3RyZWFtUmVnaXN0cmllc1JlcXVlc3QiZwoeTGlzdFVwc3RyZWFtUmVnaXN0cmllc1Jlc3BvbnNlEkUKE3Vwc3RyZWFtX3JlZ2lzdHJpZXMYASADKAsyKC5kZXBvdC5yZWdpc3RyeS52MWJldGExLlVwc3RyZWFtUmVnaXN0cnki0AEKHUNyZWF0ZVVwc3RyZWFtUmVnaXN0cnlSZXF1ZXN0EgwKBG5hbWUYASABKAkSFAoMdXBzdHJlYW1fdXJsGAIgASgJEhAKCHVzZXJuYW1lGAMgASgJEhAKCHBhc3N3b3JkGAQgASgJEkMKCWF1dGhfdHlwZRgFIAEoDjIwLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBzdHJlYW1SZWdpc3RyeUF1dGhUeXBlEhUKCHJvbGVfYXJuGAYgASgJSACIAQFCCwoJX3JvbGVfYXJuImUKHkNyZWF0ZVVwc3RyZWFtUmVnaXN0cnlSZXNwb25zZRJDChF1cHN0cmVhbV9yZWdpc3RyeRgBIAEoCzIoLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBzdHJlYW1SZWdpc3RyeSLVAQodVXBkYXRlVXBzdHJlYW1SZWdpc3RyeVJlcXVlc3QSHAoUdXBzdHJlYW1fcmVnaXN0cnlfaWQYASABKAkSGQoMdXBzdHJlYW1fdXJsGAIgASgJSACIAQESFQoIdXNlcm5hbWUYAyABKAlIAYgBARIVCghwYXNzd29yZBgEIAEoCUgCiAEBEhUKCHJvbGVfYXJuGAUgASgJSAOIAQFCDwoNX3Vwc3RyZWFtX3VybEILCglfdXNlcm5hbWVCCwoJX3Bhc3N3b3JkQgsKCV9yb2xlX2FybiJlCh5VcGRhdGVVcHN0cmVhbVJlZ2lzdHJ5UmVzcG9uc2USQwoRdXBzdHJlYW1fcmVnaXN0cnkYASABKAsyKC5kZXBvdC5yZWdpc3RyeS52MWJldGExLlVwc3RyZWFtUmVnaXN0cnkiPQodRGVsZXRlVXBzdHJlYW1SZWdpc3RyeVJlcXVlc3QSHAoUdXBzdHJlYW1fcmVnaXN0cnlfaWQYASABKAkiIAoeRGVsZXRlVXBzdHJlYW1SZWdpc3RyeVJlc3BvbnNlKqcBCh1SZWdpc3RyeUFjY2Vzc1Rva2VuUGVybWlzc2lvbhIwCixSRUdJU1RSWV9BQ0NFU1NfVE9LRU5fUEVSTUlTU0lPTl9VTlNQRUNJRklFRBAAEikKJVJFR0lTVFJZX0FDQ0VTU19UT0tFTl9QRVJNSVNTSU9OX1BVTEwQARIpCiVSRUdJU1RSWV9BQ0NFU1NfVE9LRU5fUEVSTUlTU0lPTl9QVVNIEAIqbgoOSW1hZ2VUYWdTdGF0dXMSIAocSU1BR0VfVEFHX1NUQVRVU19VTlNQRUNJRklFRBAAEhsKF0lNQUdFX1RBR19TVEFUVVNfVEFHR0VEEAESHQoZSU1BR0VfVEFHX1NUQVRVU19VTlRBR0dFRBACKpMBChhVcHN0cmVhbVJlZ2lzdHJ5QXV0aFR5cGUSKwonVVBTVFJFQU1fUkVHSVNUUllfQVVUSF9UWVBFX1VOU1BFQ0lGSUVEEAASJQohVVBTVFJFQU1fUkVHSVNUUllfQVVUSF9UWVBFX0JBU0lDEAESIwofVVBTVFJFQU1fUkVHSVNUUllfQVVUSF9UWVBFX0VDUhACMo0QCg9SZWdpc3RyeVNlcnZpY2USZgoLQ3JlYXRlVG9rZW4SKi5kZXBvdC5yZWdpc3RyeS52MWJldGExLkNyZWF0ZVRva2VuUmVxdWVzdBorLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQ3JlYXRlVG9rZW5SZXNwb25zZRJjCgpMaXN0VG9rZW5zEikuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0VG9rZW5zUmVxdWVzdBoqLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuTGlzdFRva2Vuc1Jlc3BvbnNlEmYKC1Jldm9rZVRva2VuEiouZGVwb3QucmVnaXN0cnkudjFiZXRhMS5SZXZva2VUb2tlblJlcXVlc3QaKy5kZXBvdC5yZWdpc3RyeS52MWJldGExLlJldm9rZVRva2VuUmVzcG9uc2USdQoQQ3JlYXRlUmVwb3NpdG9yeRIvLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQ3JlYXRlUmVwb3NpdG9yeVJlcXVlc3QaMC5kZXBvdC5yZWdpc3RyeS52MWJldGExLkNyZWF0ZVJlcG9zaXRvcnlSZXNwb25zZRJ1ChBMaXN0UmVwb3NpdG9yaWVzEi8uZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0UmVwb3NpdG9yaWVzUmVxdWVzdBowLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuTGlzdFJlcG9zaXRvcmllc1Jlc3BvbnNlEmMKCkxpc3RJbWFnZXMSKS5kZXBvdC5yZWdpc3RyeS52MWJldGExLkxpc3RJbWFnZXNSZXF1ZXN0GiouZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0SW1hZ2VzUmVzcG9uc2USbwoOR2V0SW1hZ2VEZXRhaWwSLS5kZXBvdC5yZWdpc3RyeS52MWJldGExLkdldEltYWdlRGV0YWlsUmVxdWVzdBouLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuR2V0SW1hZ2VEZXRhaWxSZXNwb25zZRJ1ChBEZWxldGVSZXBvc2l0b3J5Ei8uZGVwb3QucmVnaXN0cnkudjFiZXRhMS5EZWxldGVSZXBvc2l0b3J5UmVxdWVzdBowLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlUmVwb3NpdG9yeVJlc3BvbnNlEmAKCURlbGV0ZVRhZxIoLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlVGFnUmVxdWVzdBopLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlVGFnUmVzcG9uc2USdQoQQmF0Y2hEZWxldGVJbWFnZRIvLmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQmF0Y2hEZWxldGVJbWFnZVJlcXVlc3QaMC5kZXBvdC5yZWdpc3RyeS52MWJldGExLkJhdGNoRGVsZXRlSW1hZ2VSZXNwb25zZRJ7ChJHZXRSZXRlbnRpb25Qb2xpY3kSMS5kZXBvdC5yZWdpc3RyeS52MWJldGExLkdldFJldGVudGlvblBvbGljeVJlcXVlc3QaMi5kZXBvdC5yZWdpc3RyeS52MWJldGExLkdldFJldGVudGlvblBvbGljeVJlc3BvbnNlEoQBChVVcHNlcnRSZXRlbnRpb25Qb2xpY3kSNC5kZXBvdC5yZWdpc3RyeS52MWJldGExLlVwc2VydFJldGVudGlvblBvbGljeVJlcXVlc3QaNS5kZXBvdC5yZWdpc3RyeS52MWJldGExLlVwc2VydFJldGVudGlvblBvbGljeVJlc3BvbnNlEoQBChVEZWxldGVSZXRlbnRpb25Qb2xpY3kSNC5kZXBvdC5yZWdpc3RyeS52MWJldGExLkRlbGV0ZVJldGVudGlvblBvbGljeVJlcXVlc3QaNS5kZXBvdC5yZWdpc3RyeS52MWJldGExLkRlbGV0ZVJldGVudGlvblBvbGljeVJlc3BvbnNlEocBChZMaXN0VXBzdHJlYW1SZWdpc3RyaWVzEjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5MaXN0VXBzdHJlYW1SZWdpc3RyaWVzUmVxdWVzdBo2LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuTGlzdFVwc3RyZWFtUmVnaXN0cmllc1Jlc3BvbnNlEocBChZDcmVhdGVVcHN0cmVhbVJlZ2lzdHJ5EjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5DcmVhdGVVcHN0cmVhbVJlZ2lzdHJ5UmVxdWVzdBo2LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuQ3JlYXRlVXBzdHJlYW1SZWdpc3RyeVJlc3BvbnNlEocBChZVcGRhdGVVcHN0cmVhbVJlZ2lzdHJ5EjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5VcGRhdGVVcHN0cmVhbVJlZ2lzdHJ5UmVxdWVzdBo2LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuVXBkYXRlVXBzdHJlYW1SZWdpc3RyeVJlc3BvbnNlEocBChZEZWxldGVVcHN0cmVhbVJlZ2lzdHJ5EjUuZGVwb3QucmVnaXN0cnkudjFiZXRhMS5EZWxldGVVcHN0cmVhbVJlZ2lzdHJ5UmVxdWVzdBo2LmRlcG90LnJlZ2lzdHJ5LnYxYmV0YTEuRGVsZXRlVXBzdHJlYW1SZWdpc3RyeVJlc3BvbnNlYgZwcm90bzM',
     [file_google_protobuf_timestamp],
   )
 
@@ -184,6 +184,13 @@ export type CreateRepositoryRequest = Message<'depot.registry.v1beta1.CreateRepo
    * @generated from field: string repository = 1;
    */
   repository: string
+
+  /**
+   * When set, the repository pulls through from an upstream registry.
+   *
+   * @generated from field: optional depot.registry.v1beta1.RepositoryUpstream upstream = 2;
+   */
+  upstream?: RepositoryUpstream | undefined
 }
 
 /**
@@ -195,9 +202,39 @@ export const CreateRepositoryRequestSchema: GenMessage<CreateRepositoryRequest> 
   messageDesc(file_depot_registry_v1beta1_registry, 6)
 
 /**
+ * @generated from message depot.registry.v1beta1.RepositoryUpstream
+ */
+export type RepositoryUpstream = Message<'depot.registry.v1beta1.RepositoryUpstream'> & {
+  /**
+   * @generated from field: string upstream_registry_id = 1;
+   */
+  upstreamRegistryId: string
+
+  /**
+   * Repository path in the upstream registry, such as `library/golang`.
+   *
+   * @generated from field: string upstream_repository = 2;
+   */
+  upstreamRepository: string
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.RepositoryUpstream.
+ * Use `create(RepositoryUpstreamSchema)` to create a new message.
+ */
+export const RepositoryUpstreamSchema: GenMessage<RepositoryUpstream> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 7)
+
+/**
  * @generated from message depot.registry.v1beta1.CreateRepositoryResponse
  */
-export type CreateRepositoryResponse = Message<'depot.registry.v1beta1.CreateRepositoryResponse'> & {}
+export type CreateRepositoryResponse = Message<'depot.registry.v1beta1.CreateRepositoryResponse'> & {
+  /**
+   * @generated from field: optional depot.registry.v1beta1.UpstreamRepository upstream_repository = 1;
+   */
+  upstreamRepository?: UpstreamRepository | undefined
+}
 
 /**
  * Describes the message depot.registry.v1beta1.CreateRepositoryResponse.
@@ -205,7 +242,7 @@ export type CreateRepositoryResponse = Message<'depot.registry.v1beta1.CreateRep
  */
 export const CreateRepositoryResponseSchema: GenMessage<CreateRepositoryResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 7)
+  messageDesc(file_depot_registry_v1beta1_registry, 8)
 
 /**
  * @generated from message depot.registry.v1beta1.ListRepositoriesRequest
@@ -233,7 +270,7 @@ export type ListRepositoriesRequest = Message<'depot.registry.v1beta1.ListReposi
  */
 export const ListRepositoriesRequestSchema: GenMessage<ListRepositoriesRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 8)
+  messageDesc(file_depot_registry_v1beta1_registry, 9)
 
 /**
  * @generated from message depot.registry.v1beta1.ListRepositoriesResponse
@@ -266,7 +303,7 @@ export type ListRepositoriesResponse = Message<'depot.registry.v1beta1.ListRepos
  */
 export const ListRepositoriesResponseSchema: GenMessage<ListRepositoriesResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 9)
+  messageDesc(file_depot_registry_v1beta1_registry, 10)
 
 /**
  * @generated from message depot.registry.v1beta1.RepositorySummary
@@ -309,7 +346,7 @@ export type RepositorySummary = Message<'depot.registry.v1beta1.RepositorySummar
  */
 export const RepositorySummarySchema: GenMessage<RepositorySummary> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 10)
+  messageDesc(file_depot_registry_v1beta1_registry, 11)
 
 /**
  * @generated from message depot.registry.v1beta1.ListImagesRequest
@@ -347,7 +384,7 @@ export type ListImagesRequest = Message<'depot.registry.v1beta1.ListImagesReques
  */
 export const ListImagesRequestSchema: GenMessage<ListImagesRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 11)
+  messageDesc(file_depot_registry_v1beta1_registry, 12)
 
 /**
  * @generated from message depot.registry.v1beta1.ListImagesResponse
@@ -380,7 +417,7 @@ export type ListImagesResponse = Message<'depot.registry.v1beta1.ListImagesRespo
  */
 export const ListImagesResponseSchema: GenMessage<ListImagesResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 12)
+  messageDesc(file_depot_registry_v1beta1_registry, 13)
 
 /**
  * @generated from message depot.registry.v1beta1.ImageSummary
@@ -423,7 +460,7 @@ export type ImageSummary = Message<'depot.registry.v1beta1.ImageSummary'> & {
  */
 export const ImageSummarySchema: GenMessage<ImageSummary> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 13)
+  messageDesc(file_depot_registry_v1beta1_registry, 14)
 
 /**
  * @generated from message depot.registry.v1beta1.GetImageDetailRequest
@@ -446,7 +483,7 @@ export type GetImageDetailRequest = Message<'depot.registry.v1beta1.GetImageDeta
  */
 export const GetImageDetailRequestSchema: GenMessage<GetImageDetailRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 14)
+  messageDesc(file_depot_registry_v1beta1_registry, 15)
 
 /**
  * @generated from message depot.registry.v1beta1.GetImageDetailResponse
@@ -494,7 +531,7 @@ export type GetImageDetailResponse = Message<'depot.registry.v1beta1.GetImageDet
  */
 export const GetImageDetailResponseSchema: GenMessage<GetImageDetailResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 15)
+  messageDesc(file_depot_registry_v1beta1_registry, 16)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteRepositoryRequest
@@ -512,7 +549,7 @@ export type DeleteRepositoryRequest = Message<'depot.registry.v1beta1.DeleteRepo
  */
 export const DeleteRepositoryRequestSchema: GenMessage<DeleteRepositoryRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 16)
+  messageDesc(file_depot_registry_v1beta1_registry, 17)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteRepositoryResponse
@@ -525,7 +562,7 @@ export type DeleteRepositoryResponse = Message<'depot.registry.v1beta1.DeleteRep
  */
 export const DeleteRepositoryResponseSchema: GenMessage<DeleteRepositoryResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 17)
+  messageDesc(file_depot_registry_v1beta1_registry, 18)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteTagRequest
@@ -548,7 +585,7 @@ export type DeleteTagRequest = Message<'depot.registry.v1beta1.DeleteTagRequest'
  */
 export const DeleteTagRequestSchema: GenMessage<DeleteTagRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 18)
+  messageDesc(file_depot_registry_v1beta1_registry, 19)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteTagResponse
@@ -561,7 +598,7 @@ export type DeleteTagResponse = Message<'depot.registry.v1beta1.DeleteTagRespons
  */
 export const DeleteTagResponseSchema: GenMessage<DeleteTagResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 19)
+  messageDesc(file_depot_registry_v1beta1_registry, 20)
 
 /**
  * @generated from message depot.registry.v1beta1.ImageIdentifier
@@ -584,7 +621,7 @@ export type ImageIdentifier = Message<'depot.registry.v1beta1.ImageIdentifier'> 
  */
 export const ImageIdentifierSchema: GenMessage<ImageIdentifier> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 20)
+  messageDesc(file_depot_registry_v1beta1_registry, 21)
 
 /**
  * @generated from message depot.registry.v1beta1.ImageFailure
@@ -612,7 +649,7 @@ export type ImageFailure = Message<'depot.registry.v1beta1.ImageFailure'> & {
  */
 export const ImageFailureSchema: GenMessage<ImageFailure> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 21)
+  messageDesc(file_depot_registry_v1beta1_registry, 22)
 
 /**
  * @generated from message depot.registry.v1beta1.BatchDeleteImageRequest
@@ -635,7 +672,7 @@ export type BatchDeleteImageRequest = Message<'depot.registry.v1beta1.BatchDelet
  */
 export const BatchDeleteImageRequestSchema: GenMessage<BatchDeleteImageRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 22)
+  messageDesc(file_depot_registry_v1beta1_registry, 23)
 
 /**
  * @generated from message depot.registry.v1beta1.BatchDeleteImageResponse
@@ -658,7 +695,7 @@ export type BatchDeleteImageResponse = Message<'depot.registry.v1beta1.BatchDele
  */
 export const BatchDeleteImageResponseSchema: GenMessage<BatchDeleteImageResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 23)
+  messageDesc(file_depot_registry_v1beta1_registry, 24)
 
 /**
  * @generated from message depot.registry.v1beta1.RegistryAccessToken
@@ -721,7 +758,7 @@ export type RegistryAccessToken = Message<'depot.registry.v1beta1.RegistryAccess
  */
 export const RegistryAccessTokenSchema: GenMessage<RegistryAccessToken> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 24)
+  messageDesc(file_depot_registry_v1beta1_registry, 25)
 
 /**
  * @generated from message depot.registry.v1beta1.RetentionPolicy
@@ -764,7 +801,7 @@ export type RetentionPolicy = Message<'depot.registry.v1beta1.RetentionPolicy'> 
  */
 export const RetentionPolicySchema: GenMessage<RetentionPolicy> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 25)
+  messageDesc(file_depot_registry_v1beta1_registry, 26)
 
 /**
  * @generated from message depot.registry.v1beta1.GetRetentionPolicyRequest
@@ -782,7 +819,7 @@ export type GetRetentionPolicyRequest = Message<'depot.registry.v1beta1.GetReten
  */
 export const GetRetentionPolicyRequestSchema: GenMessage<GetRetentionPolicyRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 26)
+  messageDesc(file_depot_registry_v1beta1_registry, 27)
 
 /**
  * @generated from message depot.registry.v1beta1.GetRetentionPolicyResponse
@@ -800,7 +837,7 @@ export type GetRetentionPolicyResponse = Message<'depot.registry.v1beta1.GetRete
  */
 export const GetRetentionPolicyResponseSchema: GenMessage<GetRetentionPolicyResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 27)
+  messageDesc(file_depot_registry_v1beta1_registry, 28)
 
 /**
  * @generated from message depot.registry.v1beta1.UpsertRetentionPolicyRequest
@@ -833,7 +870,7 @@ export type UpsertRetentionPolicyRequest = Message<'depot.registry.v1beta1.Upser
  */
 export const UpsertRetentionPolicyRequestSchema: GenMessage<UpsertRetentionPolicyRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 28)
+  messageDesc(file_depot_registry_v1beta1_registry, 29)
 
 /**
  * @generated from message depot.registry.v1beta1.UpsertRetentionPolicyResponse
@@ -851,7 +888,7 @@ export type UpsertRetentionPolicyResponse = Message<'depot.registry.v1beta1.Upse
  */
 export const UpsertRetentionPolicyResponseSchema: GenMessage<UpsertRetentionPolicyResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 29)
+  messageDesc(file_depot_registry_v1beta1_registry, 30)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteRetentionPolicyRequest
@@ -869,7 +906,7 @@ export type DeleteRetentionPolicyRequest = Message<'depot.registry.v1beta1.Delet
  */
 export const DeleteRetentionPolicyRequestSchema: GenMessage<DeleteRetentionPolicyRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 30)
+  messageDesc(file_depot_registry_v1beta1_registry, 31)
 
 /**
  * @generated from message depot.registry.v1beta1.DeleteRetentionPolicyResponse
@@ -882,7 +919,285 @@ export type DeleteRetentionPolicyResponse = Message<'depot.registry.v1beta1.Dele
  */
 export const DeleteRetentionPolicyResponseSchema: GenMessage<DeleteRetentionPolicyResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_registry_v1beta1_registry, 31)
+  messageDesc(file_depot_registry_v1beta1_registry, 32)
+
+/**
+ * Credentials are write-only: responses report `hasPassword`, never the password.
+ *
+ * @generated from message depot.registry.v1beta1.UpstreamRegistry
+ */
+export type UpstreamRegistry = Message<'depot.registry.v1beta1.UpstreamRegistry'> & {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string
+
+  /**
+   * @generated from field: string name = 2;
+   */
+  name: string
+
+  /**
+   * @generated from field: string upstream_url = 3;
+   */
+  upstreamUrl: string
+
+  /**
+   * @generated from field: string username = 4;
+   */
+  username: string
+
+  /**
+   * @generated from field: bool has_password = 5;
+   */
+  hasPassword: boolean
+
+  /**
+   * @generated from field: depot.registry.v1beta1.UpstreamRegistryAuthType auth_type = 6;
+   */
+  authType: UpstreamRegistryAuthType
+
+  /**
+   * @generated from field: optional string role_arn = 7;
+   */
+  roleArn?: string | undefined
+
+  /**
+   * @generated from field: google.protobuf.Timestamp created_at = 8;
+   */
+  createdAt?: Timestamp | undefined
+
+  /**
+   * @generated from field: google.protobuf.Timestamp updated_at = 9;
+   */
+  updatedAt?: Timestamp | undefined
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.UpstreamRegistry.
+ * Use `create(UpstreamRegistrySchema)` to create a new message.
+ */
+export const UpstreamRegistrySchema: GenMessage<UpstreamRegistry> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 33)
+
+/**
+ * @generated from message depot.registry.v1beta1.UpstreamRepository
+ */
+export type UpstreamRepository = Message<'depot.registry.v1beta1.UpstreamRepository'> & {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string
+
+  /**
+   * @generated from field: string upstream_registry_id = 2;
+   */
+  upstreamRegistryId: string
+
+  /**
+   * @generated from field: string upstream_repository = 3;
+   */
+  upstreamRepository: string
+
+  /**
+   * Local repository that pulls through from `upstreamRepository`.
+   *
+   * @generated from field: string repository = 4;
+   */
+  repository: string
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.UpstreamRepository.
+ * Use `create(UpstreamRepositorySchema)` to create a new message.
+ */
+export const UpstreamRepositorySchema: GenMessage<UpstreamRepository> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 34)
+
+/**
+ * @generated from message depot.registry.v1beta1.ListUpstreamRegistriesRequest
+ */
+export type ListUpstreamRegistriesRequest = Message<'depot.registry.v1beta1.ListUpstreamRegistriesRequest'> & {}
+
+/**
+ * Describes the message depot.registry.v1beta1.ListUpstreamRegistriesRequest.
+ * Use `create(ListUpstreamRegistriesRequestSchema)` to create a new message.
+ */
+export const ListUpstreamRegistriesRequestSchema: GenMessage<ListUpstreamRegistriesRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 35)
+
+/**
+ * @generated from message depot.registry.v1beta1.ListUpstreamRegistriesResponse
+ */
+export type ListUpstreamRegistriesResponse = Message<'depot.registry.v1beta1.ListUpstreamRegistriesResponse'> & {
+  /**
+   * @generated from field: repeated depot.registry.v1beta1.UpstreamRegistry upstream_registries = 1;
+   */
+  upstreamRegistries: UpstreamRegistry[]
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.ListUpstreamRegistriesResponse.
+ * Use `create(ListUpstreamRegistriesResponseSchema)` to create a new message.
+ */
+export const ListUpstreamRegistriesResponseSchema: GenMessage<ListUpstreamRegistriesResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 36)
+
+/**
+ * @generated from message depot.registry.v1beta1.CreateUpstreamRegistryRequest
+ */
+export type CreateUpstreamRegistryRequest = Message<'depot.registry.v1beta1.CreateUpstreamRegistryRequest'> & {
+  /**
+   * @generated from field: string name = 1;
+   */
+  name: string
+
+  /**
+   * @generated from field: string upstream_url = 2;
+   */
+  upstreamUrl: string
+
+  /**
+   * @generated from field: string username = 3;
+   */
+  username: string
+
+  /**
+   * @generated from field: string password = 4;
+   */
+  password: string
+
+  /**
+   * Default: `UPSTREAM_REGISTRY_AUTH_TYPE_BASIC`. ECR requires `roleArn`.
+   *
+   * @generated from field: depot.registry.v1beta1.UpstreamRegistryAuthType auth_type = 5;
+   */
+  authType: UpstreamRegistryAuthType
+
+  /**
+   * @generated from field: optional string role_arn = 6;
+   */
+  roleArn?: string | undefined
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.CreateUpstreamRegistryRequest.
+ * Use `create(CreateUpstreamRegistryRequestSchema)` to create a new message.
+ */
+export const CreateUpstreamRegistryRequestSchema: GenMessage<CreateUpstreamRegistryRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 37)
+
+/**
+ * @generated from message depot.registry.v1beta1.CreateUpstreamRegistryResponse
+ */
+export type CreateUpstreamRegistryResponse = Message<'depot.registry.v1beta1.CreateUpstreamRegistryResponse'> & {
+  /**
+   * @generated from field: depot.registry.v1beta1.UpstreamRegistry upstream_registry = 1;
+   */
+  upstreamRegistry?: UpstreamRegistry | undefined
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.CreateUpstreamRegistryResponse.
+ * Use `create(CreateUpstreamRegistryResponseSchema)` to create a new message.
+ */
+export const CreateUpstreamRegistryResponseSchema: GenMessage<CreateUpstreamRegistryResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 38)
+
+/**
+ * Unset fields are left unchanged.
+ *
+ * @generated from message depot.registry.v1beta1.UpdateUpstreamRegistryRequest
+ */
+export type UpdateUpstreamRegistryRequest = Message<'depot.registry.v1beta1.UpdateUpstreamRegistryRequest'> & {
+  /**
+   * @generated from field: string upstream_registry_id = 1;
+   */
+  upstreamRegistryId: string
+
+  /**
+   * @generated from field: optional string upstream_url = 2;
+   */
+  upstreamUrl?: string | undefined
+
+  /**
+   * @generated from field: optional string username = 3;
+   */
+  username?: string | undefined
+
+  /**
+   * @generated from field: optional string password = 4;
+   */
+  password?: string | undefined
+
+  /**
+   * @generated from field: optional string role_arn = 5;
+   */
+  roleArn?: string | undefined
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.UpdateUpstreamRegistryRequest.
+ * Use `create(UpdateUpstreamRegistryRequestSchema)` to create a new message.
+ */
+export const UpdateUpstreamRegistryRequestSchema: GenMessage<UpdateUpstreamRegistryRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 39)
+
+/**
+ * @generated from message depot.registry.v1beta1.UpdateUpstreamRegistryResponse
+ */
+export type UpdateUpstreamRegistryResponse = Message<'depot.registry.v1beta1.UpdateUpstreamRegistryResponse'> & {
+  /**
+   * @generated from field: depot.registry.v1beta1.UpstreamRegistry upstream_registry = 1;
+   */
+  upstreamRegistry?: UpstreamRegistry | undefined
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.UpdateUpstreamRegistryResponse.
+ * Use `create(UpdateUpstreamRegistryResponseSchema)` to create a new message.
+ */
+export const UpdateUpstreamRegistryResponseSchema: GenMessage<UpdateUpstreamRegistryResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 40)
+
+/**
+ * @generated from message depot.registry.v1beta1.DeleteUpstreamRegistryRequest
+ */
+export type DeleteUpstreamRegistryRequest = Message<'depot.registry.v1beta1.DeleteUpstreamRegistryRequest'> & {
+  /**
+   * @generated from field: string upstream_registry_id = 1;
+   */
+  upstreamRegistryId: string
+}
+
+/**
+ * Describes the message depot.registry.v1beta1.DeleteUpstreamRegistryRequest.
+ * Use `create(DeleteUpstreamRegistryRequestSchema)` to create a new message.
+ */
+export const DeleteUpstreamRegistryRequestSchema: GenMessage<DeleteUpstreamRegistryRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 41)
+
+/**
+ * @generated from message depot.registry.v1beta1.DeleteUpstreamRegistryResponse
+ */
+export type DeleteUpstreamRegistryResponse = Message<'depot.registry.v1beta1.DeleteUpstreamRegistryResponse'> & {}
+
+/**
+ * Describes the message depot.registry.v1beta1.DeleteUpstreamRegistryResponse.
+ * Use `create(DeleteUpstreamRegistryResponseSchema)` to create a new message.
+ */
+export const DeleteUpstreamRegistryResponseSchema: GenMessage<DeleteUpstreamRegistryResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_registry_v1beta1_registry, 42)
 
 /**
  * @generated from enum depot.registry.v1beta1.RegistryAccessTokenPermission
@@ -937,6 +1252,33 @@ export enum ImageTagStatus {
 export const ImageTagStatusSchema: GenEnum<ImageTagStatus> =
   /*@__PURE__*/
   enumDesc(file_depot_registry_v1beta1_registry, 1)
+
+/**
+ * @generated from enum depot.registry.v1beta1.UpstreamRegistryAuthType
+ */
+export enum UpstreamRegistryAuthType {
+  /**
+   * @generated from enum value: UPSTREAM_REGISTRY_AUTH_TYPE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: UPSTREAM_REGISTRY_AUTH_TYPE_BASIC = 1;
+   */
+  BASIC = 1,
+
+  /**
+   * @generated from enum value: UPSTREAM_REGISTRY_AUTH_TYPE_ECR = 2;
+   */
+  ECR = 2,
+}
+
+/**
+ * Describes the enum depot.registry.v1beta1.UpstreamRegistryAuthType.
+ */
+export const UpstreamRegistryAuthTypeSchema: GenEnum<UpstreamRegistryAuthType> =
+  /*@__PURE__*/
+  enumDesc(file_depot_registry_v1beta1_registry, 2)
 
 /**
  * @generated from service depot.registry.v1beta1.RegistryService
@@ -1045,5 +1387,37 @@ export const RegistryService: GenService<{
     methodKind: 'unary'
     input: typeof DeleteRetentionPolicyRequestSchema
     output: typeof DeleteRetentionPolicyResponseSchema
+  }
+  /**
+   * @generated from rpc depot.registry.v1beta1.RegistryService.ListUpstreamRegistries
+   */
+  listUpstreamRegistries: {
+    methodKind: 'unary'
+    input: typeof ListUpstreamRegistriesRequestSchema
+    output: typeof ListUpstreamRegistriesResponseSchema
+  }
+  /**
+   * @generated from rpc depot.registry.v1beta1.RegistryService.CreateUpstreamRegistry
+   */
+  createUpstreamRegistry: {
+    methodKind: 'unary'
+    input: typeof CreateUpstreamRegistryRequestSchema
+    output: typeof CreateUpstreamRegistryResponseSchema
+  }
+  /**
+   * @generated from rpc depot.registry.v1beta1.RegistryService.UpdateUpstreamRegistry
+   */
+  updateUpstreamRegistry: {
+    methodKind: 'unary'
+    input: typeof UpdateUpstreamRegistryRequestSchema
+    output: typeof UpdateUpstreamRegistryResponseSchema
+  }
+  /**
+   * @generated from rpc depot.registry.v1beta1.RegistryService.DeleteUpstreamRegistry
+   */
+  deleteUpstreamRegistry: {
+    methodKind: 'unary'
+    input: typeof DeleteUpstreamRegistryRequestSchema
+    output: typeof DeleteUpstreamRegistryResponseSchema
   }
 }> = /*@__PURE__*/ serviceDesc(file_depot_registry_v1beta1_registry, 0)
