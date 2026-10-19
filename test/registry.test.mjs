@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import {createServer} from 'node:http2'
 import {createRequire} from 'node:module'
 import {once} from 'node:events'
-import {test} from 'node:test'
+import {test} from 'vitest'
 import {Code, ConnectError} from '@connectrpc/connect'
 import {createClient} from '../dist/index.mjs'
 import {fromBinary, toBinary, fromJson, toJson} from '@bufbuild/protobuf'
@@ -36,7 +36,7 @@ async function endpoint(t, response, status = 200) {
   })
   server.listen(0, '127.0.0.1')
   await once(server, 'listening')
-  t.after(async () => {
+  t.onTestFinished(async () => {
     for (const session of sessions) session.destroy()
     await new Promise((resolve) => server.close(resolve))
   })

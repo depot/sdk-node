@@ -115,6 +115,12 @@ node examples/registry-retention.mjs keep-days '**' 30
 node examples/registry-retention.mjs delete team/app
 ```
 
+## Testing
+
+Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.
+Automated tests live in `test/` and use local HTTP/2 endpoints without Depot credentials.
+The `src/test.ts` script is a separate manual smoke test against the live API.
+
 ## License
 
 MIT License, see `LICENSE`.
