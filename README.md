@@ -68,6 +68,66 @@ To use a different token for an individual call, pass an authorization header:
 const result = await depot.core.v1.ProjectService.listProjects({}, {headers: {Authorization: `Bearer ${token}`}})
 ```
 
+## Project OIDC trust policies
+
+Use `core.v1.ProjectService` with an **organization API token** to manage which CI
+identities can authenticate to a Depot project. Project tokens and read-only
+organization tokens cannot authorize these operations.
+
+For GitLab, use numeric namespace and project IDs. The GitLab project ID is
+separate from the Depot project ID:
+
+```typescript
+import {createClient} from '@depot/sdk-node'
+
+const projects = createClient({token: process.env.DEPOT_TOKEN}).core.v1.ProjectService
+const projectId = 'your-depot-project-id'
+
+const {trustPolicy} = await projects.addTrustPolicy({
+  projectId,
+  provider: {
+    case: 'gitlab',
+    value: {namespaceId: '12345', projectId: '67890', protectedRefsOnly: true},
+  },
+})
+if (!trustPolicy) throw new Error('No trust policy returned')
+console.log(trustPolicy) // Check the saved settings, especially when adding an existing policy.
+
+const page = await projects.listTrustPolicies({projectId, pageSize: 100})
+console.log(page.trustPolicies)
+// When page.nextPageToken is present, pass it as pageToken with the same project/filter.
+
+await projects.updateTrustPolicy({
+  projectId,
+  trustPolicyId: trustPolicy.trustPolicyId,
+  protectedRefsOnly: false,
+})
+```
+
+`protectedRefsOnly: true` restricts GitLab authentication to protected refs.
+Omitting it on a new policy defaults to `false`. Adding an existing policy
+preserves its saved restrictions; use `updateTrustPolicy` to change them.
+Updates preserve omitted fields, while explicit `false` disables the selected
+restriction. GitHub policies similarly support `allowPublicPullRequests`; that
+field is only valid for GitHub, and `protectedRefsOnly` is only valid for GitLab.
+The API also supports CircleCI and Buildkite policies.
+
+To revoke a policy, call `removeTrustPolicy({projectId, trustPolicyId})`. The
+[runnable GitLab example](./examples/gitlab-trust-policy.mjs) performs one
+explicit operation per invocation. From this repository, run `pnpm run build`,
+set `DEPOT_TOKEN`, and choose an operation:
+
+```bash
+node examples/gitlab-trust-policy.mjs list <depot-project-id>
+node examples/gitlab-trust-policy.mjs add <depot-project-id> <namespace-id> <gitlab-project-id> true
+node examples/gitlab-trust-policy.mjs update <depot-project-id> <policy-id> false
+node examples/gitlab-trust-policy.mjs remove <depot-project-id> <policy-id>
+```
+
+The example lists one page of policies for all providers. Pass the returned
+`nextPageToken` as the final argument to `list` to fetch the next page. It prints
+the saved restrictions after additions and updates.
+
 ## Registry retention policies
 
 Use `depot.registry.v1beta1.RegistryService` with an **organization API token**.
