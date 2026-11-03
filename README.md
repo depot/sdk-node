@@ -32,6 +32,7 @@ export DEPOT_TOKEN=your-access-token
 - [`depot.core.v1.BuildService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.BuildService)
 - [`depot.core.v1.GithubActionsService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.GithubActionsService)
 - [`depot.core.v1.ProjectService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.ProjectService)
+- [`depot.core.v1.UsageAnalyticsService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.UsageAnalyticsService)
 - [`depot.core.v1.UsageService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.UsageService)
 - [`depot.core.v1.OrganizationService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.OrganizationService)
 - [`depot.registry.v1beta1.RegistryService`](https://buf.build/depot/api/docs/main:depot.registry.v1beta1#depot.registry.v1beta1.RegistryService)
@@ -176,25 +177,6 @@ node examples/registry-retention.mjs keep-days '**' 30
 node examples/registry-retention.mjs delete team/app
 ```
 
-## Testing
-
-Use `pnpm run fmt:check` (Oxfmt), `pnpm run lint` (Oxlint), and `pnpm run type-check`
-for source checks. Run `pnpm run package:check` to build and validate the packed
-package with Publint and Are the Types Wrong?.
-See [Releasing](./docs/releases.md) for npm setup, staged releases, and approval.
-
-Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.
-Automated tests live in `test/` and use local HTTP/2 endpoints without Depot credentials.
-The suite covers configuration, authorization, service serialization, errors, and
-cancellation through both package entrypoints. Default-client configuration is
-tested in isolated Node processes; even the default API URL is redirected locally.
-The `src/manual-smoke.ts` script is a separate manual smoke test against the live API
-and is excluded from automated discovery.
-
-## License
-
-MIT License, see `LICENSE`.
-
 ## Usage analysis
 
 `depot.core.v1.UsageAnalyticsService` exposes UTC daily usage series and paginated
@@ -215,3 +197,52 @@ node examples/usage-compare.mjs 2026-10-01T00:00:00Z 2026-10-08T00:00:00Z 2026-1
 
 The example follows every page, compares stable workflow keys, preserves unattributed
 usage, and returns vCPU-minute deltas. It does not estimate invoice amounts or send notifications.
+
+## Finalized invoices
+
+`createClient().core.v1.BillingService` exposes `listInvoices`, `getInvoice`, and
+`listInvoiceLineItems`. Use an organization token, or an organization owner's user
+token with an `X-Depot-Org` request header. The API returns finalized invoices for
+the linked Stripe customer, including previous/canceled subscriptions and
+standalone invoices. Standalone invoices have an empty `subscriptionId`.
+
+```js
+import {createClient} from '@depot/sdk-node'
+
+const billing = createClient({token: process.env.DEPOT_TOKEN}).core.v1.BillingService
+let pageToken = ''
+do {
+  const page = await billing.listInvoices({pageSize: 100, pageToken})
+  for (const invoice of page.invoices) {
+    // Monetary values are bigint minor units; preserve them when exporting.
+    console.log(invoice.id, invoice.currency, invoice.total.toString())
+  }
+  // A page containing only drafts can be empty and still have a next token.
+  pageToken = page.nextPageToken
+} while (pageToken)
+```
+
+Fetch details with `billing.getInvoice({invoiceId})` and line items with
+`billing.listInvoiceLineItems({invoiceId, pageSize: 100, pageToken})`. Continue
+line-item pagination until `nextPageToken` is empty. Tokens are opaque and bound to
+the organization/customer (and invoice for line items). Hosted/PDF invoice links
+are confidential; avoid logging them.
+
+## Testing
+
+Use `pnpm run fmt:check` (Oxfmt), `pnpm run lint` (Oxlint), and `pnpm run type-check`
+for source checks. Run `pnpm run package:check` to build and validate the packed
+package with Publint and Are the Types Wrong?.
+See [Releasing](./docs/releases.md) for npm setup, staged releases, and approval.
+
+Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.
+Automated tests live in `test/` and use local HTTP/2 endpoints without Depot credentials.
+The suite covers configuration, authorization, service serialization, errors, and
+cancellation through both package entrypoints. Default-client configuration is
+tested in isolated Node processes; even the default API URL is redirected locally.
+The `src/manual-smoke.ts` script is a separate manual smoke test against the live API
+and is excluded from automated discovery.
+
+## License
+
+MIT License, see `LICENSE`.
