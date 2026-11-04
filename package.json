@@ -44,7 +44,7 @@
     "fmt:check": "oxfmt --check .",
     "generate": "buf generate buf.build/depot/api",
     "lint": "oxlint --deny-warnings .",
-    "package:check": "pnpm run build && node .github/scripts/verify-package.mjs",
+    "package:check": "pnpm pack --out package.tgz && publint package.tgz --strict && attw package.tgz --profile strict",
     "prepack": "pnpm run build",
     "test": "pnpm run build && vitest run",
     "type-check": "tsc --noEmit"

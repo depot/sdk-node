@@ -179,7 +179,7 @@ node examples/registry-retention.mjs delete team/app
 
 Use `pnpm run fmt:check` (Oxfmt), `pnpm run lint` (Oxlint), and `pnpm run type-check`
 for source checks. Run `pnpm run package:check` to build and validate the packed
-package with Publint, Are the Types Wrong?, and isolated ESM/CommonJS consumers.
+package with Publint and Are the Types Wrong?.
 See [Releasing](./docs/releases.md) for npm setup, staged releases, and approval.
 
 Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.

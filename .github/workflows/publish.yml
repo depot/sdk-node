@@ -3,159 +3,73 @@ name: Stage npm release
 on:
   release:
     types: [published]
+  # Retry an existing release using gh workflow run publish.yml --ref vX.Y.Z.
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing stable GitHub release tag to stage (for example v2.3.0)
-        required: true
-        type: string
 
 permissions: {}
 
-# Serialize automatic releases and manual recovery, including different versions.
 concurrency:
   group: npm-release
   cancel-in-progress: false
 
 jobs:
-  build:
+  stage:
     if: >-
-      github.repository == 'depot/sdk-node' &&
-      ((github.event_name == 'release' && !github.event.release.draft && !github.event.release.prerelease) ||
-       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
+      github.repository == 'depot/sdk-node' && github.ref_type == 'tag' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (!github.event.release.draft && !github.event.release.prerelease))
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
       contents: read
-    outputs:
-      tag: ${{ steps.release.outputs.tag }}
-      version: ${{ steps.release.outputs.version }}
-      commit: ${{ steps.release.outputs.commit }}
-      integrity: ${{ steps.pack.outputs.integrity }}
+      id-token: write
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ github.workflow_sha }}
-          persist-credentials: false
-
-      - name: Resolve the published release
-        id: release
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
-        env:
-          RELEASE_TAG: ${{ inputs.tag || github.event.release.tag_name }}
-        with:
-          script: |
-            const {resolveRelease} = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/release-policy.mjs`)
-            const release = await resolveRelease(github, context.repo, process.env.RELEASE_TAG)
-            if (context.eventName === 'release' && release.commit !== context.sha) {
-              throw new Error('The release tag moved after this event; refusing to stage it.')
-            }
-            for (const [key, value] of Object.entries(release)) core.setOutput(key, value)
-            await core.summary.addHeading('Release to stage')
-              .addTable([['Tag', 'Source commit'], [release.tag, release.commit]]).write()
-
-      - name: Check out the exact release commit
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ steps.release.outputs.commit }}
-          path: source
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
           package-manager-cache: false
+
+      - name: Verify the stable release and package version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]
+          test "$(gh release view "$RELEASE_TAG" --json isDraft,isPrerelease --jq '.isDraft == false and .isPrerelease == false')" = true
+          node -e "const p = require('./package.json'); const a = require('node:assert/strict'); a.equal(p.name, '@depot/sdk-node'); a.equal('v' + p.version, process.env.RELEASE_TAG); a.ok(!p.private)"
 
       - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
         with:
           install: false
           cache: false
 
-      - name: Install the workflow's package validation tools
-        run: pnpm install --frozen-lockfile
+      # Pin a CLI with staged publishing support (npm >=11.15.0).
+      - run: npm install --global npm@11.17.0 --ignore-scripts --no-audit --no-fund
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fmt:check
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run test
+      - run: pnpm run package:check
 
-      - name: Verify package identity
-        working-directory: source
-        env:
-          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+      - name: Check whether this version is already published
+        id: published
         run: |
-          node --input-type=module <<'NODE'
-          import {readFileSync} from 'node:fs'
-          import {validatePackage} from '../.github/scripts/release-policy.mjs'
-          validatePackage(JSON.parse(readFileSync('package.json')), process.env.RELEASE_VERSION)
+          npm view @depot/sdk-node versions --json --registry https://registry.npmjs.org > "$RUNNER_TEMP/npm-versions.json"
+          node <<'NODE'
+          const fs = require('node:fs')
+          const versions = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/npm-versions.json'))
+          const exists = [].concat(versions).includes(require('./package.json').version)
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `exists=${exists}\n`)
+          if (exists) console.log('Version already published; skipping upload without changing dist-tags.')
           NODE
 
-      - run: pnpm install --frozen-lockfile
-        working-directory: source
-      - name: Check release formatting with Oxfmt
-        run: ../node_modules/.bin/oxfmt --check --config ../.oxfmtrc.json .
-        working-directory: source
-      - name: Lint release with Oxlint
-        run: ../node_modules/.bin/oxlint --deny-warnings --config ../.oxlintrc.json .
-        working-directory: source
-      - run: pnpm run type-check
-        working-directory: source
-      # The test script builds both formats and declarations first.
-      - run: pnpm run test
-        working-directory: source
-
-      - name: Pack and verify installation of the release artifact
-        id: pack
-        working-directory: source
-        env:
-          RELEASE_VERSION: ${{ steps.release.outputs.version }}
-        run: node ../.github/scripts/verify-package.mjs "$RUNNER_TEMP/release"
-
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: npm-package
-          path: ${{ runner.temp }}/release/package.tgz
-          if-no-files-found: error
-          retention-days: 7
-
-  stage:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ github.workflow_sha }}
-          sparse-checkout: .github/scripts
-          persist-credentials: false
-
-      - name: Recheck the release before staging
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
-        env:
-          RELEASE_TAG: ${{ needs.build.outputs.tag }}
-          RELEASE_COMMIT: ${{ needs.build.outputs.commit }}
-        with:
-          script: |
-            const {resolveRelease} = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/release-policy.mjs`)
-            const release = await resolveRelease(github, context.repo, process.env.RELEASE_TAG)
-            if (release.commit !== process.env.RELEASE_COMMIT) {
-              throw new Error('The release tag moved during the build; refusing to stage it.')
-            }
-
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version: '24'
-          package-manager-cache: false
-
-      # Staged publishing requires npm >=11.15.0; do not rely on bundled npm.
-      - run: npm install --global npm@11.17.0 --ignore-scripts --no-audit --no-fund
-
-      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
-        with:
-          name: npm-package
-          path: ${{ runner.temp }}/release
-
-      - name: Stage with OIDC and provenance
-        env:
-          RELEASE_VERSION: ${{ needs.build.outputs.version }}
-          RELEASE_COMMIT: ${{ needs.build.outputs.commit }}
-          RELEASE_INTEGRITY: ${{ needs.build.outputs.integrity }}
-        run: node .github/scripts/stage-package.mjs "$RUNNER_TEMP/release/package.tgz"
+      - name: Stage the checked tarball with OIDC and provenance
+        if: steps.published.outputs.exists == 'false'
+        run: npm stage publish ./package.tgz --ignore-scripts --access public --tag latest --provenance --registry https://registry.npmjs.org

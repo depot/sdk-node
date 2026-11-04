@@ -1,0 +1,25 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.repository == 'depot/sdk-node'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # A separate GitHub token lets the generated PR and release trigger CI.
+      # npm staging authenticates independently using OIDC in publish.yml.
+      - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
