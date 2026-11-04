@@ -2,8 +2,8 @@
 // @generated from file depot/core/v1/usage.proto (package depot.core.v1, syntax proto3)
 /* eslint-disable */
 
-import type {GenFile, GenMessage, GenService} from '@bufbuild/protobuf/codegenv2'
-import {fileDesc, messageDesc, serviceDesc} from '@bufbuild/protobuf/codegenv2'
+import type {GenEnum, GenFile, GenMessage, GenService} from '@bufbuild/protobuf/codegenv2'
+import {enumDesc, fileDesc, messageDesc, serviceDesc} from '@bufbuild/protobuf/codegenv2'
 import type {Timestamp} from '@bufbuild/protobuf/wkt'
 import {file_google_protobuf_timestamp} from '@bufbuild/protobuf/wkt'
 import type {Message} from '@bufbuild/protobuf'
@@ -14,7 +14,7 @@ import type {Message} from '@bufbuild/protobuf'
 export const file_depot_core_v1_usage: GenFile =
   /*@__PURE__*/
   fileDesc(
-    'ChlkZXBvdC9jb3JlL3YxL3VzYWdlLnByb3RvEg1kZXBvdC5jb3JlLnYxIsEBChdMaXN0UHJvamVjdFVzYWdlUmVxdWVzdBIsCghzdGFydF9hdBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASKgoGZW5kX2F0GAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIWCglwYWdlX3NpemUYAyABKAVIAIgBARIXCgpwYWdlX3Rva2VuGAQgASgJSAGIAQFCDAoKX3BhZ2Vfc2l6ZUINCgtfcGFnZV90b2tlbiJfChhMaXN0UHJvamVjdFVzYWdlUmVzcG9uc2USKgoFdXNhZ2UYASADKAsyGy5kZXBvdC5jb3JlLnYxLlByb2plY3RVc2FnZRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkihgEKFkdldFByb2plY3RVc2FnZVJlcXVlc3QSEgoKcHJvamVjdF9pZBgBIAEoCRIsCghzdGFydF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASKgoGZW5kX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJFChdHZXRQcm9qZWN0VXNhZ2VSZXNwb25zZRIqCgV1c2FnZRgBIAEoCzIbLmRlcG90LmNvcmUudjEuUHJvamVjdFVzYWdlInQKDFByb2plY3RVc2FnZRISCgpwcm9qZWN0X2lkGAEgASgJEhMKC2J1aWxkX2NvdW50GAIgASgFEh4KFmJ1aWxkX2R1cmF0aW9uX3NlY29uZHMYAyABKAUSGwoTbGF5ZXJfY2FjaGVfc2l6ZV9nYhgEIAEoBSJrCg9HZXRVc2FnZVJlcXVlc3QSLAoIc3RhcnRfYXQYASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEioKBmVuZF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAi3AIKEEdldFVzYWdlUmVzcG9uc2USMAoMcGVyaW9kX3N0YXJ0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgpwZXJpb2RfZW5kGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI7Cg9jb250YWluZXJfYnVpbGQYAyADKAsyIi5kZXBvdC5jb3JlLnYxLkNvbnRhaW5lckJ1aWxkVXNhZ2USQgoTZ2l0aHViX2FjdGlvbnNfam9icxgEIAMoCzIlLmRlcG90LmNvcmUudjEuR2l0aHViQWN0aW9uc0pvYnNVc2FnZRIsCgdzdG9yYWdlGAUgAygLMhsuZGVwb3QuY29yZS52MS5TdG9yYWdlVXNhZ2USNwoNYWdlbnRfc2FuZGJveBgGIAMoCzIgLmRlcG90LmNvcmUudjEuQWdlbnRTYW5kYm94VXNhZ2UibwoTQ29udGFpbmVyQnVpbGRVc2FnZRIUCgxwcm9qZWN0X25hbWUYASABKAkSEwoLYnVpbGRfY291bnQYAiABKAUSFQoNbWludXRlc19zYXZlZBgDIAEoAhIWCg5taW51dGVzX2JpbGxlZBgEIAEoAiKbAQoWR2l0aHViQWN0aW9uc0pvYnNVc2FnZRIMCgRyZXBvGAEgASgJEjkKBXRvdGFsGAIgASgLMiouZGVwb3QuY29yZS52MS5HaXRodWJBY3Rpb25zSm9ic1VzYWdlVG90YWwSOAoEam9icxgDIAMoCzIqLmRlcG90LmNvcmUudjEuR2l0aHViQWN0aW9uc0pvYlVzYWdlRGV0YWlsImEKG0dpdGh1YkFjdGlvbnNKb2JzVXNhZ2VUb3RhbBIRCglqb2JfY291bnQYASABKAUSFwoPbWludXRlc19lbGFwc2VkGAIgASgCEhYKDm1pbnV0ZXNfYmlsbGVkGAMgASgCIoMBChtHaXRodWJBY3Rpb25zSm9iVXNhZ2VEZXRhaWwSEAoId29ya2Zsb3cYASABKAkSDgoGcnVubmVyGAIgASgJEhEKCWpvYl9jb3VudBgDIAEoBRIXCg9taW51dGVzX2VsYXBzZWQYBCABKAISFgoObWludXRlc19iaWxsZWQYBSABKAIiNgoMU3RvcmFnZVVzYWdlEhQKDHN0b3JhZ2VfdHlwZRgBIAEoCRIQCgh0b3RhbF9nYhgCIAEoAiJxChFBZ2VudFNhbmRib3hVc2FnZRISCgphZ2VudF90eXBlGAEgASgJEhcKD3NhbmRib3hlc19jb3VudBgCIAEoBRIXCg9taW51dGVzX2VsYXBzZWQYAyABKAISFgoObWludXRlc19iaWxsZWQYBCABKAIyogIKDFVzYWdlU2VydmljZRJjChBMaXN0UHJvamVjdFVzYWdlEiYuZGVwb3QuY29yZS52MS5MaXN0UHJvamVjdFVzYWdlUmVxdWVzdBonLmRlcG90LmNvcmUudjEuTGlzdFByb2plY3RVc2FnZVJlc3BvbnNlEmAKD0dldFByb2plY3RVc2FnZRIlLmRlcG90LmNvcmUudjEuR2V0UHJvamVjdFVzYWdlUmVxdWVzdBomLmRlcG90LmNvcmUudjEuR2V0UHJvamVjdFVzYWdlUmVzcG9uc2USSwoIR2V0VXNhZ2USHi5kZXBvdC5jb3JlLnYxLkdldFVzYWdlUmVxdWVzdBofLmRlcG90LmNvcmUudjEuR2V0VXNhZ2VSZXNwb25zZWIGcHJvdG8z',
+    'ChlkZXBvdC9jb3JlL3YxL3VzYWdlLnByb3RvEg1kZXBvdC5jb3JlLnYxIsEBChdMaXN0UHJvamVjdFVzYWdlUmVxdWVzdBIsCghzdGFydF9hdBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASKgoGZW5kX2F0GAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIWCglwYWdlX3NpemUYAyABKAVIAIgBARIXCgpwYWdlX3Rva2VuGAQgASgJSAGIAQFCDAoKX3BhZ2Vfc2l6ZUINCgtfcGFnZV90b2tlbiJfChhMaXN0UHJvamVjdFVzYWdlUmVzcG9uc2USKgoFdXNhZ2UYASADKAsyGy5kZXBvdC5jb3JlLnYxLlByb2plY3RVc2FnZRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkihgEKFkdldFByb2plY3RVc2FnZVJlcXVlc3QSEgoKcHJvamVjdF9pZBgBIAEoCRIsCghzdGFydF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASKgoGZW5kX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJFChdHZXRQcm9qZWN0VXNhZ2VSZXNwb25zZRIqCgV1c2FnZRgBIAEoCzIbLmRlcG90LmNvcmUudjEuUHJvamVjdFVzYWdlIrgBCgxQcm9qZWN0VXNhZ2USEgoKcHJvamVjdF9pZBgBIAEoCRITCgtidWlsZF9jb3VudBgCIAEoBRIeChZidWlsZF9kdXJhdGlvbl9zZWNvbmRzGAMgASgFEhsKE2xheWVyX2NhY2hlX3NpemVfZ2IYBCABKAUSJQoYcmVnaXN0cnlfc3RvcmFnZV9zaXplX2diGAUgASgBSACIAQFCGwoZX3JlZ2lzdHJ5X3N0b3JhZ2Vfc2l6ZV9nYiK4AQoPR2V0VXNhZ2VSZXF1ZXN0EiwKCHN0YXJ0X2F0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIqCgZlbmRfYXQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEksKF2dpdGh1Yl9hY3Rpb25zX2dyb3VwX2J5GAMgAygOMiouZGVwb3QuY29yZS52MS5HaXRodWJBY3Rpb25zVXNhZ2VEaW1lbnNpb24i2AMKEEdldFVzYWdlUmVzcG9uc2USMAoMcGVyaW9kX3N0YXJ0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgpwZXJpb2RfZW5kGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI7Cg9jb250YWluZXJfYnVpbGQYAyADKAsyIi5kZXBvdC5jb3JlLnYxLkNvbnRhaW5lckJ1aWxkVXNhZ2USQgoTZ2l0aHViX2FjdGlvbnNfam9icxgEIAMoCzIlLmRlcG90LmNvcmUudjEuR2l0aHViQWN0aW9uc0pvYnNVc2FnZRIsCgdzdG9yYWdlGAUgAygLMhsuZGVwb3QuY29yZS52MS5TdG9yYWdlVXNhZ2USNwoNYWdlbnRfc2FuZGJveBgGIAMoCzIgLmRlcG90LmNvcmUudjEuQWdlbnRTYW5kYm94VXNhZ2USSwoXZ2l0aHViX2FjdGlvbnNfZ3JvdXBfYnkYByADKA4yKi5kZXBvdC5jb3JlLnYxLkdpdGh1YkFjdGlvbnNVc2FnZURpbWVuc2lvbhItCghkZXBvdF9jaRgIIAMoCzIbLmRlcG90LmNvcmUudjEuRGVwb3RDSVVzYWdlIm8KE0NvbnRhaW5lckJ1aWxkVXNhZ2USFAoMcHJvamVjdF9uYW1lGAEgASgJEhMKC2J1aWxkX2NvdW50GAIgASgFEhUKDW1pbnV0ZXNfc2F2ZWQYAyABKAISFgoObWludXRlc19iaWxsZWQYBCABKAIimwEKFkdpdGh1YkFjdGlvbnNKb2JzVXNhZ2USDAoEcmVwbxgBIAEoCRI5CgV0b3RhbBgCIAEoCzIqLmRlcG90LmNvcmUudjEuR2l0aHViQWN0aW9uc0pvYnNVc2FnZVRvdGFsEjgKBGpvYnMYAyADKAsyKi5kZXBvdC5jb3JlLnYxLkdpdGh1YkFjdGlvbnNKb2JVc2FnZURldGFpbCJhChtHaXRodWJBY3Rpb25zSm9ic1VzYWdlVG90YWwSEQoJam9iX2NvdW50GAEgASgFEhcKD21pbnV0ZXNfZWxhcHNlZBgCIAEoAhIWCg5taW51dGVzX2JpbGxlZBgDIAEoAiLhAQobR2l0aHViQWN0aW9uc0pvYlVzYWdlRGV0YWlsEhAKCHdvcmtmbG93GAEgASgJEg4KBnJ1bm5lchgCIAEoCRIRCglqb2JfY291bnQYAyABKAUSFwoPbWludXRlc19lbGFwc2VkGAQgASgCEhYKDm1pbnV0ZXNfYmlsbGVkGAUgASgCEhMKBmJyYW5jaBgGIAEoCUgAiAEBEhIKBWFjdG9yGAcgASgJSAGIAQESEwoGc3RhdHVzGAggASgJSAKIAQFCCQoHX2JyYW5jaEIICgZfYWN0b3JCCQoHX3N0YXR1cyI2CgxTdG9yYWdlVXNhZ2USFAoMc3RvcmFnZV90eXBlGAEgASgJEhAKCHRvdGFsX2diGAIgASgCInEKEUFnZW50U2FuZGJveFVzYWdlEhIKCmFnZW50X3R5cGUYASABKAkSFwoPc2FuZGJveGVzX2NvdW50GAIgASgFEhcKD21pbnV0ZXNfZWxhcHNlZBgDIAEoAhIWCg5taW51dGVzX2JpbGxlZBgEIAEoAiKGAgoMRGVwb3RDSVVzYWdlEgwKBHJlcG8YASABKAkSEAoId29ya2Zsb3cYAiABKAkSFQoNd29ya2Zsb3dfcGF0aBgDIAEoCRIOCgZydW5uZXIYBCABKAkSFQoNYXR0ZW1wdF9jb3VudBgFIAEoBRIXCg9taW51dGVzX2VsYXBzZWQYBiABKAESGwoTdmNwdV9taW51dGVzX2JpbGxlZBgHIAEoARIhChRmYWlsZWRfYXR0ZW1wdF9jb3VudBgIIAEoBUgAiAEBEhcKCmVycm9yX3JhdGUYCSABKAFIAYgBAUIXChVfZmFpbGVkX2F0dGVtcHRfY291bnRCDQoLX2Vycm9yX3JhdGUqzQEKG0dpdGh1YkFjdGlvbnNVc2FnZURpbWVuc2lvbhIuCipHSVRIVUJfQUNUSU9OU19VU0FHRV9ESU1FTlNJT05fVU5TUEVDSUZJRUQQABIpCiVHSVRIVUJfQUNUSU9OU19VU0FHRV9ESU1FTlNJT05fQlJBTkNIEAESKAokR0lUSFVCX0FDVElPTlNfVVNBR0VfRElNRU5TSU9OX0FDVE9SEAISKQolR0lUSFVCX0FDVElPTlNfVVNBR0VfRElNRU5TSU9OX1NUQVRVUxADMqICCgxVc2FnZVNlcnZpY2USYwoQTGlzdFByb2plY3RVc2FnZRImLmRlcG90LmNvcmUudjEuTGlzdFByb2plY3RVc2FnZVJlcXVlc3QaJy5kZXBvdC5jb3JlLnYxLkxpc3RQcm9qZWN0VXNhZ2VSZXNwb25zZRJgCg9HZXRQcm9qZWN0VXNhZ2USJS5kZXBvdC5jb3JlLnYxLkdldFByb2plY3RVc2FnZVJlcXVlc3QaJi5kZXBvdC5jb3JlLnYxLkdldFByb2plY3RVc2FnZVJlc3BvbnNlEksKCEdldFVzYWdlEh4uZGVwb3QuY29yZS52MS5HZXRVc2FnZVJlcXVlc3QaHy5kZXBvdC5jb3JlLnYxLkdldFVzYWdlUmVzcG9uc2ViBnByb3RvMw',
     [file_google_protobuf_timestamp],
   )
 
@@ -143,6 +143,19 @@ export type ProjectUsage = Message<'depot.core.v1.ProjectUsage'> & {
    * @generated from field: int32 layer_cache_size_gb = 4;
    */
   layerCacheSizeGb: number
+
+  /**
+   * Average registry storage in GB across the project's recorded daily snapshots in the requested period.
+   * Matches the dashboard's per-project breakdown and accounts for shared layers within the repository.
+   * Days without snapshots are excluded from the average. Zero when no snapshots exist.
+   * Included automatically for positive time ranges of at most 366 days when registry data is available.
+   * Omitted for other ranges, on registry failures or timeouts, and by servers without support.
+   * An absent value means unavailable, not zero; existing usage fields are still returned.
+   * This snapshot average is not the time-weighted organization-wide billing total.
+   *
+   * @generated from field: optional double registry_storage_size_gb = 5;
+   */
+  registryStorageSizeGb?: number | undefined
 }
 
 /**
@@ -164,6 +177,17 @@ export type GetUsageRequest = Message<'depot.core.v1.GetUsageRequest'> & {
    * @generated from field: google.protobuf.Timestamp end_at = 2;
    */
   endAt?: Timestamp | undefined
+
+  /**
+   * An array of additional dimensions to group GitHub Actions job usage by.
+   * Selected dimensions jointly subdivide the existing repository, workflow, and runner groups; repository totals are unchanged.
+   * Leave empty to keep the existing groups. Duplicate dimensions are ignored. Unspecified and unknown values are rejected.
+   * Grouped requests require a time range of at most 31 days and return at most 10,000 groups across all repositories.
+   * Requests exceeding the group limit fail instead of returning partial usage; narrow the time range and retry.
+   *
+   * @generated from field: repeated depot.core.v1.GithubActionsUsageDimension github_actions_group_by = 3;
+   */
+  githubActionsGroupBy: GithubActionsUsageDimension[]
 }
 
 /**
@@ -205,6 +229,28 @@ export type GetUsageResponse = Message<'depot.core.v1.GetUsageResponse'> & {
    * @generated from field: repeated depot.core.v1.AgentSandboxUsage agent_sandbox = 6;
    */
   agentSandbox: AgentSandboxUsage[]
+
+  /**
+   * An array of additional dimensions applied to GitHub Actions job usage.
+   * Contains each requested dimension once in enum order, including when no jobs match.
+   * For grouped requests, verify this matches the requested dimensions before using the results.
+   * Servers without grouping support omit this field. Empty when no additional grouping was requested.
+   *
+   * @generated from field: repeated depot.core.v1.GithubActionsUsageDimension github_actions_group_by = 7;
+   */
+  githubActionsGroupBy: GithubActionsUsageDimension[]
+
+  /**
+   * Depot CI sandbox compute, one entry per repository, workflow, and runner.
+   * Matches the "Sandbox compute (Depot CI)" section of the dashboard's usage CSV export.
+   * Covers only job attempts that finished on or after 2026-05-22, when this usage tracking started.
+   * Includes only attempts that started and have recorded sandbox usage, including records with zero vCPU-minutes.
+   * Attempts canceled or failed before starting are excluded. Delayed usage records appear after they are recorded.
+   * Servers without Depot CI usage support omit this field.
+   *
+   * @generated from field: repeated depot.core.v1.DepotCIUsage depot_ci = 8;
+   */
+  depotCi: DepotCIUsage[]
 }
 
 /**
@@ -335,6 +381,31 @@ export type GithubActionsJobUsageDetail = Message<'depot.core.v1.GithubActionsJo
    * @generated from field: float minutes_billed = 5;
    */
   minutesBilled: number
+
+  /**
+   * Branch recorded from the workflow-job webhook's head branch.
+   * Present only when branch grouping is requested. Empty when unavailable, including historical usage without this dimension.
+   *
+   * @generated from field: optional string branch = 6;
+   */
+  branch?: string | undefined
+
+  /**
+   * GitHub login of the workflow-job webhook sender, not the commit author.
+   * Present only when actor grouping is requested. Empty when unavailable, including historical usage without this dimension.
+   *
+   * @generated from field: optional string actor = 7;
+   */
+  actor?: string | undefined
+
+  /**
+   * Recorded job outcome, not the queued or running lifecycle state.
+   * For example, "success", "failure", "failed", or "cancelled"; "failed" includes failures recorded by Depot.
+   * Present only when status grouping is requested. Empty when unavailable.
+   *
+   * @generated from field: optional string status = 8;
+   */
+  status?: string | undefined
 }
 
 /**
@@ -398,6 +469,134 @@ export type AgentSandboxUsage = Message<'depot.core.v1.AgentSandboxUsage'> & {
 export const AgentSandboxUsageSchema: GenMessage<AgentSandboxUsage> =
   /*@__PURE__*/
   messageDesc(file_depot_core_v1_usage, 12)
+
+/**
+ * DepotCIUsage is the Depot CI sandbox compute for one repository, workflow, and runner
+ * over the specified period of time.
+ *
+ * @generated from message depot.core.v1.DepotCIUsage
+ */
+export type DepotCIUsage = Message<'depot.core.v1.DepotCIUsage'> & {
+  /**
+   * Repository the workflow ran in, as "owner/name". Usage from before a repository rename is reported under its current name.
+   *
+   * @generated from field: string repo = 1;
+   */
+  repo: string
+
+  /**
+   * Display name of the workflow. Falls back to `workflowPath` when the workflow has no name.
+   *
+   * @generated from field: string workflow = 2;
+   */
+  workflow: string
+
+  /**
+   * Workflow file path. For example, ".depot/workflows/ci.yml". Empty when unavailable.
+   *
+   * @generated from field: string workflow_path = 3;
+   */
+  workflowPath: string
+
+  /**
+   * Runner the job requested in its `runs-on` configuration, not the machine each attempt was placed on.
+   * For example, "depot-ubuntu-24.04" or "depot-ubuntu-24.04 (4 vCPU, 8 GB)". "Unknown" when the configuration could not be resolved.
+   *
+   * @generated from field: string runner = 4;
+   */
+  runner: string
+
+  /**
+   * Number of job attempts that finished in the period, started, and have recorded sandbox usage.
+   * Each recorded retry counts separately. Attempts without recorded usage are excluded, matching the Usage page.
+   *
+   * @generated from field: int32 attempt_count = 5;
+   */
+  attemptCount: number
+
+  /**
+   * Wall-clock minutes the job attempts ran, rounded to two decimal places.
+   *
+   * @generated from field: double minutes_elapsed = 6;
+   */
+  minutesElapsed: number
+
+  /**
+   * Billed vCPU-minutes, rounded to two decimal places.
+   * Unlike GitHub Actions `minutesBilled`, which counts 2-vCPU-equivalent minutes, a 2 vCPU sandbox running for 10 minutes bills 20 vCPU-minutes.
+   *
+   * @generated from field: double vcpu_minutes_billed = 7;
+   */
+  vcpuMinutesBilled: number
+
+  /**
+   * Number of attempts in `attemptCount` with a failure outcome in this repository, workflow, and runner group.
+   * Each recorded failed retry counts separately. Canceled and other non-failure outcomes are excluded.
+   * Omitted by servers without error-rate support; zero means no failed attempts.
+   *
+   * @generated from field: optional int32 failed_attempt_count = 8;
+   */
+  failedAttemptCount?: number | undefined
+
+  /**
+   * Fraction of recorded usage attempts that failed, from 0 to 1, without decimal rounding.
+   * Calculated as `failedAttemptCount` / `attemptCount`. The denominator includes recorded canceled and other non-failure attempts.
+   * This is the Usage page's error rate, not the failure rate of all workflow attempts; attempts without recorded usage are excluded.
+   * To combine runner groups for a workflow, divide the sum of `failedAttemptCount` by the sum of `attemptCount`.
+   * Omitted by servers without error-rate support; zero means no failed attempts.
+   *
+   * @generated from field: optional double error_rate = 9;
+   */
+  errorRate?: number | undefined
+}
+
+/**
+ * Describes the message depot.core.v1.DepotCIUsage.
+ * Use `create(DepotCIUsageSchema)` to create a new message.
+ */
+export const DepotCIUsageSchema: GenMessage<DepotCIUsage> = /*@__PURE__*/ messageDesc(file_depot_core_v1_usage, 13)
+
+/**
+ * Additional dimensions that subdivide GitHub Actions usage within each repository, workflow, and runner group.
+ *
+ * @generated from enum depot.core.v1.GithubActionsUsageDimension
+ */
+export enum GithubActionsUsageDimension {
+  /**
+   * Not a valid grouping dimension.
+   *
+   * @generated from enum value: GITHUB_ACTIONS_USAGE_DIMENSION_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * Branch recorded from the workflow-job webhook's head branch.
+   *
+   * @generated from enum value: GITHUB_ACTIONS_USAGE_DIMENSION_BRANCH = 1;
+   */
+  BRANCH = 1,
+
+  /**
+   * GitHub login of the workflow-job webhook sender, not the commit author.
+   *
+   * @generated from enum value: GITHUB_ACTIONS_USAGE_DIMENSION_ACTOR = 2;
+   */
+  ACTOR = 2,
+
+  /**
+   * Recorded job outcome, not the queued or running lifecycle state.
+   *
+   * @generated from enum value: GITHUB_ACTIONS_USAGE_DIMENSION_STATUS = 3;
+   */
+  STATUS = 3,
+}
+
+/**
+ * Describes the enum depot.core.v1.GithubActionsUsageDimension.
+ */
+export const GithubActionsUsageDimensionSchema: GenEnum<GithubActionsUsageDimension> =
+  /*@__PURE__*/
+  enumDesc(file_depot_core_v1_usage, 0)
 
 /**
  * @generated from service depot.core.v1.UsageService

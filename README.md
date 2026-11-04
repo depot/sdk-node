@@ -197,11 +197,9 @@ with UsageAnalyticsService support; older deployments return `Unimplemented`.
 
 See the [usage analysis guide](https://depot.dev/docs/api/usage-analysis) for coverage, units,
 filters, pagination, and freshness. The contract is owned by
-[depot/proto#63](https://github.com/depot/proto/pull/63). During review,
-`buf generate --template buf.gen.usage.yaml` generates from that PR's pinned commit.
-Before merging, regenerate from its published `buf.build/depot/api` revision with the
-standard generation command and remove the review-only template. Publish this SDK
-before updating the API's MCP bundle dependency.
+[depot/proto](https://github.com/depot/proto). `pnpm run generate` regenerates the SDK
+from the published Buf revision pinned in `package.json`. MCP consumes this SDK through
+the API repository's `@depot/sdk-node` package dependency.
 
 With an organization token in `DEPOT_TOKEN`, compare equal-length periods using:
 
