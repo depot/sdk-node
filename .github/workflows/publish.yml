@@ -36,13 +36,13 @@ jobs:
           node-version: '24'
           package-manager-cache: false
 
-      - name: Verify the stable release and package version
+      - name: Verify the stable release and package identity
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]
+          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || exit 1
           test "$(gh release view "$RELEASE_TAG" --json isDraft,isPrerelease --jq '.isDraft == false and .isPrerelease == false')" = true
-          node -e "const p = require('./package.json'); const a = require('node:assert/strict'); a.equal(p.name, '@depot/sdk-node'); a.equal('v' + p.version, process.env.RELEASE_TAG); a.ok(!p.private)"
+          node -e "const p = require('./package.json'); const a = require('node:assert/strict'); a.equal(p.name, '@depot/sdk-node'); a.ok(!p.private)"
 
       - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
         with:
@@ -56,6 +56,10 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run type-check
       - run: pnpm run test
+
+      - name: Set the package version from the release tag
+        run: npm version "${RELEASE_TAG#v}" --no-git-tag-version --ignore-scripts --allow-same-version --package-lock=false
+
       - run: pnpm run package:check
 
       - name: Check whether this version is already published

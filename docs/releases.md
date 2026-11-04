@@ -1,23 +1,20 @@
 # Releasing @depot/sdk-node
 
-Release Please maintains a release PR with the next version and changelog.
-Merging that PR creates a GitHub release, which builds, validates, and stages
-the package on npm. A maintainer approves it with 2FA before it goes live.
+Release Drafter maintains a draft GitHub release with the next patch version and
+notes from merged PRs. A maintainer reviews the version and publishes the GitHub
+release, which builds, validates, and stages the package on npm. An npm maintainer
+approves it with 2FA before it goes live. Conventional commits and enforced PR
+titles are not required.
 
 ## One-time administrator setup
 
-1. Add a GitHub Actions repository secret named `RELEASE_PLEASE_TOKEN`: a
-   fine-grained GitHub personal access token scoped to `depot/sdk-node`, with
-   **Contents**, **Issues**, and **Pull requests** read/write permissions. Complete
-   any required organization approval and renew it before it expires. This token
-   is only for Release Please; npm authentication uses OIDC.
-   The separate token is needed because PRs and releases created with the built-in
-   `GITHUB_TOKEN` do not trigger the CI and release workflows.
-2. Merge this PR. Release Please runs on pushes to `main`. It starts from the
-   existing `v2.3.0` release and selects the next version from conventional commits.
-   The first release PR will include the metadata fix required by Publint;
-   the old `v2.3.0` tag should not be moved or republished with different contents.
-3. Sign in to npm with a package administrator account and enable 2FA.
+1. Merge this PR. Release Drafter runs on pushes to `main`, using the built-in
+   `GITHUB_TOKEN` with contents write and pull requests read permissions. No PAT,
+   GitHub App, or additional GitHub secret is needed. Organization Actions policy
+   must allow the Release Drafter action. The first proposed version after the
+   existing `v2.3.0` release is `v2.3.1`; review whether the accumulated changes
+   require a minor or major bump before publishing it.
+2. Sign in to npm with a package administrator account and enable 2FA.
    In [the package settings](https://www.npmjs.com/package/@depot/sdk-node/access),
    add a **GitHub Actions trusted publisher**:
 
@@ -31,32 +28,40 @@ the package on npm. A maintainer approves it with 2FA before it goes live.
    | Direct publishing (`npm publish`)      | Disabled      |
    | Dist-tag management (`npm dist-tag`)   | Disabled      |
 
-4. Set **Publishing access** to **Require two-factor authentication and disallow
+3. Set **Publishing access** to **Require two-factor authentication and disallow
    tokens**. No npm token secret is needed in GitHub. Review existing trusted
    publishers too: an older connection permitting direct publishing can bypass
    the approval gate. Remove obsolete connections and revoke unused npm tokens.
-5. Restrict package write access to the intended approvers. npm allows any
+4. Restrict package write access to the intended approvers. npm allows any
    maintainer with publish access to approve stages; it does not limit approval
    to organization admins automatically.
-6. Complete the first release promptly. npm gives a newly configured trusted
+5. Complete the first release promptly. npm gives a newly configured trusted
    publisher two days to validate; if it expires, recreate it and retry.
 
 The staging workflow uses GitHub-hosted Ubuntu, Node 24, and npm 11.17.0. npm's
 staging-only permission enforces the human approval gate.
 
-References: [Release Please setup](https://github.com/googleapis/release-please-action#github-credentials),
+References: [Release Drafter](https://github.com/release-drafter/release-drafter),
 [npm trusted publishers](https://docs.npmjs.com/trusted-publishers/),
 [npm staged publishing](https://docs.npmjs.com/staged-publishing/).
 
 ## For each release
 
-1. Use conventional commit messages when merging changes: `fix:` bumps patch,
-   `feat:` bumps minor, and `feat!:` or a `BREAKING CHANGE:` footer bumps major.
-   Release Please opens or updates a release PR with `package.json`, the version
-   manifest, and the changelog. No manual version bump is needed.
-2. Review and merge the release PR when ready. Release Please creates the tag and
-   GitHub release. [Stage npm release](https://github.com/depot/sdk-node/actions/workflows/publish.yml)
-   checks out that exact commit, runs CI checks, and uploads the checked tarball.
+1. Merge changes normally. Release Drafter updates the draft in
+   [GitHub Releases](https://github.com/depot/sdk-node/releases) with merged PR
+   notes and the next patch version. It does not infer whether changes are
+   breaking or add features; the release maintainer makes that decision.
+2. When ready, edit the draft and review its changes and target commit. Keep the
+   proposed patch version for fixes, or change both the tag and release title to
+   the appropriate minor or major version. Use a new stable `vX.Y.Z` tag, then
+   click **Publish release** yourself. This human action triggers
+   [Stage npm release](https://github.com/depot/sdk-node/actions/workflows/publish.yml),
+   even though the draft was created using `GITHUB_TOKEN`.
+   The workflow checks out the release commit, runs CI checks, sets the package
+   version from the tag using `npm version`, then builds, checks, and stages the
+   tarball. No version commit or release PR is needed; `package.json` in Git is
+   not the source of published release versions. Finalize edits just before
+   publishing, since another push to `main` refreshes the draft.
 3. After staging succeeds, open npm **Staged Packages** and select `@depot/sdk-node`.
    Review the version, source commit, provenance, package contents, and intended
    `latest` tag. Approve releases in increasing version order so an older stage
@@ -107,9 +112,9 @@ uploads that same tarball. Prettier and ESLint are not used.
 - To retry an existing release explicitly, use
   `gh workflow run publish.yml --repo depot/sdk-node --ref vX.Y.Z`. The tag must
   contain this workflow and have a published stable GitHub release. Runs on
-  branches, drafts, prereleases, and mismatched package versions cannot stage.
+  branches, drafts, prereleases, and malformed version tags cannot stage.
 - Tags predating this setup, including `v2.3.0`, cannot use this workflow. Let
-  Release Please create a new version containing the setup instead.
+  Release Drafter propose a new version containing the setup instead.
 - Keep tags immutable. Fix published code through a new release. Never enable
   direct npm publishing to work around a staging failure.
 
