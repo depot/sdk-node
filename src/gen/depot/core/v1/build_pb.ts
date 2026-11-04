@@ -14,9 +14,394 @@ import type {Message} from '@bufbuild/protobuf'
 export const file_depot_core_v1_build: GenFile =
   /*@__PURE__*/
   fileDesc(
-    'ChlkZXBvdC9jb3JlL3YxL2J1aWxkLnByb3RvEg1kZXBvdC5jb3JlLnYxIiUKEVNoYXJlQnVpbGRSZXF1ZXN0EhAKCGJ1aWxkX2lkGAEgASgJIicKElNoYXJlQnVpbGRSZXNwb25zZRIRCglzaGFyZV91cmwYASABKAkiKwoXU3RvcFNoYXJpbmdCdWlsZFJlcXVlc3QSEAoIYnVpbGRfaWQYASABKAkiGgoYU3RvcFNoYXJpbmdCdWlsZFJlc3BvbnNlInUKEUxpc3RCdWlsZHNSZXF1ZXN0EhIKCnByb2plY3RfaWQYASABKAkSFgoJcGFnZV9zaXplGAIgASgFSACIAQESFwoKcGFnZV90b2tlbhgDIAEoCUgBiAEBQgwKCl9wYWdlX3NpemVCDQoLX3BhZ2VfdG9rZW4iUwoSTGlzdEJ1aWxkc1Jlc3BvbnNlEiQKBmJ1aWxkcxgBIAMoCzIULmRlcG90LmNvcmUudjEuQnVpbGQSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJIiMKD0dldEJ1aWxkUmVxdWVzdBIQCghidWlsZF9pZBgBIAEoCSI3ChBHZXRCdWlsZFJlc3BvbnNlEiMKBWJ1aWxkGAEgASgLMhQuZGVwb3QuY29yZS52MS5CdWlsZCLbBAoFQnVpbGQSEAoIYnVpbGRfaWQYASABKAkSKwoGc3RhdHVzGAIgASgOMhsuZGVwb3QuY29yZS52MS5CdWlsZC5TdGF0dXMSLgoKY3JlYXRlZF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASMwoKc3RhcnRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAIgBARI0CgtmaW5pc2hlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAYgBARIjChZidWlsZF9kdXJhdGlvbl9zZWNvbmRzGAYgASgFSAKIAQESIwoWc2F2ZWRfZHVyYXRpb25fc2Vjb25kcxgHIAEoBUgDiAEBEhkKDGNhY2hlZF9zdGVwcxgIIAEoBUgEiAEBEhgKC3RvdGFsX3N0ZXBzGAkgASgFSAWIAQEiggEKBlN0YXR1cxIWChJTVEFUVVNfVU5TUEVDSUZJRUQQABISCg5TVEFUVVNfUlVOTklORxABEhEKDVNUQVRVU19GQUlMRUQQAhISCg5TVEFUVVNfU1VDQ0VTUxADEhAKDFNUQVRVU19FUlJPUhAEEhMKD1NUQVRVU19DQU5DRUxFRBAFQg0KC19zdGFydGVkX2F0Qg4KDF9maW5pc2hlZF9hdEIZChdfYnVpbGRfZHVyYXRpb25fc2Vjb25kc0IZChdfc2F2ZWRfZHVyYXRpb25fc2Vjb25kc0IPCg1fY2FjaGVkX3N0ZXBzQg4KDF90b3RhbF9zdGVwczLmAgoMQnVpbGRTZXJ2aWNlElEKClNoYXJlQnVpbGQSIC5kZXBvdC5jb3JlLnYxLlNoYXJlQnVpbGRSZXF1ZXN0GiEuZGVwb3QuY29yZS52MS5TaGFyZUJ1aWxkUmVzcG9uc2USYwoQU3RvcFNoYXJpbmdCdWlsZBImLmRlcG90LmNvcmUudjEuU3RvcFNoYXJpbmdCdWlsZFJlcXVlc3QaJy5kZXBvdC5jb3JlLnYxLlN0b3BTaGFyaW5nQnVpbGRSZXNwb25zZRJRCgpMaXN0QnVpbGRzEiAuZGVwb3QuY29yZS52MS5MaXN0QnVpbGRzUmVxdWVzdBohLmRlcG90LmNvcmUudjEuTGlzdEJ1aWxkc1Jlc3BvbnNlEksKCEdldEJ1aWxkEh4uZGVwb3QuY29yZS52MS5HZXRCdWlsZFJlcXVlc3QaHy5kZXBvdC5jb3JlLnYxLkdldEJ1aWxkUmVzcG9uc2ViBnByb3RvMw',
+    'ChlkZXBvdC9jb3JlL3YxL2J1aWxkLnByb3RvEg1kZXBvdC5jb3JlLnYxIq4BChdMaXN0QnVpbGRNZXRyaWNzUmVxdWVzdBISCgpwcm9qZWN0X2lkGAEgASgJEiwKCHN0YXJ0X2F0GAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIqCgZlbmRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhEKCXBhZ2Vfc2l6ZRgEIAEoBRISCgpwYWdlX3Rva2VuGAUgASgJImgKGExpc3RCdWlsZE1ldHJpY3NSZXNwb25zZRIzCgZidWlsZHMYASADKAsyIy5kZXBvdC5jb3JlLnYxLkJ1aWxkUmVzb3VyY2VNZXRyaWNzEhcKD25leHRfcGFnZV90b2tlbhgCIAEoCSKNAQodR2V0UHJvamVjdEJ1aWxkTWV0cmljc1JlcXVlc3QSEgoKcHJvamVjdF9pZBgBIAEoCRIsCghzdGFydF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASKgoGZW5kX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCLSAQoeR2V0UHJvamVjdEJ1aWxkTWV0cmljc1Jlc3BvbnNlEhMKC2J1aWxkX2NvdW50GAEgASgNEh8KF2J1aWxkc193aXRob3V0X21hY2hpbmVzGAIgASgNEjoKCnN0YXRpc3RpY3MYAyABKAsyJi5kZXBvdC5jb3JlLnYxLkJ1aWxkUmVzb3VyY2VTdGF0aXN0aWNzEj4KDWFyY2hpdGVjdHVyZXMYBCADKAsyJy5kZXBvdC5jb3JlLnYxLkJ1aWxkQXJjaGl0ZWN0dXJlTWV0cmljcyLRAQoUQnVpbGRSZXNvdXJjZU1ldHJpY3MSEAoIYnVpbGRfaWQYASABKAkSLgoKY3JlYXRlZF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoLZmluaXNoZWRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhAKCGhhcmR3YXJlGAQgASgJEjQKCG1hY2hpbmVzGAUgAygLMiIuZGVwb3QuY29yZS52MS5CdWlsZE1hY2hpbmVNZXRyaWNzIr8CChNCdWlsZE1hY2hpbmVNZXRyaWNzEhIKCm1hY2hpbmVfaWQYASABKAkSFAoMYXJjaGl0ZWN0dXJlGAIgASgJEiwKCHN0YXJ0X2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIqCgZlbmRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjoKCnN0YXRpc3RpY3MYBSABKAsyJi5kZXBvdC5jb3JlLnYxLkJ1aWxkUmVzb3VyY2VTdGF0aXN0aWNzEhkKDGNwdV9jYXBhY2l0eRgGIAEoDUgAiAEBEiIKFW1lbW9yeV9jYXBhY2l0eV9ieXRlcxgHIAEoAUgBiAEBQg8KDV9jcHVfY2FwYWNpdHlCGAoWX21lbW9yeV9jYXBhY2l0eV9ieXRlcyJsChhCdWlsZEFyY2hpdGVjdHVyZU1ldHJpY3MSFAoMYXJjaGl0ZWN0dXJlGAEgASgJEjoKCnN0YXRpc3RpY3MYAiABKAsyJi5kZXBvdC5jb3JlLnYxLkJ1aWxkUmVzb3VyY2VTdGF0aXN0aWNzIr0EChdCdWlsZFJlc291cmNlU3RhdGlzdGljcxIYChBjcHVfc2FtcGxlX2NvdW50GAEgASgNEiQKF2F2ZXJhZ2VfY3B1X3V0aWxpemF0aW9uGAIgASgBSACIAQESIQoUcGVha19jcHVfdXRpbGl6YXRpb24YAyABKAFIAYgBARIbChNtZW1vcnlfc2FtcGxlX2NvdW50GAQgASgNEicKGmF2ZXJhZ2VfbWVtb3J5X3V0aWxpemF0aW9uGAUgASgBSAKIAQESJAoXcGVha19tZW1vcnlfdXRpbGl6YXRpb24YBiABKAFIA4gBARIcChRjcHVfb2JzZXJ2ZWRfc2Vjb25kcxgHIAEoARIfChdtZW1vcnlfb2JzZXJ2ZWRfc2Vjb25kcxgIIAEoARIhChRhdmVyYWdlX21lbW9yeV9ieXRlcxgJIAEoAUgEiAEBEh4KEXBlYWtfbWVtb3J5X2J5dGVzGAogASgBSAWIAQESHQoQY3B1X3RpbWVfc2Vjb25kcxgLIAEoAUgGiAEBQhoKGF9hdmVyYWdlX2NwdV91dGlsaXphdGlvbkIXChVfcGVha19jcHVfdXRpbGl6YXRpb25CHQobX2F2ZXJhZ2VfbWVtb3J5X3V0aWxpemF0aW9uQhoKGF9wZWFrX21lbW9yeV91dGlsaXphdGlvbkIXChVfYXZlcmFnZV9tZW1vcnlfYnl0ZXNCFAoSX3BlYWtfbWVtb3J5X2J5dGVzQhMKEV9jcHVfdGltZV9zZWNvbmRzIiUKEVNoYXJlQnVpbGRSZXF1ZXN0EhAKCGJ1aWxkX2lkGAEgASgJIicKElNoYXJlQnVpbGRSZXNwb25zZRIRCglzaGFyZV91cmwYASABKAkiKwoXU3RvcFNoYXJpbmdCdWlsZFJlcXVlc3QSEAoIYnVpbGRfaWQYASABKAkiGgoYU3RvcFNoYXJpbmdCdWlsZFJlc3BvbnNlInUKEUxpc3RCdWlsZHNSZXF1ZXN0EhIKCnByb2plY3RfaWQYASABKAkSFgoJcGFnZV9zaXplGAIgASgFSACIAQESFwoKcGFnZV90b2tlbhgDIAEoCUgBiAEBQgwKCl9wYWdlX3NpemVCDQoLX3BhZ2VfdG9rZW4iUwoSTGlzdEJ1aWxkc1Jlc3BvbnNlEiQKBmJ1aWxkcxgBIAMoCzIULmRlcG90LmNvcmUudjEuQnVpbGQSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJIiMKD0dldEJ1aWxkUmVxdWVzdBIQCghidWlsZF9pZBgBIAEoCSI3ChBHZXRCdWlsZFJlc3BvbnNlEiMKBWJ1aWxkGAEgASgLMhQuZGVwb3QuY29yZS52MS5CdWlsZCImChJDYW5jZWxCdWlsZFJlcXVlc3QSEAoIYnVpbGRfaWQYASABKAkiuAEKE0NhbmNlbEJ1aWxkUmVzcG9uc2USOwoHb3V0Y29tZRgBIAEoDjIqLmRlcG90LmNvcmUudjEuQ2FuY2VsQnVpbGRSZXNwb25zZS5PdXRjb21lImQKB091dGNvbWUSFwoTT1VUQ09NRV9VTlNQRUNJRklFRBAAEiIKHk9VVENPTUVfQ0FOQ0VMTEFUSU9OX1JFUVVFU1RFRBABEhwKGE9VVENPTUVfQUxSRUFEWV9URVJNSU5BTBACItsECgVCdWlsZBIQCghidWlsZF9pZBgBIAEoCRIrCgZzdGF0dXMYAiABKA4yGy5kZXBvdC5jb3JlLnYxLkJ1aWxkLlN0YXR1cxIuCgpjcmVhdGVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCgpzdGFydGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgAiAEBEjQKC2ZpbmlzaGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEiMKFmJ1aWxkX2R1cmF0aW9uX3NlY29uZHMYBiABKAVIAogBARIjChZzYXZlZF9kdXJhdGlvbl9zZWNvbmRzGAcgASgFSAOIAQESGQoMY2FjaGVkX3N0ZXBzGAggASgFSASIAQESGAoLdG90YWxfc3RlcHMYCSABKAVIBYgBASKCAQoGU3RhdHVzEhYKElNUQVRVU19VTlNQRUNJRklFRBAAEhIKDlNUQVRVU19SVU5OSU5HEAESEQoNU1RBVFVTX0ZBSUxFRBACEhIKDlNUQVRVU19TVUNDRVNTEAMSEAoMU1RBVFVTX0VSUk9SEAQSEwoPU1RBVFVTX0NBTkNFTEVEEAVCDQoLX3N0YXJ0ZWRfYXRCDgoMX2ZpbmlzaGVkX2F0QhkKF19idWlsZF9kdXJhdGlvbl9zZWNvbmRzQhkKF19zYXZlZF9kdXJhdGlvbl9zZWNvbmRzQg8KDV9jYWNoZWRfc3RlcHNCDgoMX3RvdGFsX3N0ZXBzMpgFCgxCdWlsZFNlcnZpY2USUQoKU2hhcmVCdWlsZBIgLmRlcG90LmNvcmUudjEuU2hhcmVCdWlsZFJlcXVlc3QaIS5kZXBvdC5jb3JlLnYxLlNoYXJlQnVpbGRSZXNwb25zZRJjChBTdG9wU2hhcmluZ0J1aWxkEiYuZGVwb3QuY29yZS52MS5TdG9wU2hhcmluZ0J1aWxkUmVxdWVzdBonLmRlcG90LmNvcmUudjEuU3RvcFNoYXJpbmdCdWlsZFJlc3BvbnNlElEKCkxpc3RCdWlsZHMSIC5kZXBvdC5jb3JlLnYxLkxpc3RCdWlsZHNSZXF1ZXN0GiEuZGVwb3QuY29yZS52MS5MaXN0QnVpbGRzUmVzcG9uc2USSwoIR2V0QnVpbGQSHi5kZXBvdC5jb3JlLnYxLkdldEJ1aWxkUmVxdWVzdBofLmRlcG90LmNvcmUudjEuR2V0QnVpbGRSZXNwb25zZRJUCgtDYW5jZWxCdWlsZBIhLmRlcG90LmNvcmUudjEuQ2FuY2VsQnVpbGRSZXF1ZXN0GiIuZGVwb3QuY29yZS52MS5DYW5jZWxCdWlsZFJlc3BvbnNlEmMKEExpc3RCdWlsZE1ldHJpY3MSJi5kZXBvdC5jb3JlLnYxLkxpc3RCdWlsZE1ldHJpY3NSZXF1ZXN0GicuZGVwb3QuY29yZS52MS5MaXN0QnVpbGRNZXRyaWNzUmVzcG9uc2USdQoWR2V0UHJvamVjdEJ1aWxkTWV0cmljcxIsLmRlcG90LmNvcmUudjEuR2V0UHJvamVjdEJ1aWxkTWV0cmljc1JlcXVlc3QaLS5kZXBvdC5jb3JlLnYxLkdldFByb2plY3RCdWlsZE1ldHJpY3NSZXNwb25zZWIGcHJvdG8z',
     [file_google_protobuf_timestamp],
   )
+
+/**
+ * @generated from message depot.core.v1.ListBuildMetricsRequest
+ */
+export type ListBuildMetricsRequest = Message<'depot.core.v1.ListBuildMetricsRequest'> & {
+  /**
+   * Unique identifier for the project. Returned by `ListProjects` and `GetProject`.
+   *
+   * @generated from field: string project_id = 1;
+   */
+  projectId: string
+
+  /**
+   * Inclusive lower bound on build completion time, in RFC 3339 format. Required, with millisecond precision.
+   *
+   * @generated from field: google.protobuf.Timestamp start_at = 2;
+   */
+  startAt?: Timestamp | undefined
+
+  /**
+   * Exclusive upper bound on build completion time, in RFC 3339 format. Required, with millisecond precision.
+   * Must follow `startAt`, must not be in the future, and must be at most seven days after `startAt`.
+   *
+   * @generated from field: google.protobuf.Timestamp end_at = 3;
+   */
+  endAt?: Timestamp | undefined
+
+  /**
+   * Number of builds to return per page. Maximum: 50. Default: 20.
+   *
+   * @generated from field: int32 page_size = 4;
+   */
+  pageSize: number
+
+  /**
+   * Token to fetch the next page. Leave empty to fetch the first page. Keep the project and time range unchanged.
+   *
+   * @generated from field: string page_token = 5;
+   */
+  pageToken: string
+}
+
+/**
+ * Describes the message depot.core.v1.ListBuildMetricsRequest.
+ * Use `create(ListBuildMetricsRequestSchema)` to create a new message.
+ */
+export const ListBuildMetricsRequestSchema: GenMessage<ListBuildMetricsRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 0)
+
+/**
+ * @generated from message depot.core.v1.ListBuildMetricsResponse
+ */
+export type ListBuildMetricsResponse = Message<'depot.core.v1.ListBuildMetricsResponse'> & {
+  /**
+   * Completed builds, ordered by completion time and build identifier, both descending.
+   * Pagination is not a database snapshot; records and late-arriving telemetry may change between requests.
+   *
+   * @generated from field: repeated depot.core.v1.BuildResourceMetrics builds = 1;
+   */
+  builds: BuildResourceMetrics[]
+
+  /**
+   * Token to fetch the next page. Empty when there are no more builds.
+   *
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string
+}
+
+/**
+ * Describes the message depot.core.v1.ListBuildMetricsResponse.
+ * Use `create(ListBuildMetricsResponseSchema)` to create a new message.
+ */
+export const ListBuildMetricsResponseSchema: GenMessage<ListBuildMetricsResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 1)
+
+/**
+ * @generated from message depot.core.v1.GetProjectBuildMetricsRequest
+ */
+export type GetProjectBuildMetricsRequest = Message<'depot.core.v1.GetProjectBuildMetricsRequest'> & {
+  /**
+   * Unique identifier for the project. Returned by `ListProjects` and `GetProject`.
+   *
+   * @generated from field: string project_id = 1;
+   */
+  projectId: string
+
+  /**
+   * Inclusive lower bound on build completion time, in RFC 3339 format. Required, with millisecond precision.
+   *
+   * @generated from field: google.protobuf.Timestamp start_at = 2;
+   */
+  startAt?: Timestamp | undefined
+
+  /**
+   * Exclusive upper bound on build completion time, in RFC 3339 format. Required, with millisecond precision.
+   * Must follow `startAt`, must not be in the future, and must be at most seven days after `startAt`.
+   *
+   * @generated from field: google.protobuf.Timestamp end_at = 3;
+   */
+  endAt?: Timestamp | undefined
+}
+
+/**
+ * Describes the message depot.core.v1.GetProjectBuildMetricsRequest.
+ * Use `create(GetProjectBuildMetricsRequestSchema)` to create a new message.
+ */
+export const GetProjectBuildMetricsRequestSchema: GenMessage<GetProjectBuildMetricsRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 2)
+
+/**
+ * @generated from message depot.core.v1.GetProjectBuildMetricsResponse
+ */
+export type GetProjectBuildMetricsResponse = Message<'depot.core.v1.GetProjectBuildMetricsResponse'> & {
+  /**
+   * Number of completed builds selected, including builds without telemetry.
+   *
+   * @generated from field: uint32 build_count = 1;
+   */
+  buildCount: number
+
+  /**
+   * Number of selected builds without a recorded machine association.
+   *
+   * @generated from field: uint32 builds_without_machines = 2;
+   */
+  buildsWithoutMachines: number
+
+  /**
+   * Statistics over measurements attributable only to the selected builds, weighted by observed interval duration.
+   * Concurrent builds retain separate measurements. Combine averages using their observed durations, not sample counts.
+   *
+   * @generated from field: depot.core.v1.BuildResourceStatistics statistics = 3;
+   */
+  statistics?: BuildResourceStatistics | undefined
+
+  /**
+   * Statistics for each architecture with a recorded machine association.
+   *
+   * @generated from field: repeated depot.core.v1.BuildArchitectureMetrics architectures = 4;
+   */
+  architectures: BuildArchitectureMetrics[]
+}
+
+/**
+ * Describes the message depot.core.v1.GetProjectBuildMetricsResponse.
+ * Use `create(GetProjectBuildMetricsResponseSchema)` to create a new message.
+ */
+export const GetProjectBuildMetricsResponseSchema: GenMessage<GetProjectBuildMetricsResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 3)
+
+/**
+ * @generated from message depot.core.v1.BuildResourceMetrics
+ */
+export type BuildResourceMetrics = Message<'depot.core.v1.BuildResourceMetrics'> & {
+  /**
+   * Unique identifier for the build. Use with `GetBuild` for additional metadata.
+   *
+   * @generated from field: string build_id = 1;
+   */
+  buildId: string
+
+  /**
+   * Build creation time, in RFC 3339 format.
+   *
+   * @generated from field: google.protobuf.Timestamp created_at = 2;
+   */
+  createdAt?: Timestamp | undefined
+
+  /**
+   * Build completion time, in RFC 3339 format.
+   *
+   * @generated from field: google.protobuf.Timestamp finished_at = 3;
+   */
+  finishedAt?: Timestamp | undefined
+
+  /**
+   * Hardware recorded on the build. Empty when unknown; does not prove the capacity of each associated machine.
+   *
+   * @generated from field: string hardware = 4;
+   */
+  hardware: string
+
+  /**
+   * Statistics per associated machine, including machines without telemetry. Empty when no machine was recorded.
+   * Each measurement must be attributable to this build on that machine. Host-wide samples are excluded,
+   * including samples taken when no concurrent build was recorded.
+   *
+   * @generated from field: repeated depot.core.v1.BuildMachineMetrics machines = 5;
+   */
+  machines: BuildMachineMetrics[]
+}
+
+/**
+ * Describes the message depot.core.v1.BuildResourceMetrics.
+ * Use `create(BuildResourceMetricsSchema)` to create a new message.
+ */
+export const BuildResourceMetricsSchema: GenMessage<BuildResourceMetrics> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 4)
+
+/**
+ * @generated from message depot.core.v1.BuildMachineMetrics
+ */
+export type BuildMachineMetrics = Message<'depot.core.v1.BuildMachineMetrics'> & {
+  /**
+   * Unique identifier for the builder machine.
+   *
+   * @generated from field: string machine_id = 1;
+   */
+  machineId: string
+
+  /**
+   * Machine architecture. Can be "amd64" or "arm64".
+   *
+   * @generated from field: string architecture = 2;
+   */
+  architecture: string
+
+  /**
+   * Beginning of the observed association window, in RFC 3339 format.
+   *
+   * @generated from field: google.protobuf.Timestamp start_at = 3;
+   */
+  startAt?: Timestamp | undefined
+
+  /**
+   * Exclusive end of the observed association window, in RFC 3339 format.
+   *
+   * @generated from field: google.protobuf.Timestamp end_at = 4;
+   */
+  endAt?: Timestamp | undefined
+
+  /**
+   * Statistics over build-attributed telemetry only. Zero sample counts mean no data, not zero utilization.
+   *
+   * @generated from field: depot.core.v1.BuildResourceStatistics statistics = 5;
+   */
+  statistics?: BuildResourceStatistics | undefined
+
+  /**
+   * Machine CPU capacity observed by the collector. Unset without telemetry or when capacity varied.
+   *
+   * @generated from field: optional uint32 cpu_capacity = 6;
+   */
+  cpuCapacity?: number | undefined
+
+  /**
+   * Machine memory capacity observed by the collector, in bytes. Unset without telemetry or when capacity varied.
+   *
+   * @generated from field: optional double memory_capacity_bytes = 7;
+   */
+  memoryCapacityBytes?: number | undefined
+}
+
+/**
+ * Describes the message depot.core.v1.BuildMachineMetrics.
+ * Use `create(BuildMachineMetricsSchema)` to create a new message.
+ */
+export const BuildMachineMetricsSchema: GenMessage<BuildMachineMetrics> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 5)
+
+/**
+ * @generated from message depot.core.v1.BuildArchitectureMetrics
+ */
+export type BuildArchitectureMetrics = Message<'depot.core.v1.BuildArchitectureMetrics'> & {
+  /**
+   * Machine architecture. Can be "amd64" or "arm64".
+   *
+   * @generated from field: string architecture = 1;
+   */
+  architecture: string
+
+  /**
+   * Statistics across observed collection intervals for this architecture.
+   *
+   * @generated from field: depot.core.v1.BuildResourceStatistics statistics = 2;
+   */
+  statistics?: BuildResourceStatistics | undefined
+}
+
+/**
+ * Describes the message depot.core.v1.BuildArchitectureMetrics.
+ * Use `create(BuildArchitectureMetricsSchema)` to create a new message.
+ */
+export const BuildArchitectureMetricsSchema: GenMessage<BuildArchitectureMetrics> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 6)
+
+/**
+ * @generated from message depot.core.v1.BuildResourceStatistics
+ */
+export type BuildResourceStatistics = Message<'depot.core.v1.BuildResourceStatistics'> & {
+  /**
+   * Number of distinct collection intervals with CPU measurements attributable to the build.
+   *
+   * @generated from field: uint32 cpu_sample_count = 1;
+   */
+  cpuSampleCount: number
+
+  /**
+   * Mean CPU utilization attributable to the build as a fraction of the collector's observed machine CPU capacity, from 0 to 1.
+   * Weighted by observed interval duration. Includes user and kernel CPU. Unset without CPU samples.
+   *
+   * @generated from field: optional double average_cpu_utilization = 2;
+   */
+  averageCpuUtilization?: number | undefined
+
+  /**
+   * Highest build-attributed CPU utilization for any collection interval. Unset without CPU samples.
+   *
+   * @generated from field: optional double peak_cpu_utilization = 3;
+   */
+  peakCpuUtilization?: number | undefined
+
+  /**
+   * Number of distinct collection intervals with memory measurements attributable to the build.
+   *
+   * @generated from field: uint32 memory_sample_count = 4;
+   */
+  memorySampleCount: number
+
+  /**
+   * Mean memory utilization attributable to the build as a fraction of the collector's observed machine memory capacity, from 0 to 1.
+   * Duration-weighted mean of each interval's highest sampled sum of executor memory. Unset without memory samples.
+   *
+   * @generated from field: optional double average_memory_utilization = 5;
+   */
+  averageMemoryUtilization?: number | undefined
+
+  /**
+   * Highest build-attributed memory utilization for any collection interval. Unset without memory samples.
+   *
+   * @generated from field: optional double peak_memory_utilization = 6;
+   */
+  peakMemoryUtilization?: number | undefined
+
+  /**
+   * Total duration of intervals with CPU observations, in seconds. Concurrent machines and builds contribute separately.
+   *
+   * @generated from field: double cpu_observed_seconds = 7;
+   */
+  cpuObservedSeconds: number
+
+  /**
+   * Total duration of intervals with memory observations, in seconds.
+   *
+   * @generated from field: double memory_observed_seconds = 8;
+   */
+  memoryObservedSeconds: number
+
+  /**
+   * Duration-weighted mean of the highest sampled executor memory per interval, in bytes. Unset without memory samples.
+   *
+   * @generated from field: optional double average_memory_bytes = 9;
+   */
+  averageMemoryBytes?: number | undefined
+
+  /**
+   * Highest sampled sum of executor cgroup memory, in bytes. Unset without memory samples.
+   *
+   * @generated from field: optional double peak_memory_bytes = 10;
+   */
+  peakMemoryBytes?: number | undefined
+
+  /**
+   * CPU time consumed by the observed executor cgroups, in seconds. Unset without CPU samples.
+   *
+   * @generated from field: optional double cpu_time_seconds = 11;
+   */
+  cpuTimeSeconds?: number | undefined
+}
+
+/**
+ * Describes the message depot.core.v1.BuildResourceStatistics.
+ * Use `create(BuildResourceStatisticsSchema)` to create a new message.
+ */
+export const BuildResourceStatisticsSchema: GenMessage<BuildResourceStatistics> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 7)
 
 /**
  * @generated from message depot.core.v1.ShareBuildRequest
@@ -34,7 +419,7 @@ export type ShareBuildRequest = Message<'depot.core.v1.ShareBuildRequest'> & {
  */
 export const ShareBuildRequestSchema: GenMessage<ShareBuildRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 0)
+  messageDesc(file_depot_core_v1_build, 8)
 
 /**
  * @generated from message depot.core.v1.ShareBuildResponse
@@ -52,7 +437,7 @@ export type ShareBuildResponse = Message<'depot.core.v1.ShareBuildResponse'> & {
  */
 export const ShareBuildResponseSchema: GenMessage<ShareBuildResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 1)
+  messageDesc(file_depot_core_v1_build, 9)
 
 /**
  * @generated from message depot.core.v1.StopSharingBuildRequest
@@ -70,7 +455,7 @@ export type StopSharingBuildRequest = Message<'depot.core.v1.StopSharingBuildReq
  */
 export const StopSharingBuildRequestSchema: GenMessage<StopSharingBuildRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 2)
+  messageDesc(file_depot_core_v1_build, 10)
 
 /**
  * @generated from message depot.core.v1.StopSharingBuildResponse
@@ -83,7 +468,7 @@ export type StopSharingBuildResponse = Message<'depot.core.v1.StopSharingBuildRe
  */
 export const StopSharingBuildResponseSchema: GenMessage<StopSharingBuildResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 3)
+  messageDesc(file_depot_core_v1_build, 11)
 
 /**
  * @generated from message depot.core.v1.ListBuildsRequest
@@ -111,7 +496,7 @@ export type ListBuildsRequest = Message<'depot.core.v1.ListBuildsRequest'> & {
  */
 export const ListBuildsRequestSchema: GenMessage<ListBuildsRequest> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 4)
+  messageDesc(file_depot_core_v1_build, 12)
 
 /**
  * @generated from message depot.core.v1.ListBuildsResponse
@@ -134,7 +519,7 @@ export type ListBuildsResponse = Message<'depot.core.v1.ListBuildsResponse'> & {
  */
 export const ListBuildsResponseSchema: GenMessage<ListBuildsResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 5)
+  messageDesc(file_depot_core_v1_build, 13)
 
 /**
  * @generated from message depot.core.v1.GetBuildRequest
@@ -150,7 +535,9 @@ export type GetBuildRequest = Message<'depot.core.v1.GetBuildRequest'> & {
  * Describes the message depot.core.v1.GetBuildRequest.
  * Use `create(GetBuildRequestSchema)` to create a new message.
  */
-export const GetBuildRequestSchema: GenMessage<GetBuildRequest> = /*@__PURE__*/ messageDesc(file_depot_core_v1_build, 6)
+export const GetBuildRequestSchema: GenMessage<GetBuildRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 14)
 
 /**
  * @generated from message depot.core.v1.GetBuildResponse
@@ -168,7 +555,78 @@ export type GetBuildResponse = Message<'depot.core.v1.GetBuildResponse'> & {
  */
 export const GetBuildResponseSchema: GenMessage<GetBuildResponse> =
   /*@__PURE__*/
-  messageDesc(file_depot_core_v1_build, 7)
+  messageDesc(file_depot_core_v1_build, 15)
+
+/**
+ * @generated from message depot.core.v1.CancelBuildRequest
+ */
+export type CancelBuildRequest = Message<'depot.core.v1.CancelBuildRequest'> & {
+  /**
+   * Unique identifier for the build. Returned by `ListBuilds` and `GetBuild`.
+   *
+   * @generated from field: string build_id = 1;
+   */
+  buildId: string
+}
+
+/**
+ * Describes the message depot.core.v1.CancelBuildRequest.
+ * Use `create(CancelBuildRequestSchema)` to create a new message.
+ */
+export const CancelBuildRequestSchema: GenMessage<CancelBuildRequest> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 16)
+
+/**
+ * @generated from message depot.core.v1.CancelBuildResponse
+ */
+export type CancelBuildResponse = Message<'depot.core.v1.CancelBuildResponse'> & {
+  /**
+   * Result of requesting cancellation. Does not confirm that execution has stopped.
+   *
+   * @generated from field: depot.core.v1.CancelBuildResponse.Outcome outcome = 1;
+   */
+  outcome: CancelBuildResponse_Outcome
+}
+
+/**
+ * Describes the message depot.core.v1.CancelBuildResponse.
+ * Use `create(CancelBuildResponseSchema)` to create a new message.
+ */
+export const CancelBuildResponseSchema: GenMessage<CancelBuildResponse> =
+  /*@__PURE__*/
+  messageDesc(file_depot_core_v1_build, 17)
+
+/**
+ * @generated from enum depot.core.v1.CancelBuildResponse.Outcome
+ */
+export enum CancelBuildResponse_Outcome {
+  /**
+   * @generated from enum value: OUTCOME_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * Cancellation was requested, including repeated requests for a running build.
+   *
+   * @generated from enum value: OUTCOME_CANCELLATION_REQUESTED = 1;
+   */
+  CANCELLATION_REQUESTED = 1,
+
+  /**
+   * The build had already completed. Its final outcome is unchanged.
+   *
+   * @generated from enum value: OUTCOME_ALREADY_TERMINAL = 2;
+   */
+  ALREADY_TERMINAL = 2,
+}
+
+/**
+ * Describes the enum depot.core.v1.CancelBuildResponse.Outcome.
+ */
+export const CancelBuildResponse_OutcomeSchema: GenEnum<CancelBuildResponse_Outcome> =
+  /*@__PURE__*/
+  enumDesc(file_depot_core_v1_build, 17, 0)
 
 /**
  * @generated from message depot.core.v1.Build
@@ -224,7 +682,7 @@ export type Build = Message<'depot.core.v1.Build'> & {
  * Describes the message depot.core.v1.Build.
  * Use `create(BuildSchema)` to create a new message.
  */
-export const BuildSchema: GenMessage<Build> = /*@__PURE__*/ messageDesc(file_depot_core_v1_build, 8)
+export const BuildSchema: GenMessage<Build> = /*@__PURE__*/ messageDesc(file_depot_core_v1_build, 18)
 
 /**
  * @generated from enum depot.core.v1.Build.Status
@@ -264,7 +722,7 @@ export enum Build_Status {
 /**
  * Describes the enum depot.core.v1.Build.Status.
  */
-export const Build_StatusSchema: GenEnum<Build_Status> = /*@__PURE__*/ enumDesc(file_depot_core_v1_build, 8, 0)
+export const Build_StatusSchema: GenEnum<Build_Status> = /*@__PURE__*/ enumDesc(file_depot_core_v1_build, 18, 0)
 
 /**
  * @generated from service depot.core.v1.BuildService
@@ -309,5 +767,40 @@ export const BuildService: GenService<{
     methodKind: 'unary'
     input: typeof GetBuildRequestSchema
     output: typeof GetBuildResponseSchema
+  }
+  /**
+   * Request cancellation of a build. Execution stops asynchronously; use `GetBuild` to observe the final outcome.
+   * Requires an organization credential with write access. Repeated requests are safe.
+   *
+   * @generated from rpc depot.core.v1.BuildService.CancelBuild
+   */
+  cancelBuild: {
+    methodKind: 'unary'
+    input: typeof CancelBuildRequestSchema
+    output: typeof CancelBuildResponseSchema
+  }
+  /**
+   * Export resource utilization for completed builds, newest first. Requires organization read access.
+   * Only measurements attributable to each selected build may be returned; host-wide metrics are never substituted.
+   * Missing or unsupported collection returns zero sample counts and absent utilization values.
+   *
+   * @generated from rpc depot.core.v1.BuildService.ListBuildMetrics
+   */
+  listBuildMetrics: {
+    methodKind: 'unary'
+    input: typeof ListBuildMetricsRequestSchema
+    output: typeof ListBuildMetricsResponseSchema
+  }
+  /**
+   * Summarize resource utilization attributable only to the selected completed builds. Requires organization read access.
+   * Includes only executor cgroups attributed to the selected builds. Excludes host processes and other builds.
+   * Missing or unsupported collection returns zero sample counts and absent utilization values.
+   *
+   * @generated from rpc depot.core.v1.BuildService.GetProjectBuildMetrics
+   */
+  getProjectBuildMetrics: {
+    methodKind: 'unary'
+    input: typeof GetProjectBuildMetricsRequestSchema
+    output: typeof GetProjectBuildMetricsResponseSchema
   }
 }> = /*@__PURE__*/ serviceDesc(file_depot_core_v1_build, 0)
