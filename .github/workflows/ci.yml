@@ -8,7 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v6
+      - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
+        with:
+          install: false
 
       - uses: actions/setup-node@v6
         with:
@@ -16,6 +18,8 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm fmt:check
-      - run: pnpm type-check
+      - run: pnpm run fmt:check
+      - run: pnpm run lint
+      - run: pnpm run type-check
       - run: pnpm run test
+      - run: pnpm run package:check

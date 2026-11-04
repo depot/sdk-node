@@ -1,0 +1,79 @@
+name: Stage npm release
+
+on:
+  release:
+    types: [published]
+  # Retry an existing release using gh workflow run publish.yml --ref vX.Y.Z.
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: npm-release
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    if: >-
+      github.repository == 'depot/sdk-node' && github.ref_type == 'tag' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (!github.event.release.draft && !github.event.release.prerelease))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Verify the stable release and package identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || exit 1
+          test "$(gh release view "$RELEASE_TAG" --json isDraft,isPrerelease --jq '.isDraft == false and .isPrerelease == false')" = true
+          node -e "const p = require('./package.json'); const a = require('node:assert/strict'); a.equal(p.name, '@depot/sdk-node'); a.ok(!p.private)"
+
+      - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
+        with:
+          install: false
+          cache: false
+
+      # Pin a CLI with staged publishing support (npm >=11.15.0).
+      - run: npm install --global npm@11.17.0 --ignore-scripts --no-audit --no-fund
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fmt:check
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run test
+
+      - name: Set the package version from the release tag
+        run: npm version "${RELEASE_TAG#v}" --no-git-tag-version --ignore-scripts --allow-same-version --package-lock=false
+
+      - run: pnpm run package:check
+
+      - name: Check whether this version is already published
+        id: published
+        run: |
+          npm view @depot/sdk-node versions --json --registry https://registry.npmjs.org > "$RUNNER_TEMP/npm-versions.json"
+          node <<'NODE'
+          const fs = require('node:fs')
+          const versions = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/npm-versions.json'))
+          const exists = [].concat(versions).includes(require('./package.json').version)
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `exists=${exists}\n`)
+          if (exists) console.log('Version already published; skipping upload without changing dist-tags.')
+          NODE
+
+      - name: Stage the checked tarball with OIDC and provenance
+        if: steps.published.outputs.exists == 'false'
+        run: npm stage publish ./package.tgz --ignore-scripts --access public --tag latest --provenance --registry https://registry.npmjs.org
