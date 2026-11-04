@@ -9,6 +9,7 @@ import * as coreV1Build from './gen/depot/core/v1/build_pb'
 import * as coreV1GithubActions from './gen/depot/core/v1/github_actions_pb'
 import * as coreV1Org from './gen/depot/core/v1/org_pb'
 import * as coreV1Project from './gen/depot/core/v1/project_pb'
+import * as coreV1UsageAnalytics from './gen/depot/core/v1/usage_analytics_pb'
 import * as coreV1Usage from './gen/depot/core/v1/usage_pb'
 import * as registryV1Beta1Registry from './gen/depot/registry/v1beta1/registry_pb'
 
@@ -62,6 +63,7 @@ export function createClient(options?: ClientOptions) {
         GithubActionsService: createConnectClient(coreV1GithubActions.GithubActionsService, transport),
         ProjectService: createConnectClient(coreV1Project.ProjectService, transport),
         UsageService: createConnectClient(coreV1Usage.UsageService, transport),
+        UsageAnalyticsService: createConnectClient(coreV1UsageAnalytics.UsageAnalyticsService, transport),
         OrganizationService: createConnectClient(coreV1Org.OrganizationService, transport),
       },
     },

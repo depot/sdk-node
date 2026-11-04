@@ -12,6 +12,7 @@ import {BuildService as CoreBuild} from '../src/gen/depot/core/v1/build_pb.ts'
 import {GithubActionsService} from '../src/gen/depot/core/v1/github_actions_pb.ts'
 import {OrganizationService} from '../src/gen/depot/core/v1/org_pb.ts'
 import {ProjectService} from '../src/gen/depot/core/v1/project_pb.ts'
+import {UsageAnalyticsService} from '../src/gen/depot/core/v1/usage_analytics_pb.ts'
 import {UsageService} from '../src/gen/depot/core/v1/usage_pb.ts'
 import {deferred, startServer} from './helpers/server.mjs'
 
@@ -24,6 +25,46 @@ for (const [format, sdk] of [
 ]) {
   describe(`${format} service contracts`, () => {
     for (const {service, namespace, method, input, output} of [
+      {
+        service: UsageAnalyticsService,
+        namespace: ['core', 'v1'],
+        method: 'listDepotCIUsageByWorkflow',
+        input: {
+          timeRange: {startAt: timestamp, endAt: '2026-10-20T00:00:00Z'},
+          repositories: ['owner/repo'],
+          workflowKeys: ['workflow-key'],
+          pageSize: 1,
+          pageToken: 'page-2',
+        },
+        output: {
+          workflows: [
+            {
+              repository: 'owner/repo',
+              workflowKey: 'workflow-key',
+              attemptCount: '9007199254740993',
+              vcpuSeconds: 125.5,
+            },
+          ],
+          nextPageToken: 'page-3',
+        },
+      },
+      {
+        service: UsageAnalyticsService,
+        namespace: ['core', 'v1'],
+        method: 'getOrganizationUsageSeries',
+        input: {timeRange: {startAt: timestamp, endAt: '2026-10-20T00:00:00Z'}, products: ['depot-ci']},
+        output: {
+          coverage: [
+            {
+              product: 'depot-ci',
+              availableFrom: '2026-05-22T00:00:00Z',
+              partialHistory: true,
+              note: 'Recorded attempts',
+            },
+          ],
+          totals: {depotCi: {vcpuSeconds: 120}},
+        },
+      },
       {
         service: ProjectService,
         namespace: ['core', 'v1'],

@@ -188,3 +188,23 @@ and is excluded from automated discovery.
 ## License
 
 MIT License, see `LICENSE`.
+
+## Usage analysis
+
+`depot.core.v1.UsageAnalyticsService` exposes UTC daily usage series and paginated
+product/project/repository/workflow breakdowns. These methods require an API deployment
+with UsageAnalyticsService support; older deployments return `Unimplemented`.
+
+See the [usage analysis guide](https://depot.dev/docs/api/usage-analysis) for coverage, units,
+filters, pagination, and freshness. The API-local schema is mirrored in `proto/`; generate
+it with `buf generate proto --template buf.gen.usage.yaml`. Keep that mirror in sync with
+`depot/api/proto/depot/core/v1/usage_analytics.proto`.
+
+With an organization token in `DEPOT_TOKEN`, compare equal-length periods using:
+
+```sh
+node examples/usage-compare.mjs 2026-10-01T00:00:00Z 2026-10-08T00:00:00Z 2026-10-15T00:00:00Z owner/repo
+```
+
+The example follows every page, compares stable workflow keys, preserves unattributed
+usage, and returns vCPU-minute deltas. It does not estimate invoice amounts or send notifications.
