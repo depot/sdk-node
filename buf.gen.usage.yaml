@@ -1,5 +1,12 @@
-version: v1
+version: v2
+inputs:
+  # Review-time source: depot/proto#63. Replace with its published BSR revision before merge.
+  - git_repo: https://github.com/depot/proto.git
+    ref: fc88f5539b20dee160b69f58753a32eadc3fcaac
+    subdir: proto
+    paths:
+      - depot/core/v1/usage_analytics.proto
 plugins:
-  - name: es
-    opt: target=ts
+  - local: protoc-gen-es
     out: src/gen
+    opt: target=ts
