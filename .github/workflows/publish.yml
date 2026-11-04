@@ -1,0 +1,161 @@
+name: Stage npm release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing stable GitHub release tag to stage (for example v2.3.0)
+        required: true
+        type: string
+
+permissions: {}
+
+# Serialize automatic releases and manual recovery, including different versions.
+concurrency:
+  group: npm-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: >-
+      github.repository == 'depot/sdk-node' &&
+      ((github.event_name == 'release' && !github.event.release.draft && !github.event.release.prerelease) ||
+       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      version: ${{ steps.release.outputs.version }}
+      commit: ${{ steps.release.outputs.commit }}
+      integrity: ${{ steps.pack.outputs.integrity }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.workflow_sha }}
+          persist-credentials: false
+
+      - name: Resolve the published release
+        id: release
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          RELEASE_TAG: ${{ inputs.tag || github.event.release.tag_name }}
+        with:
+          script: |
+            const {resolveRelease} = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/release-policy.mjs`)
+            const release = await resolveRelease(github, context.repo, process.env.RELEASE_TAG)
+            if (context.eventName === 'release' && release.commit !== context.sha) {
+              throw new Error('The release tag moved after this event; refusing to stage it.')
+            }
+            for (const [key, value] of Object.entries(release)) core.setOutput(key, value)
+            await core.summary.addHeading('Release to stage')
+              .addTable([['Tag', 'Source commit'], [release.tag, release.commit]]).write()
+
+      - name: Check out the exact release commit
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ steps.release.outputs.commit }}
+          path: source
+          persist-credentials: false
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
+        with:
+          install: false
+          cache: false
+
+      - name: Install the workflow's package validation tools
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify package identity
+        working-directory: source
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs'
+          import {validatePackage} from '../.github/scripts/release-policy.mjs'
+          validatePackage(JSON.parse(readFileSync('package.json')), process.env.RELEASE_VERSION)
+          NODE
+
+      - run: pnpm install --frozen-lockfile
+        working-directory: source
+      - name: Check release formatting with Oxfmt
+        run: ../node_modules/.bin/oxfmt --check --config ../.oxfmtrc.json .
+        working-directory: source
+      - name: Lint release with Oxlint
+        run: ../node_modules/.bin/oxlint --deny-warnings --config ../.oxlintrc.json .
+        working-directory: source
+      - run: pnpm run type-check
+        working-directory: source
+      # The test script builds both formats and declarations first.
+      - run: pnpm run test
+        working-directory: source
+
+      - name: Pack and verify installation of the release artifact
+        id: pack
+        working-directory: source
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: node ../.github/scripts/verify-package.mjs "$RUNNER_TEMP/release"
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: npm-package
+          path: ${{ runner.temp }}/release/package.tgz
+          if-no-files-found: error
+          retention-days: 7
+
+  stage:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.workflow_sha }}
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      - name: Recheck the release before staging
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          RELEASE_TAG: ${{ needs.build.outputs.tag }}
+          RELEASE_COMMIT: ${{ needs.build.outputs.commit }}
+        with:
+          script: |
+            const {resolveRelease} = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/release-policy.mjs`)
+            const release = await resolveRelease(github, context.repo, process.env.RELEASE_TAG)
+            if (release.commit !== process.env.RELEASE_COMMIT) {
+              throw new Error('The release tag moved during the build; refusing to stage it.')
+            }
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      # Staged publishing requires npm >=11.15.0; do not rely on bundled npm.
+      - run: npm install --global npm@11.17.0 --ignore-scripts --no-audit --no-fund
+
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          name: npm-package
+          path: ${{ runner.temp }}/release
+
+      - name: Stage with OIDC and provenance
+        env:
+          RELEASE_VERSION: ${{ needs.build.outputs.version }}
+          RELEASE_COMMIT: ${{ needs.build.outputs.commit }}
+          RELEASE_INTEGRITY: ${{ needs.build.outputs.integrity }}
+        run: node .github/scripts/stage-package.mjs "$RUNNER_TEMP/release/package.tgz"

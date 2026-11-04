@@ -177,6 +177,11 @@ node examples/registry-retention.mjs delete team/app
 
 ## Testing
 
+Use `pnpm run fmt:check` (Oxfmt), `pnpm run lint` (Oxlint), and `pnpm run type-check`
+for source checks. Run `pnpm run package:check` to build and validate the packed
+package with Publint, Are the Types Wrong?, and isolated ESM/CommonJS consumers.
+See [Releasing](./docs/releases.md) for npm setup, staged releases, and approval.
+
 Run `pnpm test` to build the ESM and CommonJS packages and run the Vitest suite.
 Automated tests live in `test/` and use local HTTP/2 endpoints without Depot credentials.
 The suite covers configuration, authorization, service serialization, errors, and

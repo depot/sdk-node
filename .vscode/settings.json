@@ -1,5 +1,5 @@
 {
-  "prettier.prettierPath": "node_modules/prettier/index.cjs",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
