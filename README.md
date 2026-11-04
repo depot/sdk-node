@@ -198,7 +198,7 @@ with UsageAnalyticsService support; older deployments return `Unimplemented`.
 See the [usage analysis guide](https://depot.dev/docs/api/usage-analysis) for coverage, units,
 filters, pagination, and freshness. The contract is owned by
 [depot/proto](https://github.com/depot/proto). `pnpm run generate` regenerates the SDK
-from the published Buf revision pinned in `package.json`. MCP consumes this SDK through
+from the latest published `buf.build/depot/api` contract. MCP consumes this SDK through
 the API repository's `@depot/sdk-node` package dependency.
 
 With an organization token in `DEPOT_TOKEN`, compare equal-length periods using:
