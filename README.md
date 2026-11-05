@@ -177,57 +177,6 @@ node examples/registry-retention.mjs keep-days '**' 30
 node examples/registry-retention.mjs delete team/app
 ```
 
-## Usage analysis
-
-`depot.core.v1.UsageAnalyticsService` exposes UTC daily usage series and paginated
-product/project/repository/workflow breakdowns. These methods require an API deployment
-with UsageAnalyticsService support; older deployments return `Unimplemented`.
-
-See the [usage analysis guide](https://depot.dev/docs/api/usage-analysis) for coverage, units,
-filters, pagination, and freshness. The contract is owned by
-[depot/proto](https://github.com/depot/proto). `pnpm run generate` regenerates the SDK
-from the latest published `buf.build/depot/api` contract. MCP consumes this SDK through
-the API repository's `@depot/sdk-node` package dependency.
-
-With an organization token in `DEPOT_TOKEN`, compare equal-length periods using:
-
-```sh
-node examples/usage-compare.mjs 2026-10-01T00:00:00Z 2026-10-08T00:00:00Z 2026-10-15T00:00:00Z owner/repo
-```
-
-The example follows every page, compares stable workflow keys, preserves unattributed
-usage, and returns vCPU-minute deltas. It does not estimate invoice amounts or send notifications.
-
-## Finalized invoices
-
-`createClient().core.v1.BillingService` exposes `listInvoices`, `getInvoice`, and
-`listInvoiceLineItems`. Use an organization token, or an organization owner's user
-token with an `X-Depot-Org` request header. The API returns finalized invoices for
-the linked Stripe customer, including previous/canceled subscriptions and
-standalone invoices. Standalone invoices have an empty `subscriptionId`.
-
-```js
-import {createClient} from '@depot/sdk-node'
-
-const billing = createClient({token: process.env.DEPOT_TOKEN}).core.v1.BillingService
-let pageToken = ''
-do {
-  const page = await billing.listInvoices({pageSize: 100, pageToken})
-  for (const invoice of page.invoices) {
-    // Monetary values are bigint minor units; preserve them when exporting.
-    console.log(invoice.id, invoice.currency, invoice.total.toString())
-  }
-  // A page containing only drafts can be empty and still have a next token.
-  pageToken = page.nextPageToken
-} while (pageToken)
-```
-
-Fetch details with `billing.getInvoice({invoiceId})` and line items with
-`billing.listInvoiceLineItems({invoiceId, pageSize: 100, pageToken})`. Continue
-line-item pagination until `nextPageToken` is empty. Tokens are opaque and bound to
-the organization/customer (and invoice for line items). Hosted/PDF invoice links
-are confidential; avoid logging them.
-
 ## Testing
 
 Use `pnpm run fmt:check` (Oxfmt), `pnpm run lint` (Oxlint), and `pnpm run type-check`
