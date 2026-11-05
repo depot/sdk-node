@@ -28,9 +28,11 @@ export DEPOT_TOKEN=your-access-token
 - [`depot.build.v1.RegistryService`](https://buf.build/depot/api/docs/main:depot.build.v1#depot.build.v1.RegistryService)
 - [`depot.buildkit.v1.BuildKitService`](https://buf.build/depot/api/docs/main:depot.buildkit.v1#depot.buildkit.v1.BuildKitService)
 - [`depot.code.v1beta1.CodeService`](https://buf.build/depot/api/docs/main:depot.code.v1beta1#depot.code.v1beta1.CodeService)
+- [`depot.core.v1.BillingService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.BillingService)
 - [`depot.core.v1.BuildService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.BuildService)
 - [`depot.core.v1.GithubActionsService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.GithubActionsService)
 - [`depot.core.v1.ProjectService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.ProjectService)
+- [`depot.core.v1.UsageAnalyticsService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.UsageAnalyticsService)
 - [`depot.core.v1.UsageService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.UsageService)
 - [`depot.core.v1.OrganizationService`](https://buf.build/depot/api/docs/main:depot.core.v1#depot.core.v1.OrganizationService)
 - [`depot.registry.v1beta1.RegistryService`](https://buf.build/depot/api/docs/main:depot.registry.v1beta1#depot.registry.v1beta1.RegistryService)
@@ -193,24 +195,3 @@ and is excluded from automated discovery.
 ## License
 
 MIT License, see `LICENSE`.
-
-## Usage analysis
-
-`depot.core.v1.UsageAnalyticsService` exposes UTC daily usage series and paginated
-product/project/repository/workflow breakdowns. These methods require an API deployment
-with UsageAnalyticsService support; older deployments return `Unimplemented`.
-
-See the [usage analysis guide](https://depot.dev/docs/api/usage-analysis) for coverage, units,
-filters, pagination, and freshness. The contract is owned by
-[depot/proto](https://github.com/depot/proto). `pnpm run generate` regenerates the SDK
-from the latest published `buf.build/depot/api` contract. MCP consumes this SDK through
-the API repository's `@depot/sdk-node` package dependency.
-
-With an organization token in `DEPOT_TOKEN`, compare equal-length periods using:
-
-```sh
-node examples/usage-compare.mjs 2026-10-01T00:00:00Z 2026-10-08T00:00:00Z 2026-10-15T00:00:00Z owner/repo
-```
-
-The example follows every page, compares stable workflow keys, preserves unattributed
-usage, and returns vCPU-minute deltas. It does not estimate invoice amounts or send notifications.
