@@ -7,6 +7,7 @@ import * as buildkitV1BuildKit from './gen/depot/buildkit/v1/buildkit_pb'
 import * as codeV1Beta1Code from './gen/depot/code/v1beta1/code_pb'
 import * as coreV1Billing from './gen/depot/core/v1/billing_pb'
 import * as coreV1Build from './gen/depot/core/v1/build_pb'
+import * as coreV1Credits from './gen/depot/core/v1/credits_pb'
 import * as coreV1GithubActions from './gen/depot/core/v1/github_actions_pb'
 import * as coreV1Org from './gen/depot/core/v1/org_pb'
 import * as coreV1Project from './gen/depot/core/v1/project_pb'
@@ -62,6 +63,7 @@ export function createClient(options?: ClientOptions) {
       v1: {
         BillingService: createConnectClient(coreV1Billing.BillingService, transport),
         BuildService: createConnectClient(coreV1Build.BuildService, transport),
+        CreditService: createConnectClient(coreV1Credits.CreditService, transport),
         GithubActionsService: createConnectClient(coreV1GithubActions.GithubActionsService, transport),
         ProjectService: createConnectClient(coreV1Project.ProjectService, transport),
         UsageService: createConnectClient(coreV1Usage.UsageService, transport),

@@ -9,6 +9,7 @@ import {RegistryService as BuildRegistry} from '../src/gen/depot/build/v1/regist
 import {BuildKitService, Platform} from '../src/gen/depot/buildkit/v1/buildkit_pb.ts'
 import {CodeService} from '../src/gen/depot/code/v1beta1/code_pb.ts'
 import {BuildService as CoreBuild} from '../src/gen/depot/core/v1/build_pb.ts'
+import {CreditService} from '../src/gen/depot/core/v1/credits_pb.ts'
 import {GithubActionsService} from '../src/gen/depot/core/v1/github_actions_pb.ts'
 import {OrganizationService} from '../src/gen/depot/core/v1/org_pb.ts'
 import {ProjectService} from '../src/gen/depot/core/v1/project_pb.ts'
@@ -111,6 +112,13 @@ for (const [format, sdk] of [
         method: 'deleteImage',
         input: {projectId: 'project-1', imageTags: ['latest', 'v1']},
         output: {},
+      },
+      {
+        service: CreditService,
+        namespace: ['core', 'v1'],
+        method: 'getCreditBalance',
+        input: {},
+        output: {remainingCreditMinor: '9007199254740993', currency: 'usd', observedAt: timestamp},
       },
       {
         service: OrganizationService,
